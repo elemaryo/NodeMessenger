@@ -1,59 +1,77 @@
 \documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
 
-\usepackage{booktabs}
-\usepackage{tabularx}
+\title{\Huge\textbf{Node Messenger}\\
+		\huge{Development Plan - Group 24}}
+\author{Ahmed, Tasin\hspace{1cm}Patel, Shardool\hspace{1cm}Elemary, Omar \\
+		400052747\hspace{2cm}400080843\hspace{2cm}40010169}
+\date{September 28, 2018}
 
-\title{SE 3XA3: Development Plan\\Title of Project}
-
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
-}
-
-\date{}
-
-\input{../Comments}
+\usepackage{natbib}
+\usepackage{graphicx}
 
 \begin{document}
 
-\begin{table}[hp]
-\caption{Revision History} \label{TblRevisionHistory}
-\begin{tabularx}{\textwidth}{llX}
-\toprule
-\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
-\midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\newpage
-
 \maketitle
 
-Put your introductory blurb here.
+\paragraph{The goal of our team is to recreate the Tinode Web Messenger to unite people through the power of the internet. This document will be useful in order to guide our team through the project, and ensure every member plays a part in the development of the messenger.}
 
-\section{Team Meeting Plan}
+\section{Meeting Plan}
+Each Tuesday at 5:30pm, the team will meet at Mills Memorial Library. The meeting will take place on the second floor booth area where the scribe will record interactions for the meeting plans. The project manager will delegate work and organize tasks in preparation for Wednesday night's lab.
 
-\section{Team Communication Plan}
+\section{Communication Plan}
+Communication will mainly take place in our Facebook group created on messenger where notes and ideas are exchanged. We will use Facebook to facilitate updates and inquire about any logistical issues. Any shared documents are uploaded to Google Drive and Overleaf so all members can participate in completing work together. The code and the documentation for the project will be available on GitLab repository giving all members access to project files while allowing project manager to keep track of revisions made. 
 
-\section{Team Member Roles}
+\section{Member Roles}
+The following table outlines some of the roles that each team member will take
+on over the course of this project.
+\begin{table}[h!]
+  \centering
+  \label{tab:table}
+  \begin{tabular}{||l||c||}
+\hline
+     Project Manager & Shardool Patel \\
+    \hline
+     Developers & Shardool Patel, Omar Elemary, Tasin Ahmed \\
+\hline
+    Documentation & Shardool Patel, Omar Elemary, Tasin Ahmed  \\ \hline
+   Git Manager & Shardool Patel, Omar Elemary\\ \hline
+   Team Scribe & Omar Elemary, Tasin Ahmed\\ \hline
+   Gantt Expert & Shardool Patel\\ \hline
 
+  \end{tabular}
+
+\end{table}
 \section{Git Workflow Plan}
-
+The team will follow the feature-branch workflow for the development of Node Messenger. Feature branches will ensure the master branch does not contain any broken code and help make the application modular. In addition, the team can collaborate and receive feedback on features with the use of pull requests before they push it to master branch. \\
+The team will use tags for approved components/features and milestone to track the completion of major components. 
 \section{Proof of Concept Demonstration Plan}
-
+The team has to deal with the risks of implementing third party libraries that support client-server communication. The Proof of Concept will validate the use of back end web-socket/polling library such as socket.io by showcasing basic functionality of sending and receiving messages using a simple interface. By demonstrating a proof of concept that is functional, the team will mitigate the implementation risks. 
 \section{Technology}
-
+In order to create the software, we will be using a combination of HTML, CSS, Javascript, and React. HTML will be used to create the core of the software. CSS will be used to add visuals to the software. Javascript will be used to make the software dynamic and functional. React will be used in order to put together the user interface. We will be using Windows computers in order to test our software.
 \section{Coding Style}
-
+We will be sticking to traditional HTML, CSS, and Javascript programming methods. The HTML file will only contain the core of the program. The CSS will contain all the color and design for our website. The Javascript file will control all the data, and functions in order to make the website work. Every individual tags in the HTML file will be indented to make it easier to read, and follow. We will use Camel Case for naming variables, and all uppercase for constant variable names. If we all follow the same coding style throughout the project, we will be able to code peacefully and without any conflict when merging code.
 \section{Project Schedule}
-
-Provide a pointer to your Gantt Chart.
+The project schedule is outlined in ProjectSchedule/ProjectSchedule.gan. The schedule is not concrete and is subject to change and maintenance by our Gantt expert based on major team updates imposed by the project manager during team meetings. The Gantt project schedule will become a corner stone for our team progress throughout the development of the project.\\
+\\
+The project schedule can be viewed through the Gantt Chart found at:\\
+\url{https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger/tree/master/ProjectSchedule}
 
 \section{Project Review}
+\subsection{Revision 0}
 
+\begin{center}
+	\begin{tabular}{ccc}
+		\hline 
+		Date & Developer(s) & Change \\ 
+		\hline 
+		2018-9-26 & Tasin Ahmed & Document created \\ 
+		2018-9-28 & Tasin Ahmed & Initial Revision  \\
+		2018-9-28 & Omar Elemary & Initial Revision  \\ 
+		2018-9-28 & Shardool Patel & Initial Revision  \\ 
+		... & ... & ...  \\ 
+		\hline 
+	\end{tabular} 
+\end{center}
 \end{document}
