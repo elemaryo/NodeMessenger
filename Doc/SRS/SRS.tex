@@ -12,139 +12,139 @@
 }
 \usepackage[round]{natbib}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
+\title{SE 3XA3: Software Requirements Specification\\Node Messenger}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team \#24, Node Messenger
+		\\ Tasin Ahmed - ahmedm31
+		\\ Shardool Patel - pates25
+		\\ Omar Elemary - elemaryo
 }
 
 \date{\today}
 
-\input{../Comments}
-
 \begin{document}
+    \maketitle
 
-\maketitle
+    \pagenumbering{roman}
+    \tableofcontents
+    \listoftables
+    \listoffigures
 
-\pagenumbering{roman}
-\tableofcontents
-\listoftables
-\listoffigures
+    \begin{table}[bp]
+    \caption{\bf Revision History}
+    \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+    \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+    \midrule
+    Date 1 & 1.0 & Notes\\
+    Date 2 & 1.1 & Notes\\
+    \bottomrule
+    \end{tabularx}
+    \end{table}
 
-\begin{table}[bp]
-\caption{\bf Revision History}
-\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
-\midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
-\bottomrule
-\end{tabularx}
-\end{table}
+    \newpage
 
-\newpage
+    \pagenumbering{arabic}
 
-\pagenumbering{arabic}
+    This document describes the requirements for ....  The template for the Software
+    Requirements Specification (SRS) is a subset of the Volere
+    template~\citep{RobertsonAndRobertson2012}.  If you make further modifications
+    to the template, you should explicity state what modifications were made.
 
-This document describes the requirements for ....  The template for the Software
-Requirements Specification (SRS) is a subset of the Volere
-template~\citep{RobertsonAndRobertson2012}.  If you make further modifications
-to the template, you should explicity state what modifications were made.
+    \section{Project Drivers}
 
-\section{Project Drivers}
+    	\subsection{The Purpose of the Project}
 
-\subsection{The Purpose of the Project}
+    	\subsection{The Stakeholders}
 
-\subsection{The Stakeholders}
+    		\subsubsection{The Client}
 
-\subsubsection{The Client}
+    		\subsubsection{The Customers}
 
-\subsubsection{The Customers}
+    		\subsubsection{Other Stakeholders}
 
-\subsubsection{Other Stakeholders}
+    	\subsection{Mandated Constraints}
 
-\subsection{Mandated Constraints}
+    	\subsection{Naming Conventions and Terminology}
 
-\subsection{Naming Conventions and Terminology}
+    	\subsection{Relevant Facts and Assumptions}
 
-\subsection{Relevant Facts and Assumptions}
+    	User characteristics should go under assumptions.
+	
+	\newpage
+    \section{Functional Requirements}
 
-User characteristics should go under assumptions.
+    	\subsection{The Scope of the Work and the Product}
 
-\section{Functional Requirements}
+    		\subsubsection{The Context of the Work}
 
-\subsection{The Scope of the Work and the Product}
+    		\subsubsection{Work Partitioning}
 
-\subsubsection{The Context of the Work}
+    		\subsubsection{Individual Product Use Cases}
 
-\subsubsection{Work Partitioning}
+    	\subsection{Functional Requirements}
+	
+	\newpage
+    \section{Non-functional Requirements}
 
-\subsubsection{Individual Product Use Cases}
+    	\subsection{Look and Feel Requirements}
 
-\subsection{Functional Requirements}
+    	\subsection{Usability and Humanity Requirements}
 
-\section{Non-functional Requirements}
+    	\subsection{Performance Requirements}
 
-\subsection{Look and Feel Requirements}
+    	\subsection{Operational and Environmental Requirements}
 
-\subsection{Usability and Humanity Requirements}
+    	\subsection{Maintainability and Support Requirements}
 
-\subsection{Performance Requirements}
+    	\subsection{Security Requirements}
 
-\subsection{Operational and Environmental Requirements}
+    	\subsection{Cultural Requirements}
 
-\subsection{Maintainability and Support Requirements}
+	    \subsection{Legal Requirements}
 
-\subsection{Security Requirements}
+    	\subsection{Health and Safety Requirements}
 
-\subsection{Cultural Requirements}
+    	This section is not in the original Volere template, but health and safety are
+    	issues that should be considered for every engineering project.
+	
+	\newpage
+    \section{Project Issues}
 
-\subsection{Legal Requirements}
+    	\subsection{Open Issues}
 
-\subsection{Health and Safety Requirements}
+    	\subsection{Off-the-Shelf Solutions}
 
-This section is not in the original Volere template, but health and safety are
-issues that should be considered for every engineering project.
+    	\subsection{New Problems}
 
-\section{Project Issues}
+    	\subsection{Tasks}
 
-\subsection{Open Issues}
+    	\subsection{Migration to the New Product}
 
-\subsection{Off-the-Shelf Solutions}
+    	\subsection{Risks}
 
-\subsection{New Problems}
+    	\subsection{Costs}
 
-\subsection{Tasks}
+    	\subsection{User Documentation and Training}
 
-\subsection{Migration to the New Product}
+    	\subsection{Waiting Room}
 
-\subsection{Risks}
+    	\subsection{Ideas for Solutions}
 
-\subsection{Costs}
+	\newpage
+    \bibliographystyle{plainnat}
 
-\subsection{User Documentation and Training}
+    \bibliography{SRS}
 
-\subsection{Waiting Room}
 
-\subsection{Ideas for Solutions}
+    \section{Appendix}
 
-\bibliographystyle{plainnat}
+    This section has been added to the Volere template.  This is where you can place
+    additional information.
 
-\bibliography{SRS}
+    \subsection{Symbolic Parameters}
 
-\newpage
-
-\section{Appendix}
-
-This section has been added to the Volere template.  This is where you can place
-additional information.
-
-\subsection{Symbolic Parameters}
-
-The definition of the requirements will likely call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
+    The definition of the requirements will likely call for SYMBOLIC\_CONSTANTS.
+    Their values are defined in this section for easy maintenance.
 
 
 \end{document}
