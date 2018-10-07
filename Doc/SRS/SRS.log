@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.17)  5 OCT 2018 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.17)  5 OCT 2018 22:52
 entering extended mode
 **./SRS.tex
 (SRS.tex
@@ -293,38 +293,52 @@ has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.73 	\newpage
-               [1] [2] [3] [4] (SRS.bbl)
-Overfull \hbox (15.06747pt too wide) in paragraph at lines 146--148
+               [1] [2] [3] [4]
+! Undefined control sequence.
+l.123     		\captionof
+                      {table}{Table Title} \label{tab:title}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5] [6] (SRS.bbl)
+Overfull \hbox (15.06747pt too wide) in paragraph at lines 171--173
 \OT1/cmr/m/n/12 The def-i-ni-tion of the re-quire-ments will likely call for SY
 M-BOLIC[]CONSTANTS.
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
-[5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
  (SRS.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
 Package rerunfilecheck Info: File `SRS.out' has not changed.
 (rerunfilecheck)             Checksum: 6B53E35EE607712CE5343D19D8E20DED;2729.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 150.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
  ) 
 Here is how much of TeX's memory you used:
- 5330 strings out of 493303
- 79260 string characters out of 3129784
+ 5333 strings out of 493303
+ 79283 string characters out of 3129784
  164976 words of memory out of 3000000
- 8813 multiletter control sequences out of 15000+200000
+ 8814 multiletter control sequences out of 15000+200000
  9155 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,10n,28p,202b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,10n,28p,637b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb><C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Tasin/AppData/Local/Programs/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on SRS.pdf (8 pages, 97233 bytes).
+Output written on SRS.pdf (10 pages, 102765 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 52 named destinations out of 1000 (max. 500000)
+ 275 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
