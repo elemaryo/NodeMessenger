@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="PCM" company="McMaster, CAS Department" webLink="" view-date="2018-09-25" view-index="0" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="PCM" company="McMaster, CAS Department" webLink="" view-date="2018-10-03" view-index="0" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_CA">
     <description><![CDATA[Simulation of temperature over time for a solar water heating tank incorporating phase change material (PCM).]]></description>
     <view zooming-state="default:0" id="gantt-chart">
-        <field id="tpd3" name="Name" width="332" order="0"/>
-        <field id="tpd5" name="End date" width="116" order="1"/>
-        <field id="tpd4" name="Begin date" width="205" order="2"/>
+        <field id="tpd3" name="Name" width="301" order="0"/>
+        <field id="tpd4" name="Begin date" width="176" order="1"/>
+        <field id="tpd5" name="End date" width="176" order="2"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="429" order="0"/>
-        <field id="1" name="Default role" width="164" order="1"/>
+        <field id="0" name="Name" width="359" order="0"/>
+        <field id="1" name="Default role" width="234" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -47,6 +47,9 @@
             <task id="155" name="Create UI" color="#8cb6ce" meeting="false" start="2018-10-06" duration="8" complete="0" thirdDate="2018-09-28" thirdDate-constraint="0" expand="true"/>
             <task id="154" name="Implement Back-End Data Transfer" color="#8cb6ce" meeting="false" start="2018-10-07" duration="8" complete="0" thirdDate="2018-09-28" thirdDate-constraint="0" expand="true"/>
         </task>
+        <task id="160" name="Implement Log-In functionality" color="#8cb6ce" meeting="false" start="2018-10-06" duration="2" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
+        <task id="164" name="Implement chat input" color="#8cb6ce" meeting="false" start="2018-10-09" duration="3" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
+        <task id="169" name="Implement Chat Window" color="#8cb6ce" meeting="false" start="2018-10-10" duration="3" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
         <task id="108" name="Proof of Concept Demostration" color="#8cb6ce" meeting="false" start="2018-10-15" duration="2" complete="0" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
         <task id="83" name="Test Plan Revision 0" color="#8cb6ce" meeting="false" start="2018-10-19" duration="8" complete="0" thirdDate="2018-10-19" thirdDate-constraint="1" expand="true"/>
         <task id="2" name="Design &amp; Documentation" color="#8cb6ce" meeting="false" start="2018-10-26" duration="15" complete="0" thirdDate="2018-10-26" thirdDate-constraint="1" expand="true"/>
