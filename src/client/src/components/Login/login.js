@@ -11,7 +11,8 @@ class Login extends Component {
         super(props)
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            username: '',
         }
     
     }
@@ -19,10 +20,9 @@ class Login extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log('user login')
+        
         if (this.state.email && this.state.password){
-            console.log(this.state.email);
-            console.log(this.state.password);
-            // console.log(firebase);
+            this.props.onSignIn(this.state.email, this.state.password);
         }
 
     }
@@ -49,7 +49,7 @@ class Login extends Component {
         <div>   
             <form onSubmit={this.handleSubmit}>
                 <div>
-                    <label>Email:
+                    <label>Email/Username:
                         <input type='text' value={this.state.email} id='email' onChange={this.handleChange}></input>
                     </label>
                 </div> 
