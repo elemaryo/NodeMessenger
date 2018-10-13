@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import './components/Login/login';
+import logo from './res/logo.svg';
+import appLogo from './res/applogo.svg'
+import './App.css'
 import Login from './components/Login/login';
 import Messenger from './components/Messenger/messenger'
 
@@ -11,11 +11,18 @@ class App extends Component {
 		super(props);
 			this.state = {
 				uid: '',
-				user: this.props.user,
+				authChecked: false,
+				user: null,
 			}
 
   	}
 	
+	componentDidMount(){
+		this.props.firebase.auth().onAuthStateChanged((user) => {
+			console.log('authchecked')
+			this.setState({user: user, authChecked: true})
+		});
+	}
 	
 	signIn = (email, password) => {
 		// this.props.firebase.auth().setPersistence(this.props.firebase.auth.Auth.Persistence.LOCAL)
@@ -27,7 +34,7 @@ class App extends Component {
 		// 				console.log(error)
 		// 			})
 
-		this.setState({showScene:'messenger'})
+		// this.setState({showScene:'messenger'})
 
 		
 	  }
@@ -37,6 +44,7 @@ class App extends Component {
 					//switch scenes, render it
 					//get user's chat data
 					//render updated scene 
+						console.log(userData)
 						this.signIn(email, password)
 					})
 					.catch((error) =>{console.log(error)})
@@ -60,11 +68,36 @@ class App extends Component {
 
 	}
 
+	handleSignOut = () => {
+		console.log('singing out')
+		this.props.firebase.auth().signOut().then(function() {
+			// Sign-out successful.
+		  }).catch(function(error) {
+			// An error happened.
+		  });
+	}
+
 	render() {
 
 		const user = this.state.user
-		const scene = user ? <Messenger/> : <Login onSignIn={this.handleSignIn} onSignUp={this.handleSignUp}/>
-
+		var scene;
+		if(!this.state.authChecked)
+			scene = 
+				<div>
+					<div>
+						<img src={appLogo} className="AppLogo"/>
+					</div>
+					<div>
+						<img src={logo} className="Loading-logo" alt="Loading" />
+					</div>
+				</div>
+		else
+		{
+			scene = user ? <Messenger onSignOut={this.handleSignOut} /> : <Login onSignIn={this.handleSignIn} onSignUp={this.handleSignUp}/>
+		}
+			
+		
+			
 		return (
 		<div className="App">
 			<header className="App-header">

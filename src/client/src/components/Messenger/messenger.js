@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Button, Comment, Form, Header } from 'semantic-ui-react'
 
-const Messenger = () => (
-  <Comment.Group>
+class Messenger extends Component{
+
+  render(){
+    return(
+ <Comment.Group>
+    <button onClick = {this.props.onSignOut}>SignOut</button>
     <Header as='h3' dividing>
       Comments
     </Header>
@@ -72,6 +76,9 @@ const Messenger = () => (
     </Form>
   </Comment.Group>
 )
+    
+  }
+}
 
 
 
