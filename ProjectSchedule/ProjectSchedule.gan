@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Node Messenger" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger" view-date="2018-09-26" view-index="0" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Node Messenger" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger" view-date="2018-10-18" view-index="1" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_US">
     <description><![CDATA[Web messenger app based on Tinode Messenger.]]></description>
     <view zooming-state="default:0" id="gantt-chart">
         <field id="tpd3" name="Name" width="301" order="0"/>
@@ -57,13 +57,13 @@
             </task>
             <task id="139" name="Miscellaneous SRS components" color="#8cb6ce" meeting="false" start="2018-10-03" duration="2" complete="0" thirdDate="2018-09-25" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="106" name="Requirements Document Revision 0 Due" color="#8cb6ce" meeting="false" start="2018-10-05" duration="1" complete="0" thirdDate="2018-10-05" thirdDate-constraint="1" expand="true"/>
+        <task id="106" name="Requirements Document Revision 0 Due" color="#8cb6ce" meeting="true" start="2018-10-05" duration="0" complete="0" thirdDate="2018-10-05" thirdDate-constraint="1" expand="true"/>
         <task id="144" name="Implement Proof Of Concept" color="#8cb6ce" meeting="false" start="2018-10-06" duration="9" complete="0" thirdDate="2018-09-25" thirdDate-constraint="0" expand="true">
             <depend id="108" type="2" difference="0" hardness="Strong"/>
-            <task id="160" name="Implement Log-In Functionality" color="#8cb6ce" meeting="false" start="2018-10-06" duration="2" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
-            <task id="169" name="Implement Chat Window" color="#8cb6ce" meeting="false" start="2018-10-10" duration="3" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
-            <task id="164" name="Implement Chat Input" color="#8cb6ce" meeting="true" start="2018-10-10" duration="0" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
-            <task id="154" name="Implement Back-End Data Transfer" color="#8cb6ce" meeting="false" start="2018-10-07" duration="8" complete="0" thirdDate="2018-09-28" thirdDate-constraint="0" expand="true"/>
+            <task id="160" name="Implement Log-In Functionality" color="#8cb6ce" meeting="false" start="2018-10-06" duration="3" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
+            <task id="169" name="Implement Chat Window" color="#8cb6ce" meeting="false" start="2018-10-08" duration="3" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
+            <task id="164" name="Implement Chat Input" color="#8cb6ce" meeting="false" start="2018-10-10" duration="4" complete="0" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
+            <task id="154" name="Implement Back-End Data Transfer" color="#8cb6ce" meeting="false" start="2018-10-06" duration="9" complete="0" thirdDate="2018-09-28" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="108" name="Proof of Concept Demostration" color="#8cb6ce" meeting="true" start="2018-10-15" duration="0" complete="0" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
         <task id="334" name="Complete Test Plan" color="#8cb6ce" meeting="false" start="2018-10-19" duration="7" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true">
