@@ -5,14 +5,14 @@ import './signup.css'
 class Signup extends React.Component {
     state = { emailUp: '', passwordUp: '', confirmPasswordUp: '', displayName:'' }
 
-    handleChange = (e) => this.setState({ [e.target.className]: e.target.value })
+    handleChange = (e) => this.setState({ [e.target.id]: e.target.value })
   
     handleSubmit = () => {
       
-      const { email, password, confirmPassword } = this.state
-      console.log(email)
-      if (password == confirmPassword){
-        this.props.onSignUp(email, password);
+      const { emailUp, passwordUp, confirmPasswordUp } = this.state
+      console.log(emailUp)
+      if (passwordUp == confirmPasswordUp){
+        this.props.onSignUp(emailUp, passwordUp);
       }
     }
     render() { 

@@ -1,10 +1,23 @@
-import React, { Component } from 'react';
-import logo from './res/logo.svg';
+import React, { Component } from 'react'
+import logo from './res/logo.svg'
 import appLogo from './res/applogo.svg'
 import './App.css'
-import Login from './components/Login/login';
-import Messenger from './components/Messenger/messenger'
+import Login from './components/Login/login'
+import Chat from './components/Chat/chat'
 
+
+const LoadingScreen = () => (
+	<header className="App-header">
+		<div>
+			<div>
+				<img src={appLogo} className="AppLogo"/>
+			</div>
+			<div>
+				<img src={logo} className="Loading-logo" alt="Loading" />
+			</div>
+		</div>
+	</header>
+)
 class App extends Component {
 
 	constructor(props){
@@ -21,7 +34,7 @@ class App extends Component {
 		this.props.firebase.auth().onAuthStateChanged((user) => {
 			console.log('authchecked')
 			this.setState({user: user, authChecked: true})
-		});
+		})
 	}
 	
 	signIn = (email, password) => {
@@ -74,7 +87,7 @@ class App extends Component {
 			// Sign-out successful.
 		  }).catch(function(error) {
 			// An error happened.
-		  });
+		  })
 	}
 
 	render() {
@@ -82,30 +95,18 @@ class App extends Component {
 		const user = this.state.user
 		var scene;
 		if(!this.state.authChecked)
-			scene = 
-				<div>
-					<div>
-						<img src={appLogo} className="AppLogo"/>
-					</div>
-					<div>
-						<img src={logo} className="Loading-logo" alt="Loading" />
-					</div>
-				</div>
+			scene = <LoadingScreen/>
 		else
-		{
-			scene = user ? <Messenger onSignOut={this.handleSignOut} /> : <Login onSignIn={this.handleSignIn} onSignUp={this.handleSignUp}/>
-		}
+			scene = user ?  <Chat onSignOut={this.handleSignOut} user={user} /> : <Login onSignIn={this.handleSignIn} onSignUp={this.handleSignUp}/>
 			
 		
 			
 		return (
-		<div className="App">
-			<header className="App-header">
+			<div className="App">
 				{scene}
-			</header>
-		</div>
-		);
+			</div>
+		)
 	}
 }
 
-export default App;
+export default App

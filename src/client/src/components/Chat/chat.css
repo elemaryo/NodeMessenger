@@ -1,0 +1,104 @@
+
+/******* CHAT COMPONENT STYLING *******/
+#chat-grid {
+    height: 100vh;
+    width: 100vw;
+    background-color: #1b1c1d;
+    display: grid;
+    grid-template-columns: 22.5em 0.05em auto;
+}
+
+#chat-divider{
+    margin: 1em 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#chat-contacts-sidebar{
+    padding: 1em 0.7em 0.5em 0.5em;
+}
+
+#chat-message-box{
+    padding: 2em;
+    display: grid;
+    grid-template-rows: 17fr 1fr;
+    max-height: 100vh;
+}
+
+
+/******* CONTACT CARD STYLING *******/
+
+.contacts-card{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 2fr 3fr;
+    background: #e2e2e2; /* Old browsers */
+    background: -moz-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 );
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+#contacts-signout{
+    background-color: #fff;
+    border-radius: 0.2em;
+    padding: 1em;
+    cursor: pointer;
+}
+
+
+#contacts-icon{
+    grid-row: 1 / 3;  
+    margin: auto;
+    padding-left: 1em;
+}
+
+#contacts-info{
+    padding: 0.3em;
+    padding-top: 0.6em;
+}
+
+#contacts-last-message{
+  
+}
+
+
+/******* MESSAGE AREA STYLING *******/
+
+.message-area{
+    overflow-y: auto;
+}
+.message{
+    text-align: left;
+    display: grid;
+    margin-bottom: 0.5em;
+}
+
+#l{
+    justify-content: left;
+}
+
+#r{
+    justify-content: right;
+}
+
+#message-icon{
+
+}
+
+#message-data{
+    padding: 0.5em 1em;
+    background-color: #fff;
+    border-radius: 0.5em;
+    width: fit-content;
+    max-width: 20em;
+    font-size: 1em;
+} 
+					
+#message-input{
+
+}
+#message-box{
+
+}
