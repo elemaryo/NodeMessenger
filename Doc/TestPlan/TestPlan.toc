@@ -26,7 +26,7 @@
 \contentsline {section}{\numberline {5}Comparison to Existing Implementation}{5}{section.5}
 \contentsline {section}{\numberline {6}Unit Testing Plan}{5}{section.6}
 \contentsline {subsection}{\numberline {6.1}Unit testing of internal functions}{5}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Unit testing of output files}{5}{subsection.6.2}
-\contentsline {section}{\numberline {7}Appendix}{6}{section.7}
-\contentsline {subsection}{\numberline {7.1}Symbolic Parameters}{6}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Usability Survey Questions?}{6}{subsection.7.2}
+\contentsline {subsection}{\numberline {6.2}Unit testing of output files}{6}{subsection.6.2}
+\contentsline {section}{\numberline {7}Appendix}{7}{section.7}
+\contentsline {subsection}{\numberline {7.1}Symbolic Parameters}{7}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Usability Survey Questions?}{7}{subsection.7.2}

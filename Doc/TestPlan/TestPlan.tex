@@ -222,12 +222,16 @@ How test will be performed:
 
 	
 \section{Comparison to Existing Implementation}	
+Node Messenger is based upon Tinode, an existing implantation of a web messaging app. Tinode implements a successful messaging app with the inclusion of 3 main functions: Correct display of messages being sent and received, displays a list of past messages with other users, and stores the messages of a user, allowing them to logout or login with a different account. We will be testing to see if the messages being sent, and the messages being received are formatted properly, and they display on the correct side of the screen. Node Messenger will also be tested to ensure it can create different messaging rooms to let the user chat with other users flawlessly. We will be creating multiple accounts to test if Node Messenger is able to store, access, and show data specific to each user.  
 				
 \section{Unit Testing Plan}
+We will be using Jest, and Mocha to test the functions governing Node Messenger. We will be ensure that the functions carry out their task properly and return their expected output.  Messages should display properly if it is entered correctly, e.g. if a blank message is entered, it must not send an empty message to the message box. Our group will try to cover as much ground as possible in order to ensure a better user experience. 
 		
 \subsection{Unit testing of internal functions}
-		
-\subsection{Unit testing of output files}		
+Unit testing using Jest will be mainly used for testing internal functions in Node Messenger. We will be testing the functions above, as well as other key internal functions to ensure Node Messenger functions as expected. Unit testing these internal functions will help us to determine hidden errors, or loopholes in the code that cannot be easily spotted.
+
+\subsection{Unit testing of output files}	
+Not Applicable.	
 
 \bibliographystyle{plainnat}
 
