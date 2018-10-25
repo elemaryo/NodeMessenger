@@ -107,119 +107,235 @@ See Gantt Chart at the following url ...
 	
 \subsection{Tests for Functional Requirements}
 
-\subsubsection{Area of Testing1}
+\subsubsection{Authentication}
 		
-\paragraph{Title for Test}
+\paragraph{Login / Sign up Forms}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{auth-test-1 : Validation of User Input\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+\textbf{Type:}\\ Functional, Dynamic, Automated
 
-Type: Functional, Dynamic, Manual, Static etc.
+\textbf{Initial State:}\\ Empty Forms
 					
-Initial State: 
+\textbf{Input:}\\ Empty String, invalid emails and valid emails 
 					
-Input: 
+\textbf{Output:}\\ Appropriate Error shown if input invalid. Chat screen if valid input.
 					
-Output: 
+\textbf{How test will be performed:}\\ The test will be performed using the Jest framework. Based on the input, the render tree will be tested for appropriate output.
 					
-How test will be performed: 
+\item{auth-test-2 : Successful sign up\\}
 
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ Email not signed up
+					
+\textbf{Input:}\\ email address and password
+					
+\textbf{Output:}\\ Pop up indicating user successfully signed up. User redirected to chat screen
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated with the testing framework mocha. The user data will be used for sign up and will be checked against the list of users in the database.
+
+\item{auth-test-3 : Successful Login\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ User not logged in
+					
+Input: email address and password used for login
+					
+\textbf{Output:}\\ Redirect user to the chat screen
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated with the testing framework mocha. The user data will be used for login and the authentication state will be checked to see if the login was successful.
+
+\item{auth-test-4 : Authentication State Persistence\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ User logged in
+					
+\textbf{Input:}\\ User reloads the site
+					
+\textbf{Output:}\\ If the computer is listed as a user trusted computer, keep the user logged in.
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated with the testing framework mocha. The change in auth state will be used to determine if the user is automatically signed if the page is reloaded.
+
+
+\end{enumerate} 
+
+\subsubsection{Chat Input/Output}
+\begin{enumerate}
+   \item{chat-test-1 : User message renders on input box\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ Message not rendered in the input box 
+					
+\textbf{Input:}\\ User starts entering message in input box
+					
+\textbf{Output:}\\ Message shows up in the input box
+					
+\textbf{How test will be performed:}\\ 
+The test will be done using jest framework. The react tree will be checked for the rendered message in the input box.
+
+\item{chat-test-2 : User message renders on screen\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ Message not rendered on the chat box
+					
+\textbf{Input:}\\ User enters message in the input box
+					
+\textbf{Output:}\\ Message shows up on the right side in the conversation windows
+					
+\textbf{How test will be performed:}\\ 
+The test will be done using jest framework. The react tree will be checked for the rendered message.
+
+\item{chat-test-3 : Received message renders on screen\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ No received messages
+					
+\textbf{Input:}\\ N/A
+					
+\textbf{Output:}\\ Message received shows up on the right side in the conversation windows
+					
+\textbf{How test will be performed:}\\ 
+The test will be done using jest framework. The react tree will be checked for the rendered message.
+
+\item{chat-test-4 : Instant Messaging\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Manual
+					
+\textbf{Initial State:}\\ No sent or received messages
+					
+\textbf{Input:}\\ N/A
+					
+\textbf{Output:}\\ Send/Receive messages
+					
+\textbf{How test will be performed:}\\ 
+This manual test will be performed using two instances of the application. The test will check if the sending and receiving of messages happen within a few seconds of pressing the send button.
+
+\item{chat-test-4 : Contacts\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Manual
+					
+\textbf{Initial State:}\\ No contacts
+					
+\textbf{Input:}\\ Add a contact
+					
+\textbf{Output:}\\ Contact is rendered on user's contacts list
+					
+\textbf{How test will be performed:}\\ 
+The test will  be performed using Jest. The rendered contact list will be tested for the updated state.
 \end{enumerate}
+\subsubsection{Database}
+\begin{enumerate}
+\item{db-test-1 : Contacts\\}
 
-\subsubsection{Area of Testing2}
+\textbf{Type:}\\ Functional, Dynamic, Automatic
+					
+\textbf{Initial State:}\\ No contacts
+					
+\textbf{Input:}\\ Add a contact
+					
+\textbf{Output:}\\ Upon adding a contact the database should add the contact to user's contact list
+					
+\textbf{How test will be performed:}\\ 
+This manual test will be performed using mocha. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
 
-...
+\item{db-test-2 : Chat history\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automatic
+					
+\textbf{Initial State:}\\ Chat initiated with a contact
+					
+\textbf{Input:}\\ Logout and Login back to the chat
+					
+\textbf{Output:}\\ The chat history should be rendered and the message history should be accessible.
+					
+\textbf{How test will be performed:}\\ 
+This manual test will be performed using mocha. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
+\end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
-
-\subsubsection{Area of Testing1}
-		
-\paragraph{Title for Test}
-
+\subsubsection{UI/UX Tests}
 \begin{enumerate}
+\item{ui-test-1 : To test the look and feel of the application\\}
 
-\item{test-id1\\}
-
-Type: 
+\textbf{Type:}\\ Static, Manual
 					
-Initial State: 
+\textbf{Initial State:} N/A
 					
-Input/Condition: 
+\textbf{Input:} N/A
 					
-Output/Result: 
+\textbf{Output:} N/A
 					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
+\textbf{How test will be performed:}\\ 
+The UI/UX tests will subjectively give a qualitative result of how the system feels in terms for ease of use ,appearance and responsiveness. This test will carried out by using the application for a certain amount of time.
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
 
-...
+\subsubsection{Performance}
+\begin{enumerate}
+\item{pf-test-1 : Time taken to send and receive messages (acceptable: $<$ 2 sec)\\}
+
+\textbf{Type:}\\ Dynamic, Automated
+					
+\textbf{Initial State:} N/A
+					
+\textbf{Input:}\\ Message sent
+					
+\textbf{Output:}\\ Server callback with approximated time.
+					
+\textbf{How test will be performed:}\\ 
+This test will be automated by the mocha framework. The server will send a ping once a message is received, which will then used to estimate the average time taken to send and receive messages.
+\end{enumerate}
+
+\subsubsection{Security Testing}
+\begin{enumerate}
+\item{sr-test-1 : Tests users access level\\}
+
+\textbf{Type:}\\ Dynamic, Automated
+					
+\textbf{Initial State:}\\ User logged in
+					
+\textbf{Input:}\\ User tries to access the page that routes to a different user's contact list
+					
+\textbf{Output:}\\ Unauthorized access error
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated using mocha. Mocha will try to access unauthorized pages under a user and check if the appropriate error is thrown back.
+\end{enumerate}
+
+\subsubsection{Portability}
+\begin{enumerate}
+\item{pr-test-1 : Mobile/Tablet UI/UX\\}
+
+\textbf{Type:}\\ Static, Manual
+					
+\textbf{Initial State:} N/A
+					
+\textbf{Input:}N/A
+					
+\textbf{Output:}N/A
+					
+\textbf{How test will be performed:}\\ 
+The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how the system performs on different devices. Google Chrome Dev Tools along with our personal devices will be used for this test.
+\end{enumerate}
+
 
 \subsection{Traceability Between Test Cases and Requirements}
 
 \section{Tests for Proof of Concept}
 
-\subsection{Area of Testing1}
-		
-\paragraph{Title for Test}
+The purpose of the proof of concept was to demonstrate the general functionality of a chat application. It included login/signup and real-time chat built within a simple user interface. Therefore, the tests for proof will include the all the tests from sections: 3.1.1 Authentication, 3.1.2 Chat Input/Output and 3.2.1 Performance and 3.2.4 Portability.
 
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
-\end{enumerate}
-
-\subsection{Area of Testing2}
-
-...
 
 	
 \section{Comparison to Existing Implementation}	
