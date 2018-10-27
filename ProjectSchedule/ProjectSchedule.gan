@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Node Messenger" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger" view-date="2018-10-18" view-index="1" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Node Messenger" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger" view-date="2018-10-18" view-index="0" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_US">
     <description><![CDATA[Web messenger app based on Tinode Messenger.]]></description>
     <view zooming-state="default:0" id="gantt-chart">
         <field id="tpd3" name="Name" width="301" order="0"/>
@@ -68,8 +68,22 @@
         <task id="108" name="Proof of Concept Demostration" color="#8cb6ce" meeting="true" start="2018-10-15" duration="0" complete="0" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
         <task id="334" name="Complete Test Plan" color="#8cb6ce" meeting="false" start="2018-10-19" duration="7" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true">
             <depend id="325" type="2" difference="0" hardness="Strong"/>
+            <task id="335" name="Complete Section 1 &amp; 2" color="#8cb6ce" meeting="false" start="2018-10-19" duration="2" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="370" name="Develop Test Plan" color="#8cb6ce" meeting="false" start="2018-10-20" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="336" name="Complete Section 3" color="#8cb6ce" meeting="false" start="2018-10-22" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="337" name="Complete Section 4 &amp; 5" color="#8cb6ce" meeting="false" start="2018-10-23" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="325" name="Test Plan Revision 0 Due" color="#8cb6ce" meeting="true" start="2018-10-26" duration="0" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+        <task id="345" name="Test Plan" color="#8cb6ce" meeting="false" start="2018-10-27" duration="14" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true">
+            <task id="356" name="UI Render Testing" color="#8cb6ce" meeting="false" start="2018-10-27" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="353" name="Authentication Testing" color="#8cb6ce" meeting="false" start="2018-10-30" duration="1" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="355" name="Input/Output Testing" color="#8cb6ce" meeting="false" start="2018-10-31" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="352" name="Firebase Stress Testing" color="#8cb6ce" meeting="false" start="2018-11-02" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="354" name="Data Transfer Testing" color="#8cb6ce" meeting="false" start="2018-11-04" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="346" name="Unit Testing" color="#8cb6ce" meeting="false" start="2018-11-06" duration="2" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="347" name="Integration Testing" color="#8cb6ce" meeting="false" start="2018-11-07" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="350" name="System Testing" color="#8cb6ce" meeting="false" start="2018-11-09" duration="1" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+        </task>
         <task id="2" name="Write Design &amp; Documentation" color="#8cb6ce" meeting="false" start="2018-10-27" duration="13" complete="0" thirdDate="2018-10-26" thirdDate-constraint="1" expand="true">
             <depend id="312" type="2" difference="0" hardness="Strong"/>
             <task id="172" name="Module Guide" color="#8cb6ce" meeting="false" start="2018-10-27" duration="6" complete="0" thirdDate="2018-09-27" thirdDate-constraint="0" expand="true">
@@ -110,6 +124,17 @@
         <allocation task-id="160" resource-id="0" function="3" responsible="true" load="50.0"/>
         <allocation task-id="312" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
         <allocation task-id="334" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="336" resource-id="0" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="370" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="345" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="356" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="353" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="355" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="352" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="354" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="346" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="347" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="350" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
         <allocation task-id="124" resource-id="1" function="2" responsible="false" load="50.0"/>
         <allocation task-id="139" resource-id="1" function="2" responsible="false" load="30.0"/>
         <allocation task-id="126" resource-id="1" function="2" responsible="false" load="20.0"/>
@@ -129,6 +154,17 @@
         <allocation task-id="164" resource-id="1" function="1" responsible="false" load="30.0"/>
         <allocation task-id="312" resource-id="1" function="2" responsible="false" load="30.0"/>
         <allocation task-id="334" resource-id="1" function="2" responsible="false" load="30.0"/>
+        <allocation task-id="335" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="370" resource-id="1" function="4" responsible="false" load="40.0"/>
+        <allocation task-id="345" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="356" resource-id="1" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="353" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="355" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="352" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="354" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="346" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="347" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="350" resource-id="1" function="3" responsible="false" load="30.0"/>
         <allocation task-id="126" resource-id="2" function="2" responsible="true" load="60.0"/>
         <allocation task-id="139" resource-id="2" function="2" responsible="false" load="20.0"/>
         <allocation task-id="154" resource-id="2" function="3" responsible="false" load="10.0"/>
@@ -148,6 +184,17 @@
         <allocation task-id="160" resource-id="2" function="1" responsible="false" load="50.0"/>
         <allocation task-id="312" resource-id="2" function="2" responsible="false" load="30.0"/>
         <allocation task-id="334" resource-id="2" function="2" responsible="false" load="30.0"/>
+        <allocation task-id="337" resource-id="2" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="370" resource-id="2" function="2" responsible="false" load="20.0"/>
+        <allocation task-id="345" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="356" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="353" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="355" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="352" resource-id="2" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="354" resource-id="2" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="346" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="347" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="350" resource-id="2" function="1" responsible="false" load="30.0"/>
     </allocations>
     <vacations/>
     <previous/>
