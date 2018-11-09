@@ -31,15 +31,13 @@
 
 \title{SE 3XA3: Software Requirements Specification\\Title of Project}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team \#24, Node Messenger
+		\\ Tasin Ahmed - ahmedm31
+		\\ Shardool Patel - pates25
+		\\ Omar Elemary - elemaryo
 }
 
 \date{\today}
-
-\input{../../Comments}
 
 \begin{document}
 
@@ -67,43 +65,11 @@ Date 2 & 1.1 & Notes\\
 
 \section{Introduction}
 
-Decomposing a system into modules is a commonly accepted approach to developing
-software.  A module is a work assignment for a programmer or programming
-team~\citep{ParnasEtAl1984}.  We advocate a decomposition
-based on the principle of information hiding~\citep{Parnas1972a}.  This
-principle supports design for change, because the ``secrets'' that each module
-hides represent likely future changes.  Design for change is valuable in SC,
-where modifications are frequent, especially during initial development as the
-solution space is explored.  
+\subsection{Overview}
+NodeM is a re-implementation of the open-source project, Tinode, which allows users  create their own accounts, and message other users on the messaging app.
 
-Our design follows the rules layed out by \citet{ParnasEtAl1984}, as follows:
-\begin{itemize}
-\item System details that are likely to change independently should be the
-  secrets of separate modules.
-\item Each data structure is used in only one module.
-\item Any other program that requires information stored in a module's data
-  structures must obtain it by calling access programs belonging to that module.
-\end{itemize}
-
-After completing the first stage of the design, the Software Requirements
-Specification (SRS), the Module Guide (MG) is developed~\citep{ParnasEtAl1984}. The MG
-specifies the modular structure of the system and is intended to allow both
-designers and maintainers to easily identify the parts of the software.  The
-potential readers of this document are as follows:
-
-\begin{itemize}
-\item New project members: This document can be a guide for a new project member
-  to easily understand the overall structure and quickly find the
-  relevant modules they are searching for.
-\item Maintainers: The hierarchical structure of the module guide improves the
-  maintainers' understanding when they need to make changes to the system. It is
-  important for a maintainer to update the relevant sections of the document
-  after changes have been made.
-\item Designers: Once the module guide has been written, it can be used to
-  check for consistency, feasibility and flexibility. Designers can verify the
-  system in various ways, such as consistency among modules, feasibility of the
-  decomposition, and flexibility of the design.
-\end{itemize}
+\subsection{Context}
+As the world becomes increasingly more connected through the internet, many common internet users are looking for an easy way to communicate with each other or reach out to distant loved ones. The market for messengers has become saturated with products that put the goal of earning maximum revenue over the needs of the consumer. NodeM's focus is to capture consumer interest by implementing a free and accessible web application messenger that allows them to personalize their experience and chat with other users in a simple, clean and non-intrusive way. Node messenger will become a haven for users searching for a consumer-friendly product with great functionality and cross-platform support.
 
 The rest of the document is organized as follows. Section
 \ref{SecChange} lists the anticipated and unlikely changes of the software
@@ -132,10 +98,14 @@ adapted here is called design for
 change.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
-  hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
+\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific hardware on which the software is running.
+\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the HTML, CSS, and Javascript files.
+\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The color theme of the messaging app.
+\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the message box.
+\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the Login/Register screen.
+\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] Domain name.
+\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] Addition or removal of Buttons, and their functions.
+\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] 
 \item ...
 \end{description}
 
