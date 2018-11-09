@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><project name="Node Messenger" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger" view-date="2018-10-18" view-index="0" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_US">
     <description><![CDATA[Web messenger app based on Tinode Messenger.]]></description>
     <view zooming-state="default:0" id="gantt-chart">
-        <field id="tpd3" name="Name" width="301" order="0"/>
-        <field id="tpd4" name="Begin date" width="176" order="1"/>
-        <field id="tpd5" name="End date" width="176" order="2"/>
+        <field id="tpd3" name="Name" width="294" order="0"/>
+        <field id="tpd4" name="Begin date" width="172" order="1"/>
+        <field id="tpd5" name="End date" width="172" order="2"/>
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="359" order="0"/>
@@ -93,7 +93,15 @@
             <task id="174" name="Gantt Schedule" color="#8cb6ce" meeting="false" start="2018-11-07" duration="2" complete="0" thirdDate="2018-09-27" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="312" name="Design &amp; Documentation Revision 0 Due" color="#8cb6ce" meeting="false" start="2018-11-09" duration="1" complete="0" thirdDate="2018-10-19" thirdDate-constraint="0" expand="true"/>
-        <task id="119" name="Rev 0 Demonstration" color="#8cb6ce" meeting="false" start="2018-11-11" duration="7" complete="0" thirdDate="2018-11-11" thirdDate-constraint="1" expand="true"/>
+        <task id="371" name="Implementing Modules" color="#8cb6ce" meeting="false" start="2018-11-08" duration="8" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true">
+            <task id="379" name="Implement Signup" color="#8cb6ce" meeting="false" start="2018-11-08" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="380" name="Implement Login" color="#8cb6ce" meeting="false" start="2018-11-10" duration="2" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="381" name="Implement Sign in" color="#8cb6ce" meeting="false" start="2018-11-11" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="382" name="Implement Chat" color="#8cb6ce" meeting="false" start="2018-11-13" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="383" name="Implement App Module" color="#8cb6ce" meeting="false" start="2018-11-08" duration="8" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+            <task id="384" name="Implement Index Module" color="#8cb6ce" meeting="false" start="2018-11-08" duration="8" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="388" name="Rev 0 Demonstration" color="#8cb6ce" meeting="true" start="2018-11-16" duration="0" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
         <task id="121" name="Final Demonstration (Revision 1)" color="#8cb6ce" meeting="false" start="2018-11-17" duration="10" complete="0" thirdDate="2018-11-17" thirdDate-constraint="1" expand="true"/>
         <task id="123" name="Final Documentation (Revision 1)" color="#8cb6ce" meeting="false" start="2018-11-30" duration="6" complete="0" thirdDate="2018-11-30" thirdDate-constraint="1" expand="true"/>
     </tasks>
@@ -135,6 +143,14 @@
         <allocation task-id="346" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
         <allocation task-id="347" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
         <allocation task-id="350" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="371" resource-id="0" function="3" responsible="true" load="40.0"/>
+        <allocation task-id="388" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="379" resource-id="0" function="3" responsible="true" load="40.0"/>
+        <allocation task-id="380" resource-id="0" function="3" responsible="true" load="40.0"/>
+        <allocation task-id="381" resource-id="0" function="3" responsible="true" load="40.0"/>
+        <allocation task-id="382" resource-id="0" function="3" responsible="true" load="40.0"/>
+        <allocation task-id="383" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="384" resource-id="0" function="3" responsible="true" load="40.0"/>
         <allocation task-id="124" resource-id="1" function="2" responsible="false" load="50.0"/>
         <allocation task-id="139" resource-id="1" function="2" responsible="false" load="30.0"/>
         <allocation task-id="126" resource-id="1" function="2" responsible="false" load="20.0"/>
@@ -165,6 +181,14 @@
         <allocation task-id="346" resource-id="1" function="3" responsible="false" load="30.0"/>
         <allocation task-id="347" resource-id="1" function="3" responsible="false" load="30.0"/>
         <allocation task-id="350" resource-id="1" function="3" responsible="false" load="30.0"/>
+        <allocation task-id="371" resource-id="1" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="388" resource-id="1" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="379" resource-id="1" function="1" responsible="false" load="25.0"/>
+        <allocation task-id="380" resource-id="1" function="3" responsible="false" load="20.0"/>
+        <allocation task-id="381" resource-id="1" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="382" resource-id="1" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="383" resource-id="1" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="384" resource-id="1" function="1" responsible="false" load="30.0"/>
         <allocation task-id="126" resource-id="2" function="2" responsible="true" load="60.0"/>
         <allocation task-id="139" resource-id="2" function="2" responsible="false" load="20.0"/>
         <allocation task-id="154" resource-id="2" function="3" responsible="false" load="10.0"/>
@@ -195,6 +219,14 @@
         <allocation task-id="346" resource-id="2" function="1" responsible="false" load="30.0"/>
         <allocation task-id="347" resource-id="2" function="1" responsible="false" load="30.0"/>
         <allocation task-id="350" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="371" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="388" resource-id="2" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="379" resource-id="2" function="1" responsible="false" load="35.0"/>
+        <allocation task-id="380" resource-id="2" function="1" responsible="false" load="40.0"/>
+        <allocation task-id="381" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="382" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="383" resource-id="2" function="1" responsible="false" load="30.0"/>
+        <allocation task-id="384" resource-id="2" function="1" responsible="false" load="30.0"/>
     </allocations>
     <vacations/>
     <previous/>
