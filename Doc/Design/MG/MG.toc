@@ -1,17 +1,20 @@
-\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}Overview}{1}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Context}{1}{subsection.1.2}
-\contentsline {section}{\numberline {2}Anticipated and Unlikely Changes}{1}{section.2}
-\contentsline {subsection}{\numberline {2.1}Anticipated Changes}{1}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Unlikely Changes}{2}{subsection.2.2}
-\contentsline {section}{\numberline {3}Module Hierarchy}{2}{section.3}
-\contentsline {section}{\numberline {4}Connection Between Requirements and Design}{2}{section.4}
-\contentsline {section}{\numberline {5}Module Decomposition}{3}{section.5}
-\contentsline {subsection}{\numberline {5.1}Hardware Hiding Modules (M\ref {mHH})}{3}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Behaviour-Hiding Module}{3}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Input Format Module (M\ref {mInput})}{4}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Etc.}{4}{subsubsection.5.2.2}
-\contentsline {subsection}{\numberline {5.3}Software Decision Module}{4}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Etc.}{4}{subsubsection.5.3.1}
-\contentsline {section}{\numberline {6}Traceability Matrix}{4}{section.6}
-\contentsline {section}{\numberline {7}Use Hierarchy Between Modules}{5}{section.7}
+\contentsline {section}{\numberline {1}Major Revision History}{1}{section.1}
+\contentsline {section}{\numberline {2}Introduction}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}Overview}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Context}{1}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Design Principles}{1}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Document Structure}{1}{subsection.2.4}
+\contentsline {section}{\numberline {3}Anticipated and Unlikely Changes}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Anticipated Changes}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Unlikely Changes}{3}{subsection.3.2}
+\contentsline {section}{\numberline {4}Module Hierarchy}{3}{section.4}
+\contentsline {section}{\numberline {5}Connection Between Requirements and Design}{4}{section.5}
+\contentsline {section}{\numberline {6}Module Decomposition}{4}{section.6}
+\contentsline {subsection}{\numberline {6.1}Hardware Hiding Modules (M\ref {mHH})}{4}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Behaviour-Hiding Module}{4}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Input Format Module (M\ref {mInput})}{5}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Etc.}{5}{subsubsection.6.2.2}
+\contentsline {subsection}{\numberline {6.3}Software Decision Module}{5}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Etc.}{5}{subsubsection.6.3.1}
+\contentsline {section}{\numberline {7}Traceability Matrix}{5}{section.7}
+\contentsline {section}{\numberline {8}Use Hierarchy Between Modules}{6}{section.8}

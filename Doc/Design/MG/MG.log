@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.8)  9 NOV 2018 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.8)  9 NOV 2018 18:00
 entering extended mode
 **./MG.tex
 (MG.tex
@@ -353,14 +353,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {C:/Users/Tasin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (MG.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
+(Font)              <6> on input line 3.
 
 
-LaTeX Warning: Reference `mInput' on page i undefined on input line 12.
+LaTeX Warning: Reference `mInput' on page i undefined on input line 15.
 
 )
 \tf@toc=\write4
@@ -374,218 +374,223 @@ LaTeX Warning: Reference `mInput' on page i undefined on input line 12.
 \tf@lof=\write6
 \openout6 = `MG.lof'.
 
- [1]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) 
-has been already used, duplicate ignored
+ [1]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 82.
+
+("C:\Users\Tasin\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.106 ...nter{acnum} \actheacnum \label{acInput}:]
-                                                   Domain name. [1]
+l.86 \item S
+            ection \ref{SecTM} includes two traceability matrices. One check...
+[1] [2] [3]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package natbib Warning: Citation `ParnasEtAl1984' on page 4 undefined on input 
+line 186.
 
 
-Package natbib Warning: Citation `ParnasEtAl1984' on page 2 undefined on input 
-line 181.
-
-[2] [3]
-
-LaTeX Warning: Reference `mInput' on page 4 undefined on input line 219.
-
-
-LaTeX Warning: Reference `mInput' on page 4 undefined on input line 259.
-
-
-LaTeX Warning: Reference `mParams' on page 4 undefined on input line 259.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 259.
-
-
-LaTeX Warning: Reference `mInput' on page 4 undefined on input line 260.
-
-
-LaTeX Warning: Reference `mParams' on page 4 undefined on input line 260.
-
-
-LaTeX Warning: Reference `mVerify' on page 4 undefined on input line 261.
-
-
-LaTeX Warning: Reference `mOutput' on page 4 undefined on input line 262.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 262.
-
-
-LaTeX Warning: Reference `mOutput' on page 4 undefined on input line 263.
-
-
-LaTeX Warning: Reference `mODEs' on page 4 undefined on input line 263.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 263.
-
-
-LaTeX Warning: Reference `mSeqDS' on page 4 undefined on input line 263.
-
-
-LaTeX Warning: Reference `mSolver' on page 4 undefined on input line 263.
-
-
-LaTeX Warning: Reference `mPlot' on page 4 undefined on input line 263.
-
-
-LaTeX Warning: Reference `mOutput' on page 4 undefined on input line 264.
-
-
-LaTeX Warning: Reference `mODEs' on page 4 undefined on input line 264.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 264.
-
-
-LaTeX Warning: Reference `mSeqDS' on page 4 undefined on input line 264.
-
-
-LaTeX Warning: Reference `mSolver' on page 4 undefined on input line 264.
-
-
-LaTeX Warning: Reference `mPlot' on page 4 undefined on input line 264.
-
-
-LaTeX Warning: Reference `mOutput' on page 4 undefined on input line 265.
-
-
-LaTeX Warning: Reference `mEnergy' on page 4 undefined on input line 265.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 265.
-
-
-LaTeX Warning: Reference `mSeqDS' on page 4 undefined on input line 265.
-
-
-LaTeX Warning: Reference `mPlot' on page 4 undefined on input line 265.
-
-
-LaTeX Warning: Reference `mOutput' on page 4 undefined on input line 266.
-
-
-LaTeX Warning: Reference `mEnergy' on page 4 undefined on input line 266.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 266.
-
-
-LaTeX Warning: Reference `mSeqDS' on page 4 undefined on input line 266.
-
-
-LaTeX Warning: Reference `mPlot' on page 4 undefined on input line 266.
-
-
-LaTeX Warning: Reference `mVerifyOut' on page 4 undefined on input line 267.
-
-
-LaTeX Warning: Reference `mOutput' on page 4 undefined on input line 268.
-
-
-LaTeX Warning: Reference `mODEs' on page 4 undefined on input line 268.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 268.
-
-
-LaTeX Warning: Reference `mOutput' on page 4 undefined on input line 269.
-
-
-LaTeX Warning: Reference `mODEs' on page 4 undefined on input line 269.
-
-
-LaTeX Warning: Reference `mEnergy' on page 4 undefined on input line 269.
-
-
-LaTeX Warning: Reference `mControl' on page 4 undefined on input line 269.
+LaTeX Warning: Reference `mInput' on page 4 undefined on input line 224.
 
 [4]
 
-LaTeX Warning: Reference `mInput' on page 5 undefined on input line 283.
+LaTeX Warning: Reference `mInput' on page 5 undefined on input line 264.
 
 
-LaTeX Warning: Reference `acParams' on page 5 undefined on input line 284.
+LaTeX Warning: Reference `mParams' on page 5 undefined on input line 264.
 
 
-LaTeX Warning: Reference `mParams' on page 5 undefined on input line 284.
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 264.
 
 
-LaTeX Warning: Reference `acVerify' on page 5 undefined on input line 285.
+LaTeX Warning: Reference `mInput' on page 5 undefined on input line 265.
 
 
-LaTeX Warning: Reference `mVerify' on page 5 undefined on input line 285.
+LaTeX Warning: Reference `mParams' on page 5 undefined on input line 265.
 
 
-LaTeX Warning: Reference `acOutput' on page 5 undefined on input line 286.
+LaTeX Warning: Reference `mVerify' on page 5 undefined on input line 266.
 
 
-LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 286.
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 267.
 
 
-LaTeX Warning: Reference `acVerifyOut' on page 5 undefined on input line 287.
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 267.
 
 
-LaTeX Warning: Reference `mVerifyOut' on page 5 undefined on input line 287.
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 268.
 
 
-LaTeX Warning: Reference `acODEs' on page 5 undefined on input line 288.
+LaTeX Warning: Reference `mODEs' on page 5 undefined on input line 268.
 
 
-LaTeX Warning: Reference `mODEs' on page 5 undefined on input line 288.
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 268.
 
 
-LaTeX Warning: Reference `acEnergy' on page 5 undefined on input line 289.
+LaTeX Warning: Reference `mSeqDS' on page 5 undefined on input line 268.
 
 
-LaTeX Warning: Reference `mEnergy' on page 5 undefined on input line 289.
+LaTeX Warning: Reference `mSolver' on page 5 undefined on input line 268.
 
 
-LaTeX Warning: Reference `acControl' on page 5 undefined on input line 290.
+LaTeX Warning: Reference `mPlot' on page 5 undefined on input line 268.
 
 
-LaTeX Warning: Reference `mControl' on page 5 undefined on input line 290.
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 269.
 
 
-LaTeX Warning: Reference `acSeqDS' on page 5 undefined on input line 291.
+LaTeX Warning: Reference `mODEs' on page 5 undefined on input line 269.
 
 
-LaTeX Warning: Reference `mSeqDS' on page 5 undefined on input line 291.
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 269.
 
 
-LaTeX Warning: Reference `acSolver' on page 5 undefined on input line 292.
+LaTeX Warning: Reference `mSeqDS' on page 5 undefined on input line 269.
 
 
-LaTeX Warning: Reference `mSolver' on page 5 undefined on input line 292.
+LaTeX Warning: Reference `mSolver' on page 5 undefined on input line 269.
 
 
-LaTeX Warning: Reference `acPlot' on page 5 undefined on input line 293.
+LaTeX Warning: Reference `mPlot' on page 5 undefined on input line 269.
 
 
-LaTeX Warning: Reference `mPlot' on page 5 undefined on input line 293.
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 270.
 
 
-Package natbib Warning: Citation `Parnas1978' on page 5 undefined on input line
- 303.
+LaTeX Warning: Reference `mEnergy' on page 5 undefined on input line 270.
+
+
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 270.
+
+
+LaTeX Warning: Reference `mSeqDS' on page 5 undefined on input line 270.
+
+
+LaTeX Warning: Reference `mPlot' on page 5 undefined on input line 270.
+
+
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 271.
+
+
+LaTeX Warning: Reference `mEnergy' on page 5 undefined on input line 271.
+
+
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 271.
+
+
+LaTeX Warning: Reference `mSeqDS' on page 5 undefined on input line 271.
+
+
+LaTeX Warning: Reference `mPlot' on page 5 undefined on input line 271.
+
+
+LaTeX Warning: Reference `mVerifyOut' on page 5 undefined on input line 272.
+
+
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 273.
+
+
+LaTeX Warning: Reference `mODEs' on page 5 undefined on input line 273.
+
+
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 273.
+
+
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 274.
+
+
+LaTeX Warning: Reference `mODEs' on page 5 undefined on input line 274.
+
+
+LaTeX Warning: Reference `mEnergy' on page 5 undefined on input line 274.
+
+
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 274.
+
+
+LaTeX Warning: Reference `mInput' on page 5 undefined on input line 288.
+
+
+LaTeX Warning: Reference `acParams' on page 5 undefined on input line 289.
+
+
+LaTeX Warning: Reference `mParams' on page 5 undefined on input line 289.
+
+
+LaTeX Warning: Reference `acVerify' on page 5 undefined on input line 290.
+
+
+LaTeX Warning: Reference `mVerify' on page 5 undefined on input line 290.
+
+
+LaTeX Warning: Reference `acOutput' on page 5 undefined on input line 291.
+
+
+LaTeX Warning: Reference `mOutput' on page 5 undefined on input line 291.
+
+
+LaTeX Warning: Reference `acVerifyOut' on page 5 undefined on input line 292.
+
+
+LaTeX Warning: Reference `mVerifyOut' on page 5 undefined on input line 292.
+
+
+LaTeX Warning: Reference `acODEs' on page 5 undefined on input line 293.
+
+
+LaTeX Warning: Reference `mODEs' on page 5 undefined on input line 293.
+
+
+LaTeX Warning: Reference `acEnergy' on page 5 undefined on input line 294.
+
+
+LaTeX Warning: Reference `mEnergy' on page 5 undefined on input line 294.
+
+
+LaTeX Warning: Reference `acControl' on page 5 undefined on input line 295.
+
+
+LaTeX Warning: Reference `mControl' on page 5 undefined on input line 295.
+
+
+LaTeX Warning: Reference `acSeqDS' on page 5 undefined on input line 296.
+
+
+LaTeX Warning: Reference `mSeqDS' on page 5 undefined on input line 296.
+
+
+LaTeX Warning: Reference `acSolver' on page 5 undefined on input line 297.
+
+
+LaTeX Warning: Reference `mSolver' on page 5 undefined on input line 297.
+
+
+LaTeX Warning: Reference `acPlot' on page 5 undefined on input line 298.
+
+
+LaTeX Warning: Reference `mPlot' on page 5 undefined on input line 298.
 
 [5]
+
+Package natbib Warning: Citation `Parnas1978' on page 6 undefined on input line
+ 308.
+
 No file MG.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 325.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 330.
 [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 325.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 330.
  (MG.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 325.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 325.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 330.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 330.
 Package rerunfilecheck Info: File `MG.out' has not changed.
-(rerunfilecheck)             Checksum: 5164E6ECA4A8DEA24EDFE7F262039451;1122.
+(rerunfilecheck)             Checksum: C4B08C34DE28963F3A7CE3FEDDC3206F;1318.
 
 
 LaTeX Warning: There were undefined references.
@@ -593,24 +598,25 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 325.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 330.
  ) 
 Here is how much of TeX's memory you used:
- 5768 strings out of 492970
- 85523 string characters out of 3126594
- 180382 words of memory out of 3000000
- 9550 multiletter control sequences out of 15000+200000
+ 5792 strings out of 492970
+ 85943 string characters out of 3126594
+ 181409 words of memory out of 3000000
+ 9568 multiletter control sequences out of 15000+200000
  9155 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,11n,28p,709b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,11n,28p,709b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb><C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Tasin/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on MG.pdf (8 pages, 95100 bytes).
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tasin/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on MG.pdf (8 pages, 104908 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
- 137 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
