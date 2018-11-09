@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.8)  9 NOV 2018 12:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.8)  9 NOV 2018 12:07
 entering extended mode
 **./MG.tex
 (MG.tex
@@ -247,8 +247,26 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 17.
 \c@acnum=\count106
 \c@ucnum=\count107
 \c@mnum=\count108
+ (MG.aux
 
-No file MG.aux.
+LaTeX Warning: Label `acInput' multiply defined.
+
+
+LaTeX Warning: Label `acInput' multiply defined.
+
+
+LaTeX Warning: Label `acInput' multiply defined.
+
+
+LaTeX Warning: Label `acInput' multiply defined.
+
+
+LaTeX Warning: Label `acInput' multiply defined.
+
+
+LaTeX Warning: Label `acInput' multiply defined.
+
+)
 \openout1 = `MG.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
@@ -323,6 +341,7 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 42.
 LaTeX Info: Redefining \pageref on input line 42.
 LaTeX Info: Redefining \nameref on input line 42.
+ (MG.out) (MG.out)
 \@outlinefile=\write3
 \openout3 = `MG.out'.
 
@@ -332,13 +351,26 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 45.
  [1
 
-{C:/Users/Tasin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/Tasin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (MG.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 3.
+
+
+LaTeX Warning: Reference `mInput' on page i undefined on input line 10.
+
+)
 \tf@toc=\write4
 \openout4 = `MG.toc'.
 
+ (MG.lot)
 \tf@lot=\write5
 \openout5 = `MG.lot'.
 
+ (MG.lof)
 \tf@lof=\write6
 \openout6 = `MG.lof'.
 
@@ -366,59 +398,21 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 Package natbib Warning: Citation `ParnasEtAl1984' on page 1 undefined on input 
 line 87.
 
-
-LaTeX Warning: Reference `SecChange' on page 1 undefined on input line 109.
-
-
-LaTeX Warning: Reference `SecMH' on page 1 undefined on input line 110.
-
-
-LaTeX Warning: Reference `SecConnection' on page 1 undefined on input line 111.
-
-
-
-LaTeX Warning: Reference `SecMD' on page 1 undefined on input line 113.
-
-
-LaTeX Warning: Reference `SecTM' on page 1 undefined on input line 114.
-
-
-LaTeX Warning: Reference `SecUse' on page 1 undefined on input line 117.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.118 
-       [1]
-
-LaTeX Warning: Reference `SecAchange' on page 2 undefined on input line 123.
-
-
-LaTeX Warning: Reference `SecUchange' on page 2 undefined on input line 124.
-
-[2]
-
-LaTeX Warning: Reference `TblMH' on page 3 undefined on input line 166.
-
-
-LaTeX Warning: Reference `TblRT' on page 3 undefined on input line 210.
-
+       [1] [2]
 
 Package natbib Warning: Citation `ParnasEtAl1984' on page 3 undefined on input 
 line 215.
 
 [3]
 
-LaTeX Warning: Reference `mHH' on page 4 undefined on input line 230.
-
-
 LaTeX Warning: Reference `mInput' on page 4 undefined on input line 253.
 
 [4]
-
-LaTeX Warning: Reference `mHH' on page 5 undefined on input line 293.
-
 
 LaTeX Warning: Reference `mInput' on page 5 undefined on input line 293.
 
@@ -534,15 +528,6 @@ LaTeX Warning: Reference `mEnergy' on page 5 undefined on input line 303.
 LaTeX Warning: Reference `mControl' on page 5 undefined on input line 303.
 
 
-LaTeX Warning: Reference `acHardware' on page 5 undefined on input line 316.
-
-
-LaTeX Warning: Reference `mHH' on page 5 undefined on input line 316.
-
-
-LaTeX Warning: Reference `acInput' on page 5 undefined on input line 317.
-
-
 LaTeX Warning: Reference `mInput' on page 5 undefined on input line 317.
 
 
@@ -610,9 +595,6 @@ LaTeX Warning: Reference `mPlot' on page 5 undefined on input line 327.
 Package natbib Warning: Citation `Parnas1978' on page 6 undefined on input line
  337.
 
-
-LaTeX Warning: Reference `FigUH' on page 6 undefined on input line 341.
-
 No file MG.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -630,21 +612,21 @@ Package rerunfilecheck Warning: File `MG.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `MG.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  517FEE8C4A2CC6FE054A483451796E1B;1006.
+(rerunfilecheck)             Before: 517FEE8C4A2CC6FE054A483451796E1B;1006
+(rerunfilecheck)             After:  02143F26ECAA1CB40D96EE30B0EACCF7;1005.
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 359.
  ) 
 Here is how much of TeX's memory you used:
- 5753 strings out of 492970
- 85163 string characters out of 3126594
- 180475 words of memory out of 3000000
- 9546 multiletter control sequences out of 15000+200000
+ 5781 strings out of 492970
+ 85793 string characters out of 3126594
+ 181382 words of memory out of 3000000
+ 9562 multiletter control sequences out of 15000+200000
  9155 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,11n,28p,709b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -654,9 +636,9 @@ blic/amsfonts/cm/cmr12.pfb><C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Tasin/AppData/Local/Programs/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tasin/AppData/Loc
 al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on MG.pdf (8 pages, 91909 bytes).
+Output written on MG.pdf (8 pages, 103247 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 186 PDF objects out of 1000 (max. 8388607)
  42 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

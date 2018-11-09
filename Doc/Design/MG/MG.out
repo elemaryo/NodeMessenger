@@ -5,7 +5,7 @@
 \BOOKMARK [1][-]{section.3}{Module Hierarchy}{}% 5
 \BOOKMARK [1][-]{section.4}{Connection Between Requirements and Design}{}% 6
 \BOOKMARK [1][-]{section.5}{Module Decomposition}{}% 7
-\BOOKMARK [2][-]{subsection.5.1}{Hardware Hiding Modules \(M??\)}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Hardware Hiding Modules \(M1\)}{section.5}% 8
 \BOOKMARK [2][-]{subsection.5.2}{Behaviour-Hiding Module}{section.5}% 9
 \BOOKMARK [3][-]{subsubsection.5.2.1}{Input Format Module \(M??\)}{subsection.5.2}% 10
 \BOOKMARK [3][-]{subsubsection.5.2.2}{Etc.}{subsection.5.2}% 11
