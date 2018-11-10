@@ -92,15 +92,13 @@ The rest of the document is organized as follows:
 
 \subsection{Anticipated Changes} \label{SecAchange}
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the HTML, CSS, and Javascript files.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The color theme of the messaging app.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the message box.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the Login/Register screen.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] Domain name.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] Addition or removal of Buttons, and their functions.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The Graphical User Interference for sending and receiving messages.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The settings available to every user.
+\item[\refstepcounter{acnum} \actheacnum \label{acColor}:] The color theme of the messaging app.
+\item[\refstepcounter{acnum} \actheacnum \label{acMessage}:] The format of the message box.
+\item[\refstepcounter{acnum} \actheacnum \label{acLogin}:] The format of the Login/Register screen.
+\item[\refstepcounter{acnum} \actheacnum \label{acDomain}:] Domain name.
+\item[\refstepcounter{acnum} \actheacnum \label{acButtons}:] Addition or removal of Buttons, and their functions.
+\item[\refstepcounter{acnum} \actheacnum \label{acGUI}:] The Graphical User Interference for sending and receiving messages.
+\item[\refstepcounter{acnum} \actheacnum \label{acSettings}:] The settings available to every user.
 \end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
@@ -125,17 +123,17 @@ actually be implemented.
 		\midrule
 		Hardware Hiding Module & M1\\
 		\midrule
-		Login Module & M2\\
+		Login Module \label{login} & M2\\
 		\midrule
-		Sign up Module & M3\\
+		Sign up Module \label{signup} & M3\\
 		\midrule
-		Sign in Module & M4\\
+		Sign in Module \label{sigin} & M4\\
 		\midrule
-		Chat Module & M5\\
+		Chat Module \label{chat} & M5\\
 		\midrule
-		App Module & M6\\
+		App Module \label{app} & M6\\
 		\midrule
-		Index Module & M7\\
+		Index Module \label{index} & M7\\
 		\bottomrule
 	\end{tabular}
 	\caption{Module Number Format}
@@ -311,18 +309,13 @@ R18 & M5\\
 \toprule
 \textbf{AC} & \textbf{Modules}\\
 \midrule
-\acref{acHardware} & \mref{mHH}\\
-\acref{acInput} & \mref{mInput}\\
-\acref{acParams} & \mref{mParams}\\
-\acref{acVerify} & \mref{mVerify}\\
-\acref{acOutput} & \mref{mOutput}\\
-\acref{acVerifyOut} & \mref{mVerifyOut}\\
-\acref{acODEs} & \mref{mODEs}\\
-\acref{acEnergy} & \mref{mEnergy}\\
-\acref{acControl} & \mref{mControl}\\
-\acref{acSeqDS} & \mref{mSeqDS}\\
-\acref{acSolver} & \mref{mSolver}\\
-\acref{acPlot} & \mref{mPlot}\\
+\acref{acColor} & M2, M3, M4, M5, M6, M7\\
+\acref{acMessage} & M5\\
+\acref{acLogin} & M2\\
+\acref{acDomain} & M7\\
+\acref{acButtons} & M2, M3, M4\\
+\acref{acGUI} & M5\\
+\acref{acSettings} & M5\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Anticipated Changes and Modules}
@@ -344,7 +337,7 @@ because they use modules from the lower levels.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+\includegraphics[width=0.5\textwidth]{usesHierarchy.png}
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}

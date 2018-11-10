@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.9)  9 NOV 2018 21:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.9)  9 NOV 2018 23:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -234,27 +234,6 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 17.
 \c@mnum=\count108
  (./MG.aux
 
-LaTeX Warning: Label `acInput' multiply defined.
-
-
-LaTeX Warning: Label `acInput' multiply defined.
-
-
-LaTeX Warning: Label `acInput' multiply defined.
-
-
-LaTeX Warning: Label `acInput' multiply defined.
-
-
-LaTeX Warning: Label `acInput' multiply defined.
-
-
-LaTeX Warning: Label `acInput' multiply defined.
-
-
-LaTeX Warning: Label `acInput' multiply defined.
-
-
 LaTeX Warning: Label `ucIO' multiply defined.
 
 
@@ -378,106 +357,41 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
  [2] [3]
 
 Package natbib Warning: Citation `ParnasEtAl1984' on page 4 undefined on input 
-line 182.
+line 180.
 
-[4] [5]
-
-LaTeX Warning: Reference `mHH' on page 6 undefined on input line 314.
-
-
-LaTeX Warning: Reference `mInput' on page 6 undefined on input line 315.
-
-
-LaTeX Warning: Reference `acParams' on page 6 undefined on input line 316.
-
-
-LaTeX Warning: Reference `mParams' on page 6 undefined on input line 316.
-
-
-LaTeX Warning: Reference `acVerify' on page 6 undefined on input line 317.
-
-
-LaTeX Warning: Reference `mVerify' on page 6 undefined on input line 317.
-
-
-LaTeX Warning: Reference `acOutput' on page 6 undefined on input line 318.
-
-
-LaTeX Warning: Reference `mOutput' on page 6 undefined on input line 318.
-
-
-LaTeX Warning: Reference `acVerifyOut' on page 6 undefined on input line 319.
-
-
-LaTeX Warning: Reference `mVerifyOut' on page 6 undefined on input line 319.
-
-
-LaTeX Warning: Reference `acODEs' on page 6 undefined on input line 320.
-
-
-LaTeX Warning: Reference `mODEs' on page 6 undefined on input line 320.
-
-
-LaTeX Warning: Reference `acEnergy' on page 6 undefined on input line 321.
-
-
-LaTeX Warning: Reference `mEnergy' on page 6 undefined on input line 321.
-
-
-LaTeX Warning: Reference `acControl' on page 6 undefined on input line 322.
-
-
-LaTeX Warning: Reference `mControl' on page 6 undefined on input line 322.
-
-
-LaTeX Warning: Reference `acSeqDS' on page 6 undefined on input line 323.
-
-
-LaTeX Warning: Reference `mSeqDS' on page 6 undefined on input line 323.
-
-
-LaTeX Warning: Reference `acSolver' on page 6 undefined on input line 324.
-
-
-LaTeX Warning: Reference `mSolver' on page 6 undefined on input line 324.
-
-
-LaTeX Warning: Reference `acPlot' on page 6 undefined on input line 325.
-
-
-LaTeX Warning: Reference `mPlot' on page 6 undefined on input line 325.
-
-[6]
+[4] [5] [6]
 
 Package natbib Warning: Citation `Parnas1978' on page 7 undefined on input line
- 335.
+ 328.
 
+<usesHierarchy.png, id=201, 362.35374pt x 382.42876pt>
+File: usesHierarchy.png Graphic file (type png)
+<use usesHierarchy.png>
+Package pdftex.def Info: usesHierarchy.png  used on input line 340.
+(pdftex.def)             Requested size: 234.8775pt x 247.89299pt.
 No file MG.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 357.
-[7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 357.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
+[7 <./usesHierarchy.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
  (./MG.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 357.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 357.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 350.
 Package rerunfilecheck Info: File `MG.out' has not changed.
 (rerunfilecheck)             Checksum: 5B897FC1254089C4B0E1753A6F385002;1530.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 357.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
  ) 
 Here is how much of TeX's memory you used:
- 5803 strings out of 492639
- 83913 string characters out of 6133088
- 180857 words of memory out of 5000000
- 9587 multiletter control sequences out of 15000+600000
+ 5796 strings out of 492639
+ 83894 string characters out of 6133088
+ 180257 words of memory out of 5000000
+ 9580 multiletter control sequences out of 15000+600000
  9155 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,11n,28p,715b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -486,10 +400,10 @@ live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2018/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti12.pfb>
-Output written on MG.pdf (9 pages, 87323 bytes).
+Output written on MG.pdf (9 pages, 94069 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 241 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 190 words of extra memory for PDF output out of 10000 (max. 10000000)
 
