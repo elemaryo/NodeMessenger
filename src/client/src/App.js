@@ -86,7 +86,7 @@ class App extends Component {
 	}
 
 	handleSignOut = () => {
-		console.log('singing out')
+		console.log('signing out')
 		this.props.firebase.auth().signOut().then(function() {
 			// Sign-out successful.
 		  }).catch(function(error) {

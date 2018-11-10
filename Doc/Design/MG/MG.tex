@@ -31,10 +31,10 @@
 
 \title{SE 3XA3: Software Requirements Specification\\Title of Project}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team \#24, Node Messenger
+		\\ Tasin Ahmed - ahmedm31
+		\\ Shardool Patel - pates25
+		\\ Omar Elemary - elemaryo
 }
 
 \date{\today}
@@ -59,7 +59,7 @@ Revision 0 & Date 1 & Notes \\
 Revision 1 & Date 2 & Notes \\ 
 \hline 
 \end{tabular} 
-\caption{My caption}
+\caption{Revision Control}
 \label{my-label}
 \end{table}
 
@@ -67,7 +67,7 @@ Revision 1 & Date 2 & Notes \\
 
 \section{Introduction}
 \subsection{Overview}
-As the world becomes increasingly more connected through the internet, many common internet users are looking for an easy way to communicate with each other or reach out to distant loved ones. The market for messengers has become saturated with products that put the goal of earning maximum revenue over the needs of the consumer. NodeM's focus is to capture consumer interest by implementing a free and accessible web application messenger that allows them to personalize their experience and chat with other users in a simple, clean and non-intrusive way. Node messenger will become a haven for users searching for a consumer-friendly product with great functionality and cross-platform support.
+As the world becomes increasingly more connected through the internet, many common internet users are looking for an easy way to communicate with each other or reach out to distant loved ones. The market for messengers has become saturated with products that put the goal of earning maximum revenue over the needs of the consumer. Node Messenger's focus is to capture consumer interest by implementing a free and accessible web application messenger that allows them to personalize their experience and chat with other users in a simple, clean and non-intrusive way. Node messenger will become a haven for users searching for a consumer-friendly product with great functionality and cross-platform support.
 
 \subsection{Context}
 This document is the Module Guide (MG), created after the completion of the Software Requirements Specifications (SRS. The SRS lists the functional and non-functional requirements for the development of the project. The MG shows how the project meets the functional and non-functional requirements mentioned in the SRS, as well as showing how the modules are broken up in the project.
@@ -75,6 +75,7 @@ This document is the Module Guide (MG), created after the completion of the Soft
 Following the creation of the MG, comes the creation of the Module Interface Specification (MIS). The MIS specifies the functions of each of the modules mentioned in the MG. It does so by documenting the variables, inputs, outputs, and exceptions for each module. 
 
 \subsection{Design Principles}
+There are two main we will be using for our project is Encapsulation and Abstraction. Encapsulation is when objects keep their states private, in a class. We will be using encapsulation in order to hide sensitive user information from being accessed by others. This can include the user's email, password, name, phone number etc. Abstraction will be used to make our messaging app more user friendly and eaasy to use. If the user has used other messaging apps prior to NodeM, they should have the necessary knowledge required to use our app already.
 
 \subsection{Document Structure}
 The rest of the document is organized as follows: 
@@ -104,24 +105,42 @@ The rest of the document is organized as follows:
 
 \subsection{Unlikely Changes} \label{SecUchange}
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be
-  a source of input data external to the software.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] The programming languages.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] The format of React components.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] The goal of the project: send and receive messages from other users.
 \end{description}
 
 \section{Module Hierarchy} \label{SecMH}
 
 This section provides an overview of the module design. Modules are summarized
-in a hierarchy decomposed by secrets in Table \ref{TblMH}. The modules listed
-below, which are leaves in the hierarchy tree, are the modules that will
+in a hierarchy decomposed by secrets in Table \ref{TblMH}. The  modules listed
+below in Table \ref{TblMHH}, which are leaves in the hierarchy tree, are the modules that will
 actually be implemented.
 
-\begin{description}
-\item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
-\end{description}
-
+\begin{table}[!htbp]
+	\begin{tabular}{ll}
+		\toprule
+		Module Name & Module Number \\
+		\midrule
+		Hardware Hiding Module & M1\\
+		\midrule
+		Login Module & M2\\
+		\midrule
+		Sign up Module & M3\\
+		\midrule
+		Sign in Module & M4\\
+		\midrule
+		Chat Module & M5\\
+		\midrule
+		App Module & M6\\
+		\midrule
+		Index Module & M7\\
+		\bottomrule
+	\end{tabular}
+	\caption{Module Number Format}
+	\label{TblMHH}
+\end{table}
 
 \begin{table}[h!]
 \centering
@@ -133,25 +152,23 @@ actually be implemented.
 {Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}\\
+& Index Module\\
+& Login Module\\
+& Sign in Module\\
+& Sign up Module\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & App Module\\
+& Chat Module\\
 \bottomrule
 
 \end{tabular}
 \caption{Module Hierarchy}
 \label{TblMH}
 \end{table}
+
+\newpage
 
 \section{Connection Between Requirements and Design} \label{SecConnection}
 
@@ -177,7 +194,7 @@ that the module is not a leaf and will not have to be implemented. Whether or
 not this module is implemented depends on the programming language
 selected.
 
-\subsection{Hardware Hiding Modules (\mref{mHH})}
+\subsection{Hardware Hiding Modules M1}
 
 \begin{description}
 \item[Secrets:]The data structure and algorithm used to implement the virtual
@@ -200,16 +217,35 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{Index Module M7}
 
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
+\item[Secrets:]Components used for web application.
+\item[Services:]Generates API and element setup required to produce functioning web application.
+\item[Implemented By:] React, HTML, JavaScript, CSS
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Sign in Module M4}
+\begin{description}
+\item[Secrets:]Sign in implementation.
+\item[Services:]Describes and renders \textit{Sign in} logic and it's handles.
+\item[Implemented By:] React, JavaScript
+\end{description}
+
+\subsubsection{Sign up Module M3}
+\begin{description}
+\item[Secrets:]Sign up implementation.
+\item[Services:]Describes and renders \textit{Sign up} logic and it's handles.
+\item[Implemented By:] React, JavaScript
+\end{description}
+
+\subsubsection{Login Module M2}
+\begin{description}
+\item[Secrets:]Sign in and Sign up implementation.
+\item[Services:]Renders login web page utilizing \textit{Sign in} and \textit{Sign up} modules.
+\item[Implemented By:] React, JavaScript, CSS
+\end{description}
+
 
 
 \subsection{Software Decision Module}
@@ -225,7 +261,19 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{App Module M6}
+\begin{description}
+\item[Secrets:]Sign in, Sign up, Sign out authentication.
+\item[Services:]Initializes and renders web app components while implementing their logic and handles.
+\item[Implemented By:] React, JavaScript, CSS
+\end{description}
+
+\subsubsection{Chat Module M5}
+\begin{description}
+\item[Secrets:]Input, Output.
+\item[Services:]Converts the input data into output messages sent by the user.
+\item[Implemented By:] React, JavaScript, CSS
+\end{description}
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -240,22 +288,22 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+R1 & M6, M7\\
+R2 & M2, M4, M6\\
+R3 & M2, M4, M6\\
+R4 & M2, M4, M6\\
+R5 & M2, M3, M6\\
+R7 & M5\\
+R14 & M5\\
+R15 & M5\\
+R18 & M5\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
 \label{TblRT}
 \end{table}
+
+\textbf{NOTE: SOME REQUIREMENTS LISTED IN SRS DOCUMENT ARE NO LONGER IN THE SCOPE OF THE PROJECT AND WILL BE UPDATED IN REVISION 1}
 
 \begin{table}[H]
 \centering
