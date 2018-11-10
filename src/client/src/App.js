@@ -18,12 +18,15 @@ const LoadingScreen = () => (
 		</div>
 	</header>
 )
+
+/**
+ * App component
+ */
 class App extends Component {
 
 	constructor(props){
 		super(props);
 			this.state = {
-				uid: '',
 				authChecked: false,
 				user: null,
 			}
@@ -36,7 +39,7 @@ class App extends Component {
 			this.setState({user: user, authChecked: true})
 		})
 	}
-	
+	/*
 	signIn = (email, password) => {
 		// this.props.firebase.auth().setPersistence(this.props.firebase.auth.Auth.Persistence.LOCAL)
 		// 			.then((userData) => {
@@ -51,6 +54,7 @@ class App extends Component {
 
 		
 	  }
+	  */
 	handleSignIn = (email, password) => {
 		this.props.firebase.auth().signInWithEmailAndPassword(email, password)
 					.then((userData) => {
@@ -74,7 +78,7 @@ class App extends Component {
 					.then((userData) => {
 						//Sign-Up process automatically signs in user 
 						//so repeat the same process here as sign in
-						this.signIn(email, password)
+						//this.signIn(email, password)
 					})
 					.catch((error) =>{console.log(error)})
 

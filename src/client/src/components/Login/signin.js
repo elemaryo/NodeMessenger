@@ -8,17 +8,10 @@ class SignIn extends React.Component {
     handleChange = (e) => this.setState({ [e.target.id]: e.target.value })
   
     handleSubmit = () => {
-    
       const { email, password } = this.state
       if (email && password){
         this.props.onSignIn(email, password);
       }
-    }
-  
-    
-    toggleLogin = () => {
-        //here change the state to show sign up page
-
     }
     render() { 
         return (

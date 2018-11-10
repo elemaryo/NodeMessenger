@@ -21,16 +21,17 @@ const ContactCard = props => (
   </div>
 )
 
-
+/**
+ * 
+ */
 class Chat extends React.Component {
     constructor(props) {
         super(props)
         this.state = { 
-		  contacts: [],
-		  user: this.props.user,
-          messages: [],
-		  socket: null,
-		  currentMessage: ''
+					contacts: [],
+					user: this.props.user,
+					messages: [],
+					socket: null,
          }
     }
 
@@ -62,17 +63,15 @@ class Chat extends React.Component {
 
     sendMessage = (e) => {
 	  //this.state.socket.emit('private message', {to: 'john', data: message})
-	  e.preventDefault();
-	  const input = document.getElementById('message-input')
-	  const message = {alignment:'r', data: input.value}
-	  input.value = ''
-	  this.state.socket.emit('message', {message: message.data})
-      this.setState({messages: [...this.state.messages, message]})
+			e.preventDefault();
+			const input = document.getElementById('message-input')
+			const message = {alignment:'r', data: input.value}
+			input.value = ''
+			this.state.socket.emit('message', {message: message.data})
+			this.setState({messages: [...this.state.messages, message]})
     }
 
-    showMessages = (alignment, data) => {
-		
-    }
+    
 
     render() { 
 

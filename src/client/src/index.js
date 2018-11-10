@@ -20,7 +20,7 @@ firebase.initializeApp(config)
 
 var database = firebase.database()
 
-  ReactDOM.render(<App firebase={firebase}/>, document.getElementById('root'))
+ReactDOM.render(<App firebase={firebase}/>, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
