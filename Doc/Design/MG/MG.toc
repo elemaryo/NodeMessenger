@@ -10,11 +10,11 @@
 \contentsline {section}{\numberline {4}Module Hierarchy}{2}{section.4}
 \contentsline {section}{\numberline {5}Connection Between Requirements and Design}{3}{section.5}
 \contentsline {section}{\numberline {6}Module Decomposition}{3}{section.6}
-\contentsline {subsection}{\numberline {6.1}Hardware Hiding Modules (M\ref {mHH})}{3}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.1}Hardware Hiding Modules (M\ref {mHH})}{4}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Behaviour-Hiding Module}{4}{subsection.6.2}
 \contentsline {subsubsection}{\numberline {6.2.1}Input Format Module (M\ref {mInput})}{4}{subsubsection.6.2.1}
 \contentsline {subsubsection}{\numberline {6.2.2}Etc.}{4}{subsubsection.6.2.2}
 \contentsline {subsection}{\numberline {6.3}Software Decision Module}{4}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Etc.}{4}{subsubsection.6.3.1}
-\contentsline {section}{\numberline {7}Traceability Matrix}{4}{section.7}
-\contentsline {section}{\numberline {8}Use Hierarchy Between Modules}{5}{section.8}
+\contentsline {subsubsection}{\numberline {6.3.1}Etc.}{5}{subsubsection.6.3.1}
+\contentsline {section}{\numberline {7}Traceability Matrix}{5}{section.7}
+\contentsline {section}{\numberline {8}Use Hierarchy Between Modules}{6}{section.8}
