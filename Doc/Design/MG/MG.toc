@@ -3,7 +3,7 @@
 \contentsline {subsection}{\numberline {2.1}Overview}{1}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Context}{1}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Design Principles}{1}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Document Structure}{1}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Document Structure}{2}{subsection.2.4}
 \contentsline {section}{\numberline {3}Anticipated and Unlikely Changes}{2}{section.3}
 \contentsline {subsection}{\numberline {3.1}Anticipated Changes}{2}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Unlikely Changes}{2}{subsection.3.2}
