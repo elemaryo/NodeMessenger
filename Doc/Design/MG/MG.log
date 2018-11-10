@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.8)  9 NOV 2018 20:56
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.8)  9 NOV 2018 20:54
+>>>>>>> Tasin
 entering extended mode
 **./MG.tex
 (MG.tex
@@ -275,9 +279,12 @@ LaTeX Warning: Label `ucIO' multiply defined.
 
 LaTeX Warning: Label `ucIO' multiply defined.
 
+<<<<<<< HEAD
 
 LaTeX Warning: Label `ucIO' multiply defined.
 
+=======
+>>>>>>> Tasin
 )
 \openout1 = `MG.aux'.
 
@@ -630,9 +637,15 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 324.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  5794 strings out of 492970
  85959 string characters out of 3126594
  181392 words of memory out of 3000000
+=======
+ 5796 strings out of 492970
+ 85973 string characters out of 3126594
+ 181424 words of memory out of 3000000
+>>>>>>> Tasin
  9569 multiletter control sequences out of 15000+200000
  9155 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -643,9 +656,13 @@ blic/amsfonts/cm/cmr12.pfb><C:/Users/Tasin/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Tasin/AppData/Local/Programs/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tasin/AppData/Loc
 al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+<<<<<<< HEAD
 Output written on MG.pdf (8 pages, 103626 bytes).
+=======
+Output written on MG.pdf (8 pages, 103509 bytes).
+>>>>>>> Tasin
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 48 named destinations out of 1000 (max. 500000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 50 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
