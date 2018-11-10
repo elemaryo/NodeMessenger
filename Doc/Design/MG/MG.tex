@@ -59,7 +59,7 @@ Revision 0 & Date 1 & Notes \\
 Revision 1 & Date 2 & Notes \\ 
 \hline 
 \end{tabular} 
-\caption{My caption}
+\caption{Revision Control}
 \label{my-label}
 \end{table}
 
@@ -125,9 +125,9 @@ actually be implemented.
 		\midrule
 		Hardware Hiding Module & M1\\
 		\midrule
-		Sign up Module & M2\\
+		Login Module & M2\\
 		\midrule
-		Login Module & M3\\
+		Sign up Module & M3\\
 		\midrule
 		Sign in Module & M4\\
 		\midrule
@@ -154,13 +154,12 @@ actually be implemented.
 
 \multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}\\
 & Index Module\\
-& App Module\\
 & Login Module\\
+& Sign in Module\\
+& Sign up Module\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module}\\
-& Sign up Module\\
-& Sign in Module\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & App Module\\
 & Chat Module\\
 \bottomrule
 
@@ -168,6 +167,8 @@ actually be implemented.
 \caption{Module Hierarchy}
 \label{TblMH}
 \end{table}
+
+\newpage
 
 \section{Connection Between Requirements and Design} \label{SecConnection}
 
@@ -193,7 +194,7 @@ that the module is not a leaf and will not have to be implemented. Whether or
 not this module is implemented depends on the programming language
 selected.
 
-\subsection{Hardware Hiding Modules (\mref{mHH})}
+\subsection{Hardware Hiding Modules M1}
 
 \begin{description}
 \item[Secrets:]The data structure and algorithm used to implement the virtual
@@ -216,16 +217,35 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{Index Module M7}
 
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
+\item[Secrets:]Components used for web application.
+\item[Services:]Generates API and element setup required to produce functioning web application.
+\item[Implemented By:] React, HTML, JavaScript, CSS
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Sign in Module M4}
+\begin{description}
+\item[Secrets:]Sign in implementation.
+\item[Services:]Describes and renders \textit{Sign in} logic and it's handles.
+\item[Implemented By:] React, JavaScript
+\end{description}
+
+\subsubsection{Sign up Module M3}
+\begin{description}
+\item[Secrets:]Sign up implementation.
+\item[Services:]Describes and renders \textit{Sign up} logic and it's handles.
+\item[Implemented By:] React, JavaScript
+\end{description}
+
+\subsubsection{Login Module M2}
+\begin{description}
+\item[Secrets:]Sign in and Sign up implementation.
+\item[Services:]Renders login web page utilizing \textit{Sign in} and \textit{Sign up} modules.
+\item[Implemented By:] React, JavaScript, CSS
+\end{description}
+
 
 
 \subsection{Software Decision Module}
@@ -241,7 +261,19 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{App Module M6}
+\begin{description}
+\item[Secrets:]Sign in, Sign up, Sign out authentication.
+\item[Services:]Initializes and renders web app components while implementing their logic and handles.
+\item[Implemented By:] React, JavaScript, CSS
+\end{description}
+
+\subsubsection{Chat Module M5}
+\begin{description}
+\item[Secrets:]Input, Output.
+\item[Services:]Converts the input data into output messages sent by the user.
+\item[Implemented By:] React, JavaScript, CSS
+\end{description}
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -256,22 +288,22 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+R1 & M6, M7\\
+R2 & M2, M4, M6\\
+R3 & M2, M4, M6\\
+R4 & M2, M4, M6\\
+R5 & M2, M3, M6\\
+R7 & M5\\
+R14 & M5\\
+R15 & M5\\
+R18 & M5\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
 \label{TblRT}
 \end{table}
+
+\textbf{NOTE: SOME REQUIREMENTS LISTED IN SRS DOCUMENT ARE NO LONGER IN THE SCOPE OF THE PROJECT AND WILL BE UPDATED IN REVISION 1}
 
 \begin{table}[H]
 \centering
