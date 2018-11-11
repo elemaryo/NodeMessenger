@@ -112,7 +112,7 @@ class Chat extends React.Component {
 					</div>
 					<div>
 					<Form id='message-box' autocomplete='off' onSubmit={this.sendMessage}>
-						<Input id='message-input' fluid icon={<Icon name='send' color='blue' circular link />} placeholder='Type a message' />
+						<Input id='message-input' fluid icon={<Icon name='send' color='blue' onClick={this.sendMessage} circular link />} placeholder='Type a message' />
 					</Form>  
 					</div>
 				</div>
