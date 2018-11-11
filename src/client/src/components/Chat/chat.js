@@ -76,7 +76,12 @@ class Chat extends React.Component {
     render() { 
 
 		const conversation = this.state.messages.map((messageData, index) => {
-			return(<Message key={index} alignment={messageData.alignment} message={messageData.data}/>)
+			if(messageData.data !== ""){
+				return(<Message key={index} alignment={messageData.alignment} message={messageData.data}/>)
+			}
+			else{
+				return null
+			}
 		})
 
 		const contacts = this.state.contacts.map((name) => {
