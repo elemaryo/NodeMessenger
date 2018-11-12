@@ -62,13 +62,15 @@ class Chat extends React.Component {
     }
 
     sendMessage = (e) => {
-	  //this.state.socket.emit('private message', {to: 'john', data: message})
+		//this.state.socket.emit('private message', {to: 'john', data: message})
 			e.preventDefault();
 			const input = document.getElementById('message-input')
 			const message = {alignment:'r', data: input.value}
 			input.value = ''
 			this.state.socket.emit('message', {message: message.data})
 			this.setState({messages: [...this.state.messages, message]})
+			var elem = document.getElementById('message-area');
+  		elem.scrollTop = elem.scrollHeight;
     }
 
     
@@ -107,7 +109,7 @@ class Chat extends React.Component {
 				</div>
 				<div id='chat-divider'/>
 				<div id='chat-message-box'>
-					<div className='message-area'> 
+					<div id='message-area'> 
 						{conversation}
 					</div>
 					<div>
