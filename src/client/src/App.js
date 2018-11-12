@@ -10,7 +10,7 @@ const LoadingScreen = () => (
 	<header className="App-header">
 		<div>
 			<div>
-				<img src={appLogo} className="AppLogo"/>
+				<img alt="Logo" src={appLogo} className="AppLogo"/>
 			</div>
 			<div>
 				<img src={logo} className="Loading-logo" alt="Loading" />
