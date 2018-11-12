@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, TextArea, Form, Input, Icon, Header, Image, Container, Segment, Comment, Divider } from 'semantic-ui-react'
+import { Form, Input, Icon, Header, Image, Divider } from 'semantic-ui-react'
 import './chat.css'
 import appLogo from '../../res/applogo.svg'
 import io from 'socket.io-client'
