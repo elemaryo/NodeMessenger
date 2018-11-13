@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, TextArea, Form, Input, Icon, Header, Image, Container, Segment, Comment, Divider } from 'semantic-ui-react'
+import { Form, Input, Icon, Header, Image, Divider } from 'semantic-ui-react'
 import './chat.css'
 import appLogo from '../../res/applogo.svg'
 import io from 'socket.io-client'
@@ -62,13 +62,15 @@ class Chat extends React.Component {
     }
 
     sendMessage = (e) => {
-	  //this.state.socket.emit('private message', {to: 'john', data: message})
+		//this.state.socket.emit('private message', {to: 'john', data: message})
 			e.preventDefault();
 			const input = document.getElementById('message-input')
 			const message = {alignment:'r', data: input.value}
 			input.value = ''
 			this.state.socket.emit('message', {message: message.data})
 			this.setState({messages: [...this.state.messages, message]})
+			var elem = document.getElementById('message-area');
+  		elem.scrollTop = elem.scrollHeight;
     }
 
     
@@ -76,7 +78,12 @@ class Chat extends React.Component {
     render() { 
 
 		const conversation = this.state.messages.map((messageData, index) => {
-			return(<Message key={index} alignment={messageData.alignment} message={messageData.data}/>)
+			if(messageData.data !== ""){
+				return(<Message key={index} alignment={messageData.alignment} message={messageData.data}/>)
+			}
+			else{
+				return null
+			}
 		})
 
 		const contacts = this.state.contacts.map((name) => {
@@ -102,12 +109,12 @@ class Chat extends React.Component {
 				</div>
 				<div id='chat-divider'/>
 				<div id='chat-message-box'>
-					<div className='message-area'> 
+					<div id='message-area'> 
 						{conversation}
 					</div>
 					<div>
-					<Form id='message-box' autocomplete='off' onSubmit={this.sendMessage}>
-						<Input id='message-input' fluid icon={<Icon name='send' color='blue' circular link />} placeholder='Type a message' />
+					<Form id='message-box' autoComplete='off' onSubmit={this.sendMessage}>
+						<Input id='message-input' fluid icon={<Icon name='send' color='blue' onClick={this.sendMessage} circular link />} placeholder='Type a message' />
 					</Form>  
 					</div>
 				</div>

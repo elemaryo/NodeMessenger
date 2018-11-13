@@ -11,7 +11,7 @@ class Signup extends React.Component {
       
       const { emailUp, passwordUp, confirmPasswordUp } = this.state
       console.log(emailUp)
-      if (passwordUp == confirmPasswordUp){
+      if (passwordUp === confirmPasswordUp){
         this.props.onSignUp(emailUp, passwordUp);
       }
     }
