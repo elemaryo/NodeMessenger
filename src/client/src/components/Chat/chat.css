@@ -13,8 +13,10 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-#chat-contacts-sidebar{
-    padding: 1em 0.7em 0.5em 0.5em;
+#chat-conversation-sidebar{
+    padding: 2em;
+    display: grid;
+    grid-template-rows: 4em auto;
 }
 
 #chat-message-box{
@@ -25,9 +27,15 @@
 }
 
 
-/******* CONTACT CARD STYLING *******/
+/******* CONVERSATION CARD STYLING *******/
 
-.contacts-card{
+#conversation-container{
+    display: grid;
+    grid-template-rows: 10fr;
+    height: 100%;
+    padding-top: 0.7em;
+}
+.conversation-card{
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 2fr 3fr;
@@ -40,35 +48,90 @@
     cursor: pointer;
 }
 
-#contacts-signout{
+#conversation-signout{
     background-color: #fff;
     border-radius: 0.2em;
-    padding: 1em;
+    padding: 0.5em;
     cursor: pointer;
 }
 
+#conversation-signout:hover{
+    opacity: 0.9;
+}
 
-#contacts-icon{
+#conversation-addConv:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+#conversation-icon{
     grid-row: 1 / 3;  
     margin: auto;
     padding-left: 1em;
 }
 
-#contacts-info{
+#conversation-info{
     padding: 0.3em;
     padding-top: 0.6em;
 }
 
-#contacts-last-message{
+#conversation-last-message{
   
 }
 
+
+
+#conversation-usercontrols{
+    display: grid;
+    grid-template-columns: auto 8em;
+    margin-bottom: 0;
+    
+}
+
+/******* POP UP STYLING *******/
+#popup-container{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 100vh;
+    width: 100vw;
+    top: 0%;
+    left: 0%;
+    z-index: 10;
+}
+
+#popup-title{
+    display: grid;
+    grid-template-columns: 16fr 1fr;
+}
+
+#popup-icon{
+    margin-right: 0;
+}
+#popup-addConversation{
+    position: absolute;
+    background-color: rgba(13, 17, 18, 0.94);
+    width: 30em;
+    height: 20em;
+    padding: 1em;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 50vw;
+    text-align: center;
+    border-radius: 0.4em;
+
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+#popup-emailInput{
+    width: 100%;
+}
 
 /******* MESSAGE AREA STYLING *******/
 
 #message-area{
     overflow-y: auto;
-    background: rgb(34, 34, 34);
+   
     margin-bottom: 15px;
     padding: 15px;
     border-radius: 0.5em;

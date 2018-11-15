@@ -9,10 +9,10 @@ class Signup extends React.Component {
   
     handleSubmit = () => {
       
-      const { emailUp, passwordUp, confirmPasswordUp } = this.state
+      const { emailUp, passwordUp, confirmPasswordUp, displayName } = this.state
       console.log(emailUp)
       if (passwordUp === confirmPasswordUp){
-        this.props.onSignUp(emailUp, passwordUp);
+        this.props.onSignUp(emailUp, passwordUp, displayName);
       }
     }
     render() { 

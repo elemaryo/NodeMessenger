@@ -26,11 +26,14 @@ class App extends Component {
 
 	constructor(props){
 		super(props);
-			this.state = {
-				authChecked: false,
-				user: null,
-			}
-
+		this.state = {
+			authChecked: false,
+			user: null,
+			databaseRef: this.props.firebase.firestore()
+		}
+		
+		//Disable deprecated features:
+		this.state.databaseRef.settings({timestampsInSnapshots: true})
   	}
 	
 	componentDidMount(){
@@ -73,13 +76,27 @@ class App extends Component {
 		*/
 	}
 
-	handleSignUp = (email, password) => {
+	//Sign-Up process automatically signs in user 
+	handleSignUp = (email, password, userName) => {
 		this.props.firebase.auth().createUserWithEmailAndPassword(email, password)
 					.then((userData) => {
-						//Sign-Up process automatically signs in user 
-						//so repeat the same process here as sign in
-						//this.signIn(email, password)
+						
+					
+						//update user data on database
+						userData.user.updateProfile({
+							displayName: userName
+						}).then().catch((error) => console.log(error))
+
+						var database = this.state.databaseRef
+						database.collection('users').doc(userData.user.uid).set({
+							displayName: userName,
+                            email: email,
+                            conversations: []
+						}).then().catch((error) => console.log(error))
+
+						
 					})
+
 					.catch((error) =>{console.log(error)})
 
 
@@ -101,7 +118,7 @@ class App extends Component {
 		if(!this.state.authChecked)
 			scene = <LoadingScreen/>
 		else
-			scene = user ?  <Chat onSignOut={this.handleSignOut} user={user} /> : <Login onSignIn={this.handleSignIn} onSignUp={this.handleSignUp}/>
+			scene = user ?  <Chat firebaseRef={this.props.firebase} database={this.state.databaseRef} onSignOut={this.handleSignOut} user={user} /> : <Login onSignIn={this.handleSignIn} onSignUp={this.handleSignUp}/>
 			
 		
 			
