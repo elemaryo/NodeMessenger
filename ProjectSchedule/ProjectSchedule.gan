@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Node Messenger" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger" view-date="2018-10-18" view-index="0" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Node Messenger" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger" view-date="2018-10-19" view-index="0" gantt-divider-location="657" resource-divider-location="597" version="2.8.9" locale="en_US">
     <description><![CDATA[Web messenger app based on Tinode Messenger.]]></description>
     <view zooming-state="default:0" id="gantt-chart">
         <field id="tpd3" name="Name" width="294" order="0"/>
@@ -92,7 +92,7 @@
             <task id="173" name="Module Interface Specification" color="#8cb6ce" meeting="false" start="2018-11-02" duration="6" complete="0" thirdDate="2018-09-27" thirdDate-constraint="0" expand="true"/>
             <task id="174" name="Gantt Schedule" color="#8cb6ce" meeting="false" start="2018-11-07" duration="2" complete="0" thirdDate="2018-09-27" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="312" name="Design &amp; Documentation Revision 0 Due" color="#8cb6ce" meeting="false" start="2018-11-09" duration="1" complete="0" thirdDate="2018-10-19" thirdDate-constraint="0" expand="true"/>
+        <task id="312" name="Design &amp; Documentation Revision 0 Due" color="#8cb6ce" meeting="true" start="2018-11-09" duration="0" complete="0" thirdDate="2018-10-19" thirdDate-constraint="0" expand="true"/>
         <task id="371" name="Implementing Modules" color="#8cb6ce" meeting="false" start="2018-11-08" duration="8" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true">
             <task id="379" name="Implement Sign up" color="#8cb6ce" meeting="false" start="2018-11-08" duration="3" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
             <task id="380" name="Implement Login" color="#8cb6ce" meeting="false" start="2018-11-10" duration="2" complete="0" thirdDate="2018-10-18" thirdDate-constraint="0" expand="true"/>
