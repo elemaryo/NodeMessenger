@@ -11,13 +11,14 @@ const Message = props => (
 )
 
 const ConversationCard = props => (
-  <div className='conversation-card' onClick={() => props.onClick(props.cid)}>
-    <div id='conversation-icon'><Icon size='big' name='user'/></div>
-    <div id='conversation-info'>
-      <Header>{props.members}</Header>
+    
+    <div className='conversation-card' onClick={() => props.onClick(props.cid)}>
+        <div id='conversation-icon'><Icon size='big' name='user'/></div>
+        <div id='conversation-info'>
+            <Header>{props.members}</Header>
+        </div>
+        <div id='conversation-last-message'>{props.lastMessage}</div>
     </div>
-    <div id='conversation-last-message'>{props.lastMessage}</div>
-  </div>
 )
 
 /**
@@ -29,7 +30,7 @@ class Chat extends React.Component {
         super(props)
 		console.log(this.props.user)
 		this.state = { 
-            conversations: [{cid: 'sdskds', members: 'Omar' , lastMessage: 'Yo'}],
+            conversations: [],
 			/*
 				conversations
 				{
@@ -48,8 +49,14 @@ class Chat extends React.Component {
 
          }
     }
-
-
+    updateConversations = (userConversations) => {
+        console.log("called")
+        console.log(userConversations.length)
+        this.setState({conversations: userConversations})
+    }
+    componenetDidUpdate(){
+        console.log(this.state.conversations)
+    }
     componentDidMount(){
       //get chat info here
       //connect to web sockets
@@ -65,21 +72,29 @@ class Chat extends React.Component {
         //listen for new messages
         
         //listen for contact changes
+        var conversations = []
         var databaseRef = this.state.databaseRef
         databaseRef.collection("users").doc(this.state.user.uid)
             .onSnapshot((doc) => {
-                var conversations = []
-                //const conversationsIDs = doc.data().conversations.map((c) => c.cID)
-            //     doc.data().conversations.forEach((conversationRef) => {
-            //         databaseRef.collection('conversations').doc(conversationRef.id).get()
-            //                     .then((doc) => conversations.push({cid: doc.data().id, members: doc.data().members, lastMessage: doc.data().lastMessage}))
-            //                     .catch()
-            //     })
-            //    console.log(conversations[0])
-            });
+               
+                console.log(doc.data())
+                var promises = []
+                doc.data().conversations.forEach((conversationRef) => {
+                    promises.push(databaseRef.collection('conversations').doc(conversationRef.id).get())   
+                })
+                Promise.all(promises).then((docs) => {
+                    docs.forEach((doc) => conversations.push(({cid: doc.id, 
+                                                                members: doc.data().members, 
+                                                                lastMessage: doc.data().lastMessage,
+                                                                lastActive: doc.data().lastActive})))
+                    this.setState({conversations: conversations})
+                })
+            })
+
 
     }
 
+    
     sendMessage = (e) => {
 		//this.state.socket.emit('private message', {to: 'john', data: message})
 			e.preventDefault();
@@ -174,9 +189,13 @@ class Chat extends React.Component {
 				return null
 			}
 		})
-
+ 
+        
+        
+        console.log(this.state.conversations.length)
 		const conversation = this.state.conversations.map((conversations) => {
-			return(<ConversationCard members={conversations.members} lastMessage={conversations.lastMessage} onClick={this.showMessages}/>)
+            const members = conversations.members.map((member) => {return(<div>{member.displayName}</div>)})
+			return(<ConversationCard members={members} lastMessage={conversations.lastMessage} onClick={this.showMessages}/>)
 		})
 
 		return(
