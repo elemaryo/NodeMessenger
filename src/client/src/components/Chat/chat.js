@@ -31,16 +31,6 @@ class Chat extends React.Component {
 		console.log(this.props.user)
 		this.state = { 
             conversations: [],
-			/*
-				conversations
-				{
-					cid: 
-					members:
-					lastMessage: 
-
-				}
-
-			*/
             addConv: false,
             addSuccess: false,
 			user: this.props.user,
@@ -50,8 +40,7 @@ class Chat extends React.Component {
          }
     }
     updateConversations = (userConversations) => {
-        console.log("called")
-        console.log(userConversations.length)
+        userConversations.sort((a,b) => (a.lastActive > b.lastActive) ? 1 : ((b.lastActive > a.lastActive) ? -1 : 0)); 
         this.setState({conversations: userConversations})
     }
     componenetDidUpdate(){
@@ -77,23 +66,26 @@ class Chat extends React.Component {
         databaseRef.collection("users").doc(this.state.user.uid)
             .onSnapshot((doc) => {
                
-                console.log(doc.data())
                 var promises = []
+
                 doc.data().conversations.forEach((conversationRef) => {
                     promises.push(databaseRef.collection('conversations').doc(conversationRef.id).get())   
-                })
+                });
                 Promise.all(promises).then((docs) => {
                     docs.forEach((doc) => conversations.push(({cid: doc.id, 
                                                                 members: doc.data().members, 
                                                                 lastMessage: doc.data().lastMessage,
-                                                                lastActive: doc.data().lastActive})))
+                                                                lastActive: doc.data().lastActive.toDate()})))
                     this.setState({conversations: conversations})
                 })
             })
+        
 
+        
 
     }
 
+    
     
     sendMessage = (e) => {
 		//this.state.socket.emit('private message', {to: 'john', data: message})
@@ -120,27 +112,30 @@ class Chat extends React.Component {
         //look for user emails here
         var databaseRef = this.state.databaseRef
         var userID = this.state.user.uid
+        var userDisplayName = this.state.user.displayName
         var emailEntered = document.getElementById('popup-emailInput').value
         var cRef = null
-        var newUid = null
-        databaseRef.collection('users').where('email', '==', emailEntered)
-                            .get()
+        databaseRef.collection('users').where('email', '==', emailEntered).get()
                             .then(function(querySnapshot) {
                                 console.log(querySnapshot)
                                 //get user id of the person just added
-								newUid = querySnapshot.docs[0].id
+                                var addUID = querySnapshot.docs[0].id
+                                var addDisplayName = querySnapshot.docs[0].data().displayName
                                
                                 // create a new conversation 			
 								databaseRef.collection("conversations").add({
-                                    members: [userID, newUid] 
+                                    members: [{displayName: addDisplayName, uid: addUID},
+                                                {displayName: userDisplayName, uid: userID}],
+                                    lastActive:  databaseRef.ServerValue.TIMESTAMP,
+                                    lastMessage: ""
 							    })
                                     .then((conversationRef) => {
                                         cRef = conversationRef
                                     })
                                     .catch(function(error) {
                                         console.error("Error writing document: ", error);
-                                    });
-								
+                                    })
+                                    
                                 
 
                                 //update both the client and user id to include the specific cid returned, 
@@ -148,7 +143,7 @@ class Chat extends React.Component {
 								databaseRef.collection('users').doc(userID).update({
 									conversations: databaseRef.FieldValue.arrayUnion(cRef)								
 								})
-                                databaseRef.collection('users').doc(newUid).update({
+                                databaseRef.collection('users').doc(addUID).update({
                                     conversations: databaseRef.FieldValue.arrayUnion(cRef)
                                 })
                                 
@@ -181,20 +176,19 @@ class Chat extends React.Component {
             : null
             
 
+        
 		const messages = this.state.messages.map((messageData, index) => {
 			if(messageData.data !== ""){
-				return(<Message key={index} alignment={messageData.alignment} message={messageData.data}/>)
-			}
-			else{
-				return null
-			}
+                return(<Message key={index} alignment={messageData.alignment} message={messageData.data}/>)
+            }
 		})
  
         
-        
-        console.log(this.state.conversations.length)
+        //generate conversation cards
+        const uid = this.state.user.uid
+        console.log(this.state.conversations)
 		const conversation = this.state.conversations.map((conversations) => {
-            const members = conversations.members.map((member) => {return(<div>{member.displayName}</div>)})
+            const members = conversations.members.map((member) => {if(member.uid != uid) return(<div>{member.displayName}</div>)})
 			return(<ConversationCard members={members} lastMessage={conversations.lastMessage} onClick={this.showMessages}/>)
 		})
 
