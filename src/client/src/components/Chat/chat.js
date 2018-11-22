@@ -12,7 +12,7 @@ const Message = props => (
 
 const ConversationCard = props => (
     
-    <div className='conversation-card' onClick={() => props.onClick(props.cid)}>
+    <div className='conversation-card' onClick={() => props.handleClick(props.cid)}>
         <div id='conversation-icon'><Icon size='big' name='user'/></div>
         <div id='conversation-info'>
             <Header>{props.members}</Header>
@@ -30,32 +30,24 @@ class Chat extends React.Component {
         super(props)
 		console.log(this.props.user)
 		this.state = { 
-            conversations: [],
-            addConv: false,
-            addSuccess: false,
-			user: this.props.user,
-			messages: [],
-            databaseRef: this.props.database,
+            conversations: [],                  //stores the conversation metadata for this user
+            addConv: false,                     //to handle add conversation pop up event
+            addSuccess: false,                  //for displaying successful/error message when trying to start conversation
+			user: this.props.user,              //firebase user object
+            messages: [],                       //the messages in the current conversation
+            messageUnsubscribe: null,           //reference to the message docs (used to detach listener, preventing memory leak)
+            conversationRef: null,
+            databaseRef: this.props.database,   //firestore reference for all read/write operations
+            fetchTimestamp : null               //keep track of when the messages were first fetched, so new messages can be pulled in after that
+
 
          }
     }
-    updateConversations = (userConversations) => {
-        userConversations.sort((a,b) => (a.lastActive > b.lastActive) ? 1 : ((b.lastActive > a.lastActive) ? -1 : 0)); 
-        this.setState({conversations: userConversations})
-    }
-    componenetDidUpdate(){
-        console.log(this.state.conversations)
-    }
+
+   
     componentDidMount(){
       //get chat info here
-      //connect to web sockets
-	/*
-		cids = [user.cids]
-		for(cid in cids):
-			conversationsRef = conversations.cid.
-			conversationsRef.orderBy('lastActive')
-		
-    */
+    
         //get contacts once
 
         //listen for new messages
@@ -66,42 +58,141 @@ class Chat extends React.Component {
         databaseRef.collection("users").doc(this.state.user.uid)
             .onSnapshot((doc) => {
                
-                var promises = []
+                // get callback promises and store it in an array
+                var promises = [] 
 
                 doc.data().conversations.forEach((conversationRef) => {
                     promises.push(databaseRef.collection('conversations').doc(conversationRef.id).get())   
                 });
+                //resolve. once all the data
                 Promise.all(promises).then((docs) => {
                     docs.forEach((doc) => conversations.push(({cid: doc.id, 
                                                                 members: doc.data().members, 
-                                                                lastMessage: doc.data().lastMessage,
+                                                                lastMessage: doc.data().lastMessage.message,
                                                                 lastActive: doc.data().lastActive.toDate()})))
+                    conversations.sort((a,b) => (a.lastActive > b.lastActive) ? 1 : ((b.lastActive > a.lastActive) ? -1 : 0)) 
                     this.setState({conversations: conversations})
+
                 })
             })
-        
-
-        
 
     }
 
+    componentDidUpdate = (prevProps, prevState) => {
+        var elem = document.getElementById('message-area');
+        elem.scrollTop = elem.scrollHeight;
+        
+        if(!this.state.conversationRef) {
+            console.log('returning')
+            return
+        }
+
+        if(prevState.conversationRef != this.state.conversationRef){
+
+            //unsubscribe/detach listener
+            if(prevState.messageUnsubscribe)
+            {
+                console.log('detaching')
+                prevState.messageUnsubscribe()
+
+            }
+                
+            var messageObjects = []
+            var databaseRef = this.state.databaseRef
+            var unsubscribe = databaseRef.collection("messages").doc(this.state.conversationRef).collection("messageData").orderBy("timeSent").startAt(this.state.fetchTimestamp)
+                .onSnapshot((snapshot) => {
+                    console.log(snapshot.docs)
+
+                        snapshot.docChanges().forEach((change) => {
+                            if (change.type === "added") {
+                                var doc = change.doc
+                                let source = doc.metadata.hasPendingWrites ? 'Local' : 'Server'
+                                if (source === 'Server') {
+                                    this.setState({
+                                        messages: [...this.state.messages, 
+                                                    {message: doc.data().message, timeSent: doc.data().timeSent.toDate(), uid: doc.data().uid}],
+                                    })
+                                } else {
+                                // Do nothing, it's a local update so ignore it
+                                }
+                                
+                            }   
+                        })
+                    })
+
+            this.setState({messageUnsubscribe: unsubscribe})
+
+            //subscribe / add new listener
+            
+            
+        }
+
+    }
     
-    
+    componentWillUnmount = () => {
+        if(this.state.messageUnsubscribe)
+            this.state.messageUnsubscribe()
+    }
+
+    showMessages = (messagesRef) => {
+        //get messages and attach a listener to the specific message doc
+        //get the messages from messageData. order by 
+        
+        if (!this.state.conversationRef && messagesRef == this.state.conversationRef) return  //dont download again
+        
+        //thru the conversationRef get the mid and access the messages limit to first 50 order by timestamp
+        //put query here and make a listener .onSnapshot ....
+        // var query = ...
+        // var databaseRef = this.state.databaseRef
+        // var messages = databaseRef.collection("messages").doc(messagesRef).collection("messageData")
+
+        // messages.orderBy("timeSent", "desc").limit(50)
+        // .onSnapshot((querySnapshot) => {
+                
+        //         console.log(querySnapshot.docs[0].data().message) 
+        //         //cycle through all the docs and store
+        
+        console.log('showing messsages')
+        var databaseRef = this.state.databaseRef
+        var messages = databaseRef.collection("messages").doc(messagesRef).collection("messageData")
+        var messageObjects = []
+        messages.orderBy("timeSent").limit(50).get()
+            .then((querySnapshot) => {
+                console.log(querySnapshot)
+                querySnapshot.docs.forEach((doc) => {
+                    messageObjects.push({message: doc.data().message, timeSent: doc.data().timeSent.toDate(), uid: doc.data().uid})
+                })
+                this.setState({conversationRef: messagesRef, messages: messageObjects, fetchTimestamp: new Date()})
+            })
+            .catch((err) => console.log(err))                    
+            
+        //this.setState({conversationRef: messagesRef}) 
+        
+    }
     sendMessage = (e) => {
-		//this.state.socket.emit('private message', {to: 'john', data: message})
-			e.preventDefault();
-			const input = document.getElementById('message-input')
-			const message = {alignment:'r', data: input.value}
-			input.value = ''
-	
-			this.setState({messages: [...this.state.messages, message]})
+        //this.state.socket.emit('private message', {to: 'john', data: message})
+
+        if(!this.state.conversationRef) return //if no conversation is selected
+
+        var messageRef = this.state.conversationRef
+        var databaseRef = this.state.databaseRef
+        e.preventDefault()
+        const input = document.getElementById('message-input')
+        if (input.value === "") return
+        var timestamp = new Date()
+        const messageData = {message: input.value, uid: this.state.user.uid, timeSent: timestamp}
+        input.value = ''
+        this.setState({messages: [...this.state.messages, messageData]})
+
+        databaseRef.collection("messages").doc(messageRef).collection("messageData").add({
+            message: messageData.message,
+            timeSent: timestamp,
+            uid: this.state.user.uid                                        
+        })
 			
     }
 
-	componentDidUpdate(){
-		var elem = document.getElementById('message-area');
-		elem.scrollTop = elem.scrollHeight;
-    }
+	
     
 
     showAddConvPopUp = () => {
@@ -176,20 +267,18 @@ class Chat extends React.Component {
             : null
             
 
-        
-		const messages = this.state.messages.map((messageData, index) => {
-			if(messageData.data !== ""){
-                return(<Message key={index} alignment={messageData.alignment} message={messageData.data}/>)
-            }
+        const uid = this.state.user.uid
+		const messages = this.state.messages.map((messageObject, index) => {
+            var alignment = (uid == messageObject.uid) ? 'r' : 'l'
+            return(<Message key={index} alignment={alignment} message={messageObject.message}/>)
 		})
  
         
         //generate conversation cards
-        const uid = this.state.user.uid
-        console.log(this.state.conversations)
-		const conversation = this.state.conversations.map((conversations) => {
-            const members = conversations.members.map((member) => {if(member.uid != uid) return(<div>{member.displayName}</div>)})
-			return(<ConversationCard members={members} lastMessage={conversations.lastMessage} onClick={this.showMessages}/>)
+        console.log(this.state.messageUnsubscribe)
+		const conversation = this.state.conversations.map((conversation) => {
+            const members = conversation.members.map((member) => {if(member.uid != uid) return(<div key={member.displayName}>{member.displayName}</div>)})
+			return(<ConversationCard key={conversation.cid} members={members} lastMessage={conversation.lastMessage} cid={conversation.cid} handleClick={this.showMessages}/>)
 		})
 
 		return(
