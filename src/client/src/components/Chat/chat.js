@@ -38,8 +38,9 @@ class Chat extends React.Component {
             messageUnsubscribe: null,           //reference to the message docs (used to detach listener, preventing memory leak)
             conversationRef: null,
             databaseRef: this.props.database,   //firestore reference for all read/write operations
-            fetchTimestamp : null               //keep track of when the messages were first fetched, so new messages can be pulled in after that
-
+            fetchTimestamp : null,               //keep track of when the messages were first fetched, so new messages can be pulled in after that
+            membersToAdd: [{displayName: 'Shardool', uid:'s23imif23r23', email: 'shardool_patel@hotmail.com'}, 
+                        {displayName: 'Omar', uid:'123412', email: 'omar@gmail.com'}]
 
          }
     }
@@ -247,6 +248,7 @@ class Chat extends React.Component {
 
     render() { 
         const addSuccessLabel = <Label> </Label>
+        const membersToAdd = this.state.membersToAdd
         const popup = this.state.addConv ? 
             <div id='popup-container'>
                 <div id='popup-addConversation'>
@@ -257,11 +259,14 @@ class Chat extends React.Component {
                         <Icon inverted size='big' id='popup-icon' name='close' onClick={this.showAddConvPopUp}></Icon>
                     </div>
                     <Divider/>
-                    <Form onSubmit={this.handleAddConversation}>
+                    <Form>
                         <Input id='popup-emailInput' style={{width: '100%'}} 
-                        icon={<Icon name='search' onClick={this.handleAddConversation} inverted circular link />} 
+                        icon={<Icon name='search' inverted circular link />} 
                         placeholder='Search...'/>
-                    </Form>  
+                    </Form>
+                    <div id='popup-members'>
+                        {addedMembers}
+                    </div> 
                 </div>
             </div>
             : null
