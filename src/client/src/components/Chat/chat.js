@@ -249,7 +249,7 @@ class Chat extends React.Component {
     render() { 
         const addSuccessLabel = <Label> </Label>
         const membersToAdd = this.state.membersToAdd
-        const popup = this.state.addConv ? 
+        const popup = this.state.addConv
             <div id='popup-container'>
                 <div id='popup-addConversation'>
                     <div id='popup-title'>
