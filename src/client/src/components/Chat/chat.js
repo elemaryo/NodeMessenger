@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Icon, Header, Image, Divider, Label } from 'semantic-ui-react'
+import { Form, Input, Icon, Header, Image, Divider } from 'semantic-ui-react'
 import './chat.css'
 import appLogo from '../../res/applogo.svg'
 
@@ -88,7 +88,7 @@ class Chat extends React.Component {
             return
         }
 
-        if(prevState.conversationRef != this.state.conversationRef){
+        if(prevState.conversationRef !== this.state.conversationRef){
 
             //unsubscribe/detach listener
             if(prevState.messageUnsubscribe)
@@ -98,7 +98,6 @@ class Chat extends React.Component {
 
             }
                 
-            var messageObjects = []
             var databaseRef = this.state.databaseRef
             var unsubscribe = databaseRef.collection("messages").doc(this.state.conversationRef).collection("messageData").orderBy("timeSent").startAt(this.state.fetchTimestamp)
                 .onSnapshot((snapshot) => {
@@ -139,7 +138,7 @@ class Chat extends React.Component {
         //get messages and attach a listener to the specific message doc
         //get the messages from messageData. order by 
         
-        if (!this.state.conversationRef && messagesRef == this.state.conversationRef) return  //dont download again
+        if (!this.state.conversationRef && messagesRef === this.state.conversationRef) return  //dont download again
         
         //thru the conversationRef get the mid and access the messages limit to first 50 order by timestamp
         //put query here and make a listener .onSnapshot ....
@@ -247,9 +246,7 @@ class Chat extends React.Component {
     }
 
     render() { 
-        const addSuccessLabel = <Label> </Label>
-        const membersToAdd = this.state.membersToAdd
-        const popup = this.state.addConv
+        const popup = this.state.addConv ? 
             <div id='popup-container'>
                 <div id='popup-addConversation'>
                     <div id='popup-title'>
@@ -265,7 +262,7 @@ class Chat extends React.Component {
                         placeholder='Search...'/>
                     </Form>
                     <div id='popup-members'>
-                        {addedMembers}
+                        {/* {addedMembers} */}
                     </div> 
                 </div>
             </div>
@@ -274,15 +271,15 @@ class Chat extends React.Component {
 
         const uid = this.state.user.uid
 		const messages = this.state.messages.map((messageObject, index) => {
-            var alignment = (uid == messageObject.uid) ? 'r' : 'l'
+            var alignment = (uid === messageObject.uid) ? 'r' : 'l'
             return(<Message key={index} alignment={alignment} message={messageObject.message}/>)
 		})
  
         
         //generate conversation cards
         console.log(this.state.messageUnsubscribe)
-		const conversation = this.state.conversations.map((conversation) => {
-            const members = conversation.members.map((member) => {if(member.uid != uid) return(<div key={member.displayName}>{member.displayName}</div>)})
+		const conversation = this.state.conversations.forEach((conversation) => {
+            const members = conversation.members.mapEach((member) => {if(member.uid !== uid) return(<div key={member.displayName}>{member.displayName}</div>)})
 			return(<ConversationCard key={conversation.cid} members={members} lastMessage={conversation.lastMessage} cid={conversation.cid} handleClick={this.showMessages}/>)
 		})
 
