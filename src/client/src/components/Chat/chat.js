@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Icon, Header, Image, Divider } from 'semantic-ui-react'
+import { Form, Input, Icon, Header, Image, Divider, Label } from 'semantic-ui-react'
 import './chat.css'
 import appLogo from '../../res/applogo.svg'
 
@@ -88,7 +88,7 @@ class Chat extends React.Component {
             return
         }
 
-        if(prevState.conversationRef !== this.state.conversationRef){
+        if(prevState.conversationRef != this.state.conversationRef){
 
             //unsubscribe/detach listener
             if(prevState.messageUnsubscribe)
@@ -98,6 +98,7 @@ class Chat extends React.Component {
 
             }
                 
+            var messageObjects = []
             var databaseRef = this.state.databaseRef
             var unsubscribe = databaseRef.collection("messages").doc(this.state.conversationRef).collection("messageData").orderBy("timeSent").startAt(this.state.fetchTimestamp)
                 .onSnapshot((snapshot) => {
@@ -138,7 +139,7 @@ class Chat extends React.Component {
         //get messages and attach a listener to the specific message doc
         //get the messages from messageData. order by 
         
-        if (!this.state.conversationRef && messagesRef === this.state.conversationRef) return  //dont download again
+        if (!this.state.conversationRef && messagesRef == this.state.conversationRef) return  //dont download again
         
         //thru the conversationRef get the mid and access the messages limit to first 50 order by timestamp
         //put query here and make a listener .onSnapshot ....
@@ -199,53 +200,69 @@ class Chat extends React.Component {
         this.setState({addConv: !this.state.addConv})
     }
 
-    handleAddConversation = (e) => {
-        //look for user emails here
+    handleAddEmail = (e) => {
         var databaseRef = this.state.databaseRef
-        var userID = this.state.user.uid
-        var userDisplayName = this.state.user.displayName
-        var emailEntered = document.getElementById('popup-emailInput').value
-        var cRef = null
-        databaseRef.collection('users').where('email', '==', emailEntered).get()
-                            .then(function(querySnapshot) {
-                                console.log(querySnapshot)
-                                //get user id of the person just added
-                                var addUID = querySnapshot.docs[0].id
-                                var addDisplayName = querySnapshot.docs[0].data().displayName
-                               
-                                // create a new conversation 			
-								databaseRef.collection("conversations").add({
-                                    members: [{displayName: addDisplayName, uid: addUID},
-                                                {displayName: userDisplayName, uid: userID}],
-                                    lastActive:  databaseRef.ServerValue.TIMESTAMP,
-                                    lastMessage: ""
-							    })
-                                    .then((conversationRef) => {
-                                        cRef = conversationRef
-                                    })
-                                    .catch(function(error) {
-                                        console.error("Error writing document: ", error);
-                                    })
-                                    
-                                
+        var target = document.getElementById('popup-emailInput')
+        var emailEntered = target.value
+        target.value = ''
 
-                                //update both the client and user id to include the specific cid returned, 
-								//use local variable cID and write to create ref 
-								databaseRef.collection('users').doc(userID).update({
-									conversations: databaseRef.FieldValue.arrayUnion(cRef)								
-								})
-                                databaseRef.collection('users').doc(addUID).update({
-                                    conversations: databaseRef.FieldValue.arrayUnion(cRef)
-                                })
-                                
-                        
-                            })
-                            .catch(function(error) {
-                                console.log("Error getting documents: ", error);
+        var obj = this.state.membersToAdd.find(member => member.email === emailEntered)
+        if (obj) return // user already added
+
+        var cRef = null
+        this.state.databaseRef.collection('users').where('email', '==', emailEntered).get()
+                            .then( (snapshot) => {
+                                var doc = snapshot.docs[0]
+                                if (doc){
+                                    this.setState({membersToAdd: [...this.state.membersToAdd, {displayName: doc.data().displayName, 
+                                                                                              email: emailEntered,
+                                                                                              uid: doc.id}]})
+                                }
+
                             })
     }
 
+    handleAddConversation = (e) => {
+        //look for user emails here
+        
+        var cRef = ""
+       // create a new conversation
+        const membersToAdd = [...this.state.membersToAdd,
+                            {displayName: this.state.user.displayName,
+                            uid: this.state.user.uid,
+                            email: this.state.user.email}]
+                        
+        const databaseRef = this.state.databaseRef
+        databaseRef.collection("conversations").add({
+            members: membersToAdd,
+            lastActive:  new Date(),
+            lastMessage: ""
+        })
+            .then((conversationRef) => {
+                cRef = conversationRef
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            })
+            
+        
+
+        //update both the client and user id to include the specific cid returned, 
+        //use local variable cID and write to create ref 
+        // do the following once the user clicks on the add conversation button
+        membersToAdd.forEach((member) => {
+            databaseRef.collection('users').doc(member.uid).update({
+                conversations: this.statedatabaseRef.FieldValue.arrayUnion(cRef)								
+            })
+        })
+        
+        this.setState({addConv: !this.state.addConv})
+                           
+    }
+
     render() { 
+        const addSuccessLabel = <Label> </Label>
+        const addedMembers = this.state.membersToAdd
         const popup = this.state.addConv ? 
             <div id='popup-container'>
                 <div id='popup-addConversation'>
@@ -262,8 +279,12 @@ class Chat extends React.Component {
                         placeholder='Search...'/>
                     </Form>
                     <div id='popup-members'>
-                        {/* {addedMembers} */}
-                    </div> 
+                        {addedMembers}
+                    </div>
+                    <Divider/>
+                    <div>
+                        Start Conversation
+                    </div>
                 </div>
             </div>
             : null
@@ -271,15 +292,15 @@ class Chat extends React.Component {
 
         const uid = this.state.user.uid
 		const messages = this.state.messages.map((messageObject, index) => {
-            var alignment = (uid === messageObject.uid) ? 'r' : 'l'
+            var alignment = (uid == messageObject.uid) ? 'r' : 'l'
             return(<Message key={index} alignment={alignment} message={messageObject.message}/>)
 		})
  
         
         //generate conversation cards
         console.log(this.state.messageUnsubscribe)
-		const conversation = this.state.conversations.forEach((conversation) => {
-            const members = conversation.members.mapEach((member) => {if(member.uid !== uid) return(<div key={member.displayName}>{member.displayName}</div>)})
+		const conversation = this.state.conversations.map((conversation) => {
+            const members = conversation.members.map((member) => {if(member.uid != uid) return(<div key={member.displayName}>{member.displayName}</div>)})
 			return(<ConversationCard key={conversation.cid} members={members} lastMessage={conversation.lastMessage} cid={conversation.cid} handleClick={this.showMessages}/>)
 		})
 
