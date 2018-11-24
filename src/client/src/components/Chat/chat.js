@@ -5,6 +5,7 @@ import appLogo from '../../res/applogo.svg'
 
 
 const Message = props => (
+    // access props.sentBy to get the name of the person who sent the message
   <div className='message' id={props.alignment}>
     <div id='message-data'>{props.message}</div>
   </div>
@@ -295,7 +296,7 @@ class Chat extends React.Component {
         const uid = this.state.user.uid
 		const messages = this.state.messages.map((messageObject, index) => {
             var alignment = (uid === messageObject.uid) ? 'r' : 'l'
-            return(<Message key={index} alignment={alignment} message={messageObject.message}/>)
+            return(<Message key={index} alignment={alignment} sentBy={message.displayName} message={messageObject.message}/>)
 		})
  
         
