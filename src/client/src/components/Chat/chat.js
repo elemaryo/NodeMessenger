@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Icon, Header, Image, Divider, Label } from 'semantic-ui-react'
+import { Form, Input, Icon, Header, Image, Divider, Label, Segment, SegmentGroup } from 'semantic-ui-react'
 import './chat.css'
 import appLogo from '../../res/applogo.svg'
 
@@ -11,13 +11,11 @@ const Message = props => (
 )
 
 const ConversationCard = props => (
-    
     <div className='conversation-card' onClick={() => props.handleClick(props.cid)}>
-        <div id='conversation-icon'><Icon size='big' name='user'/></div>
+        <div id='conversation-icon'><Icon size='big' name={props.icon}/></div>
         <div id='conversation-info'>
             <Header>{props.members}</Header>
         </div>
-        <div id='conversation-last-message'>{props.lastMessage}</div>
     </div>
 )
 
@@ -39,8 +37,7 @@ class Chat extends React.Component {
             conversationRef: null,
             databaseRef: this.props.database,   //firestore reference for all read/write operations
             fetchTimestamp : null,               //keep track of when the messages were first fetched, so new messages can be pulled in after that
-            membersToAdd: [{displayName: 'Shardool', uid:'s23imif23r23', email: 'shardool_patel@hotmail.com'}, 
-                        {displayName: 'Omar', uid:'123412', email: 'omar@gmail.com'}]
+            membersToAdd: []
 
          }
     }
@@ -66,12 +63,15 @@ class Chat extends React.Component {
                     promises.push(databaseRef.collection('conversations').doc(conversationRef.id).get())   
                 });
                 //resolve. once all the data
+                console.log(promises)
                 Promise.all(promises).then((docs) => {
+                    conversations = []
                     docs.forEach((doc) => conversations.push(({cid: doc.id, 
                                                                 members: doc.data().members, 
                                                                 lastMessage: doc.data().lastMessage.message,
                                                                 lastActive: doc.data().lastActive.toDate()})))
-                    conversations.sort((a,b) => (a.lastActive > b.lastActive) ? 1 : ((b.lastActive > a.lastActive) ? -1 : 0)) 
+                    conversations.sort((a,b) => (a.lastActive > b.lastActive) ? 1 : ((b.lastActive > a.lastActive) ? -1 : 0))
+                    console.log(conversations)
                     this.setState({conversations: conversations})
 
                 })
@@ -88,7 +88,7 @@ class Chat extends React.Component {
             return
         }
 
-        if(prevState.conversationRef != this.state.conversationRef){
+        if(prevState.conversationRef !== this.state.conversationRef){
 
             //unsubscribe/detach listener
             if(prevState.messageUnsubscribe)
@@ -139,7 +139,7 @@ class Chat extends React.Component {
         //get messages and attach a listener to the specific message doc
         //get the messages from messageData. order by 
         
-        if (!this.state.conversationRef && messagesRef == this.state.conversationRef) return  //dont download again
+        if (!this.state.conversationRef && messagesRef === this.state.conversationRef) return  //dont download again
         
         //thru the conversationRef get the mid and access the messages limit to first 50 order by timestamp
         //put query here and make a listener .onSnapshot ....
@@ -201,13 +201,15 @@ class Chat extends React.Component {
     }
 
     handleAddEmail = (e) => {
+        
         var databaseRef = this.state.databaseRef
         var target = document.getElementById('popup-emailInput')
         var emailEntered = target.value
-        target.value = ''
+        if(!emailEntered) return 
+        target.value = ""
 
         var obj = this.state.membersToAdd.find(member => member.email === emailEntered)
-        if (obj) return // user already added
+        if (obj || emailEntered === this.state.user.email) return // user already added
 
         var cRef = null
         this.state.databaseRef.collection('users').where('email', '==', emailEntered).get()
@@ -224,8 +226,7 @@ class Chat extends React.Component {
 
     handleAddConversation = (e) => {
         //look for user emails here
-        
-        var cRef = ""
+        if(!this.state.membersToAdd) return
        // create a new conversation
         const membersToAdd = [...this.state.membersToAdd,
                             {displayName: this.state.user.displayName,
@@ -239,22 +240,23 @@ class Chat extends React.Component {
             lastMessage: ""
         })
             .then((conversationRef) => {
-                cRef = conversationRef
+                membersToAdd.forEach((member) => {
+                    databaseRef.collection('users').doc(member.uid).update({
+                        conversations: this.props.firebaseRef.firestore.FieldValue.arrayUnion(conversationRef)								
+                    })
+                })
             })
             .catch(function(error) {
                 console.error("Error writing document: ", error);
             })
             
         
+        
 
         //update both the client and user id to include the specific cid returned, 
         //use local variable cID and write to create ref 
         // do the following once the user clicks on the add conversation button
-        membersToAdd.forEach((member) => {
-            databaseRef.collection('users').doc(member.uid).update({
-                conversations: this.statedatabaseRef.FieldValue.arrayUnion(cRef)								
-            })
-        })
+        
         
         this.setState({addConv: !this.state.addConv})
                            
@@ -262,7 +264,7 @@ class Chat extends React.Component {
 
     render() { 
         const addSuccessLabel = <Label> </Label>
-        const addedMembers = this.state.membersToAdd
+        const displayMembers = this.state.membersToAdd.map((member) => <Segment key={member.uid}> {member.email} ({member.displayName})</Segment>)
         const popup = this.state.addConv ? 
             <div id='popup-container'>
                 <div id='popup-addConversation'>
@@ -273,18 +275,18 @@ class Chat extends React.Component {
                         <Icon inverted size='big' id='popup-icon' name='close' onClick={this.showAddConvPopUp}></Icon>
                     </div>
                     <Divider/>
-                    <Form>
+                    <Form onSubmit={this.handleAddEmail}>
                         <Input id='popup-emailInput' style={{width: '100%'}} 
-                        icon={<Icon name='search' inverted circular link />} 
-                        placeholder='Search...'/>
+                        icon={<Icon name='add user' circular link onClick={this.handleAddEmail} />} 
+                        placeholder='Add by Email...'/>
                     </Form>
-                    <div id='popup-members'>
-                        {addedMembers}
-                    </div>
+                    <SegmentGroup id='popup-members'>
+                        {displayMembers}
+                    </SegmentGroup>
                     <Divider/>
-                    <div>
+                    <Segment id='popup-start' onClick={this.handleAddConversation}>
                         Start Conversation
-                    </div>
+                    </Segment>
                 </div>
             </div>
             : null
@@ -292,16 +294,18 @@ class Chat extends React.Component {
 
         const uid = this.state.user.uid
 		const messages = this.state.messages.map((messageObject, index) => {
-            var alignment = (uid == messageObject.uid) ? 'r' : 'l'
+            var alignment = (uid === messageObject.uid) ? 'r' : 'l'
             return(<Message key={index} alignment={alignment} message={messageObject.message}/>)
 		})
  
         
         //generate conversation cards
-        console.log(this.state.messageUnsubscribe)
+
 		const conversation = this.state.conversations.map((conversation) => {
-            const members = conversation.members.map((member) => {if(member.uid != uid) return(<div key={member.displayName}>{member.displayName}</div>)})
-			return(<ConversationCard key={conversation.cid} members={members} lastMessage={conversation.lastMessage} cid={conversation.cid} handleClick={this.showMessages}/>)
+            const members = conversation.members.map((member) => {if(member.uid !== uid) return(<div key={member.displayName}>{member.displayName}</div>)})
+            var icon = 'user'
+            if (conversation.members.length > 2) icon = 'users'
+			return(<ConversationCard key={conversation.cid} icon={icon} members={members} lastMessage={conversation.lastMessage} cid={conversation.cid} handleClick={this.showMessages}/>)
 		})
 
 		return(
