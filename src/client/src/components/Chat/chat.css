@@ -164,12 +164,14 @@
     margin-bottom: 0.5em;
 }
 
-#l{
+.l{
     justify-content: left;
+    text-align: left;
 }
 
-#r{
+.r{
     justify-content: right;
+    text-align: right;
 }
 
 #message-icon{
@@ -191,3 +193,22 @@
 #message-box{
 
 }
+
+#name {
+    color: white;
+}
+
+.userColor {
+    background-color:#02aca5 !important;
+    color: white !important;
+}
+
+.otherColor {
+    background-color: white;
+}
+
+#timeShow { 
+    display: none; 
+    color: yellow;
+}
+.message:hover + #timeShow { display: block; }

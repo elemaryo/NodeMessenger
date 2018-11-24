@@ -7,8 +7,16 @@ import appLogo from '../../res/applogo.svg'
 const Message = props => (
     // access props.sentBy to get the name of the person who sent the message
     // access props.timeSent to get the time the message was sent
-  <div className='message' id={props.alignment}>
-    <div id='message-data'>{props.message}</div>
+  <div>
+      <div id="name" className={props.alignment}>
+          Name
+      </div>
+      <div className={[props.alignment, "message"].join(' ')}>
+        <div id='message-data' className={props.alignment==='r' ? "userColor":"otherColor"}>{props.message}</div>
+      </div>
+      <div id="timeShow" className={props.alignment}>
+          {props.timeSent.toString()}
+      </div>
   </div>
 )
 
