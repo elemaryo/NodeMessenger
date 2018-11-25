@@ -9,13 +9,13 @@ const Message = props => (
     // access props.timeSent to get the time the message was sent
   <div>
       <div id="name" className={props.alignment}>
-          Name
+          {props.sentBy}
       </div>
       <div className={[props.alignment, "message"].join(' ')}>
         <div id='message-data' className={props.alignment==='r' ? "userColor":"otherColor"}>{props.message}</div>
       </div>
       <div id="timeShow" className={props.alignment}>
-          {props.timeSent.toString()}
+          {props.timeSent.toLocaleString()}
       </div>
   </div>
 )
@@ -171,7 +171,8 @@ class Chat extends React.Component {
             .then((querySnapshot) => {
                 console.log(querySnapshot)
                 querySnapshot.docs.forEach((doc) => {
-                    messageObjects.push({message: doc.data().message, timeSent: doc.data().timeSent.toDate(), uid: doc.data().uid})
+                    messageObjects.push({message: doc.data().message, timeSent: doc.data().timeSent.toDate(), 
+                        uid: doc.data().uid, displayName:doc.data().displayName})
                 })
                 this.setState({conversationRef: messagesRef, messages: messageObjects, fetchTimestamp: new Date()})
             })
@@ -198,7 +199,8 @@ class Chat extends React.Component {
         databaseRef.collection("messages").doc(messageRef).collection("messageData").add({
             message: messageData.message,
             timeSent: timestamp,
-            uid: this.state.user.uid                                        
+            uid: this.state.user.uid,
+            displayName: this.state.user.displayName                                   
         })
 			
     }
