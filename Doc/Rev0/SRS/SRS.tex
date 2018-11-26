@@ -84,6 +84,13 @@ Not Applicable
     		\subsubsection{The Context of the Work}
     		\subsubsection{Work Partitioning}
     		\subsubsection{Individual Product Use Cases}
+    		 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.6]{diagram.jpg}
+                \caption{Example Use Case}
+                \label{fig:my_label}
+            \end{figure}
            
            
 
@@ -92,16 +99,30 @@ Not Applicable
 
     	\subsection{Functional Requirements}
 	    \begin{enumerate}
-		    \item The software shall be free to access by all users through the web app.
-		    \item The software shall allow user to log-in to web app messenger using email address and password.
+		    \item The software shall be free to access by all users through the web app or cross platform app.
+		    \item The software shall allow user to log-in to web app messenger using user name or email address and password.
 		    \item The software shall allow user to remember their log-in information on the web app for easier and faster access.
 		    \item The software shall allow users to log-out and log-in to the system at will.
-		    \item The software shall allow user to create an account with Node Messenger by providing display name, email address and password.
+		    \item The software shall allow user to create an account with Node Messenger by providing name, user name, email address, password and profile picture.
+		    \item The software shall validate new accounts with the use of randomly generated verification codes sent to the user's email address.
 		    \item The software shall allow communication through one-on-one messaging between other Node Messenger users.
-		    \item The software shall allow the user to create conversations with other users through attached email.
-		    \item The software shall allow the user to create group conversation with 10 other Node Messenger users independent of friendship status.
+		    \item The software shall allow the user to discover other users by attached email or phone numbers.
+		    \item The software shall allow the user to create group
+		    conversation of 128 other Node Messenger users independent of friendship status.
+		    \item The software shall allow the user to modify group conversation settings by changing its name and picture, add and remove members or leave group based on administrative status.
+		    \item The software shall give the user control over individual conversations with the ability to delete chat and mute or block other user.
+		    \item The software shall display the online and offline status of other Node Messenger users using green circle for online and grey circle for offline status.
+		    \item The software shall allow the user to access other user's profile information via the info tab.
 		    \item The software shall support persistent message storing of multiple chats with paginated message history.
 		    \item The software shall distinguish between user sent and received messages using a different color scheme for each situation.
+		    \item The software shall display an indicator for the number of unread messages besides chat menu and beside the browser tab name.
+		    \item The software shall allow user to transmit documents, photos and videos of many file formats to other users.
+		    \item The software shall send server-generated notification alerts and message sounds to the user whenever a message is received.
+		    \item The software shall display message status notification indicating message delivery to server, received and read notifications and typing notifications.
+		    \item The software shall allow the user to mute notification alerts and message sounds from Node Messenger.
+		    \item The software shall allow user to modify their profile by changing their profile picture, name and password.
+		    \item The software shall support font modifications such as bolding and italics.
+		    \item The software shall support different languages and emojis.
 		\end{enumerate}
 	\newpage
     \section{Non-functional Requirements}
