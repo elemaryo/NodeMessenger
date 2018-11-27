@@ -16,13 +16,13 @@ const Message = props => (
           
       </div>
       <div>
-      <span id="timeShow" className={props.alignment}>
-        {props.timeSent.toLocaleString()}
-    </span>
       <div className={[props.alignment, "message"].join(' ')}>
       
       <div id='message-data' className={props.alignment==='r' ? "userColor":"otherColor"}>
       {props.message}</div>
+      <div id="timeShow" className={props.alignment==='r' ? "timeL":"r"}>
+      {props.timeSent.toLocaleString()}
+      </div>
 </div>
 
       </div>

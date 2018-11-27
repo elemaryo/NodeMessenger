@@ -6,6 +6,7 @@
     background-color: #1b1c1d;
     display: grid;
     grid-template-columns: 22.5em 0.05em auto;
+    grid-template-rows: auto 1fr ;
 }
 
 #chat-divider{
@@ -162,6 +163,7 @@
     text-align: left;
     display: grid;
     margin-bottom: 0.5em;
+    grid-template-columns: auto auto;
 }
 
 .l{
@@ -172,6 +174,14 @@
 .r{
     justify-content: right;
     text-align: right;
+}
+
+.timeL {
+    grid-row: 1/2;
+}
+
+.timeR {
+    
 }
 
 #message-icon{
@@ -196,6 +206,7 @@
 
 #name {
     color: white;
+    margin: 10px 0;
 }
 
 .userColor {
@@ -208,7 +219,9 @@
 }
 
 #timeShow { 
-    visibility: hidden;
-    color: yellow;
+    color: grey;
+    padding: 0 20px;
+    align-self: center;
+    display: none;
 }
-.message:hover + #timeShow { visibility: visible; }
+#message-data:hover + #timeShow { display: block; }
