@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Icon, Header, Image, Divider, Label, Segment, SegmentGroup } from 'semantic-ui-react'
+import { Form, Input, Icon, Header, Image, Divider, Label, Segment, SegmentGroup, Button } from 'semantic-ui-react'
 import './chat.css'
 import appLogo from '../../res/applogo.svg'
 
@@ -7,16 +7,29 @@ import appLogo from '../../res/applogo.svg'
 const Message = props => (
     // access props.sentBy to get the name of the person who sent the message
     // access props.timeSent to get the time the message was sent
+
   <div>
+      
       <div id="name" className={props.alignment}>
-          {props.sentBy}
+      
+          {props.alignment==='l' ? props.sentBy: ''}
+          
       </div>
+      <div>
+      <span id="timeShow" className={props.alignment}>
+        {props.timeSent.toLocaleString()}
+    </span>
       <div className={[props.alignment, "message"].join(' ')}>
-        <div id='message-data' className={props.alignment==='r' ? "userColor":"otherColor"}>{props.message}</div>
+      
+      <div id='message-data' className={props.alignment==='r' ? "userColor":"otherColor"}>
+      {props.message}</div>
+</div>
+
       </div>
-      <div id="timeShow" className={props.alignment}>
-          {props.timeSent.toLocaleString()}
-      </div>
+      
+      
+
+      
   </div>
 )
 
@@ -47,7 +60,12 @@ class Chat extends React.Component {
             conversationRef: null,
             databaseRef: this.props.database,   //firestore reference for all read/write operations
             fetchTimestamp : null,               //keep track of when the messages were first fetched, so new messages can be pulled in after that
-            membersToAdd: []
+            membersToAdd: [],
+            initLoadMessages : 1,
+            partialLoad : false,
+            lastLoadedDocTimestamp: null,
+            nextLoad: 2,
+    
 
          }
     }
@@ -167,19 +185,49 @@ class Chat extends React.Component {
         var databaseRef = this.state.databaseRef
         var messages = databaseRef.collection("messages").doc(messagesRef).collection("messageData")
         var messageObjects = []
-        messages.orderBy("timeSent").limit(50).get()
+        messages.orderBy("timeSent", "desc").limit(this.state.initLoadMessages).get()
             .then((querySnapshot) => {
-                console.log(querySnapshot)
-                querySnapshot.docs.forEach((doc) => {
+                
+                for (let i = querySnapshot.docs.length - 1; i >= 0 ; i--) {
+                    var doc = querySnapshot.docs[i]
                     messageObjects.push({message: doc.data().message, timeSent: doc.data().timeSent.toDate(), 
                         uid: doc.data().uid, displayName:doc.data().displayName})
-                })
-                this.setState({conversationRef: messagesRef, messages: messageObjects, fetchTimestamp: new Date()})
+                }
+
+                this.setState({conversationRef: messagesRef, messages: messageObjects, 
+                    fetchTimestamp: new Date(), lastLoadedDocTimestamp: messageObjects[0].timeSent, partialLoad: true})
             })
             .catch((err) => console.log(err))                    
             
         //this.setState({conversationRef: messagesRef}) 
         
+    }
+
+    loadMoreMessages = (e) => {
+
+        var messageObjects = this.state.messages.slice()
+            var databaseRef = this.state.databaseRef
+            databaseRef.collection("messages").doc(this.state.conversationRef).collection("messageData")
+                                            .orderBy("timeSent", "desc")
+                                            .startAt(this.state.lastLoadedDocTimestamp)
+                                            .limit(this.state.nextLoad+1)
+                                            .get()
+                .then((snapshot) => {
+                    console.log(snapshot.docs)
+                        if(snapshot.docs.length === 1)
+                            this.setState({partialLoad: false})
+
+                        
+                        for (let i = 1; i < snapshot.docs.length ; i++) {
+                            var doc = snapshot.docs[i]
+                            console.log(doc.data())
+                            messageObjects.unshift({message: doc.data().message, timeSent: doc.data().timeSent.toDate(), 
+                                uid: doc.data().uid, displayName: doc.data().displayName})
+                        }
+                        this.setState({messages: messageObjects, lastLoadedDocTimestamp: messageObjects[0].timeSent})
+                    })
+
+
     }
     sendMessage = (e) => {
         //this.state.socket.emit('private message', {to: 'john', data: message})
@@ -238,6 +286,7 @@ class Chat extends React.Component {
 
     handleAddConversation = (e) => {
         //look for user emails here
+        console.log(this.state.membersToAdd)
         if(!this.state.membersToAdd) return
        // create a new conversation
         const membersToAdd = [...this.state.membersToAdd,
@@ -262,6 +311,8 @@ class Chat extends React.Component {
                 console.error("Error writing document: ", error);
             })
             
+        
+        
         
         
 
@@ -305,12 +356,17 @@ class Chat extends React.Component {
             
 
         const uid = this.state.user.uid
-		const messages = this.state.messages.map((messageObject, index) => {
+		var messages = this.state.messages.map((messageObject, index) => {
             var alignment = (uid === messageObject.uid) ? 'r' : 'l'
             return(<Message key={index} alignment={alignment} sentBy={messageObject.displayName} 
                 timeSent={messageObject.timeSent} message={messageObject.message}/>)
 		})
- 
+        
+        if(this.state.partialLoad)
+            messages = <div>
+                        <Button onClick={this.loadMoreMessages}>Load More Messages</Button>
+                        {messages}
+                      </div>
         
         //generate conversation cards
 

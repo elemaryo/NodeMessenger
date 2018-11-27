@@ -200,7 +200,7 @@
 
 .userColor {
     background-color:#02aca5 !important;
-    color: white !important;
+    
 }
 
 .otherColor {
@@ -208,7 +208,7 @@
 }
 
 #timeShow { 
-    display: none; 
+    visibility: hidden;
     color: yellow;
 }
-.message:hover + #timeShow { display: block; }
+.message:hover + #timeShow { visibility: visible; }

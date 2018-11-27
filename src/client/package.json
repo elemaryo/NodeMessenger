@@ -28,6 +28,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-styleguidist": "^8.0.3"
+    "react-styleguidist": "^8.0.3",
+    "react-test-renderer": "^16.6.3"
   }
 }
