@@ -182,7 +182,7 @@
 
 .r{
     justify-content: right;
-    text-align: right;
+
 }
 
 .timeL {
@@ -198,7 +198,7 @@
 }
 
 #message-data{
-    padding: 0.5em 1em;
+    padding: 0.6em;
     background-color: #fff;
     border-radius: 0.5em;
     word-wrap: break-word;
@@ -220,10 +220,11 @@
 
 .userColor {
     background-color:#02aca5 !important;
-    
+   
 }
 
 .otherColor {
+
     background-color: white;
 }
 

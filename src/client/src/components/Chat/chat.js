@@ -184,6 +184,7 @@ class Chat extends React.Component {
         console.log('showing messsages')
         var databaseRef = this.state.databaseRef
         var messages = databaseRef.collection("messages").doc(messagesRef).collection("messageData")
+        if (!messages) return
         var messageObjects = []
         messages.orderBy("timeSent", "desc").limit(this.state.initLoadMessages).get()
             .then((querySnapshot) => {
@@ -309,6 +310,10 @@ class Chat extends React.Component {
                         conversations: this.props.firebaseRef.firestore.FieldValue.arrayUnion(conversationRef)								
                     })
                 })
+                if(this.state.messageUnsubscribe)
+                    this.state.messageUnsubscribe()
+                this.setState({addConv: !this.state.addConv, messages: []})
+                this.showMessages(conversationRef.id)
             })
             .catch(function(error) {
                 console.error("Error writing document: ", error);
@@ -324,7 +329,7 @@ class Chat extends React.Component {
         // do the following once the user clicks on the add conversation button
         
         
-        this.setState({addConv: !this.state.addConv})
+       
                            
     }
 
@@ -365,6 +370,7 @@ class Chat extends React.Component {
                 timeSent={messageObject.timeSent} message={messageObject.message}/>)
 		})
         
+        console.log(messages)
         if(this.state.partialLoad)
             messages = <div>
                         <Button onClick={this.loadMoreMessages}>Load More Messages</Button>
