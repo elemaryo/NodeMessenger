@@ -3,6 +3,7 @@
 #chat-grid {
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
     background-color: #1b1c1d;
     display: grid;
     grid-template-columns: 22.5em 0.05em auto;
@@ -16,7 +17,8 @@
 #chat-conversation-sidebar{
     padding: 2em;
     display: grid;
-    grid-template-rows: 4em auto;
+    grid-template-rows: 1fr 10fr 1fr;
+    max-height: 100vh;
 }
 
 #chat-message-box{
@@ -31,9 +33,10 @@
 
 #conversation-container{
     display: grid;
-    grid-template-rows: 10fr;
-    height: 100%;
+    grid-template-rows: 8fr 1fr;
+    height: auto;
     padding-top: 0.7em;
+    
 }
 .conversation-card{
     display: grid;
@@ -47,6 +50,12 @@
     cursor: pointer;
     padding: 0.5em;
     margin-bottom: 1em;
+}
+
+#conversation-conversationList{
+    overflow-y: auto;
+    padding: 15px;
+    border-radius: 0.5em;
 }
 
 #conversation-signout{
@@ -75,8 +84,8 @@
     padding-top: 0.6em;
 }
 
-#conversation-last-message{
-  
+#conversation-divider{
+  grid-column: 1/3;
 }
 
 

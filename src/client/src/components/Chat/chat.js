@@ -257,7 +257,7 @@ class Chat extends React.Component {
     
 
     showAddConvPopUp = () => {
-        this.setState({addConv: !this.state.addConv})
+        this.setState({addConv: !this.state.addConv, membersToAdd: []},)
     }
 
     handleAddEmail = (e) => {
@@ -286,8 +286,7 @@ class Chat extends React.Component {
 
     handleAddConversation = (e) => {
         //look for user emails here
-        console.log(this.state.membersToAdd)
-        if(!this.state.membersToAdd) return
+        if(this.state.membersToAdd.length === 0) return   
        // create a new conversation
         const membersToAdd = [...this.state.membersToAdd,
                             {displayName: this.state.user.displayName,
@@ -388,13 +387,13 @@ class Chat extends React.Component {
 							</Header>
 						<Divider/>
 					</div>
-					<div id='conversation-container'>
-						<div>
+					
+						<div id='conversation-conversationList'>
 							{conversation}
 						</div>
-						<Divider/>
-						<div id='conversation-usercontrols'>
 						
+						<div id='conversation-usercontrols'>
+						<Divider id='conversation-divider'/>
 							<div id='conversation-signout' onClick={this.props.onSignOut}>
 						
 								Sign Out
@@ -403,7 +402,7 @@ class Chat extends React.Component {
 								<Icon inverted size='big' name='add user'/>
 							</div>
 						</div>
-					</div>
+				
 				</div>
 				<div id='chat-divider'/>
 				<div id='chat-message-box'>
