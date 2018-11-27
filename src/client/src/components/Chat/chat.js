@@ -187,7 +187,11 @@ class Chat extends React.Component {
         var messageObjects = []
         messages.orderBy("timeSent", "desc").limit(this.state.initLoadMessages).get()
             .then((querySnapshot) => {
-                
+                if (querySnapshot.docs.length === 0){
+                    this.setState({conversationRef: messagesRef})
+                    return
+                } 
+
                 for (let i = querySnapshot.docs.length - 1; i >= 0 ; i--) {
                     var doc = querySnapshot.docs[i]
                     messageObjects.push({message: doc.data().message, timeSent: doc.data().timeSent.toDate(), 
