@@ -12,7 +12,7 @@ const Message = props => (
       
       <div id="name" className={props.alignment}>
       
-          {props.alignment==='l' ? props.sentBy: ''}
+          {props.showDisplayName ? props.sentBy: ''}
           
       </div>
       <div>
@@ -34,7 +34,7 @@ const Message = props => (
 )
 
 const ConversationCard = props => (
-    <div className='conversation-card' onClick={() => props.handleClick(props.cid)}>
+    <div className='conversation-card' id={props.selected ? 'conversation-card-selected': ''} onClick={() => props.handleClick(props.cid)}>
         <div id='conversation-icon'><Icon size='big' name={props.icon}/></div>
         <div id='conversation-info'>
             <Header>{props.members}</Header>
@@ -61,10 +61,10 @@ class Chat extends React.Component {
             databaseRef: this.props.database,   //firestore reference for all read/write operations
             fetchTimestamp : null,               //keep track of when the messages were first fetched, so new messages can be pulled in after that
             membersToAdd: [],
-            initLoadMessages : 1,
+            initLoadMessages : 50,
             partialLoad : false,
             lastLoadedDocTimestamp: null,
-            nextLoad: 2,
+            nextLoad: 100,
     
 
          }
@@ -139,7 +139,9 @@ class Chat extends React.Component {
                                 if (source === 'Server') {
                                     this.setState({
                                         messages: [...this.state.messages, 
-                                                    {message: doc.data().message, timeSent: doc.data().timeSent.toDate(), uid: doc.data().uid}],
+                                                    {message: doc.data().message, 
+                                                        timeSent: doc.data().timeSent.toDate(), uid: doc.data().uid, 
+                                                        displayName: doc.data().displayName}],
                                     })
                                 } else {
                                 // Do nothing, it's a local update so ignore it
@@ -167,6 +169,7 @@ class Chat extends React.Component {
         //get messages and attach a listener to the specific message doc
         //get the messages from messageData. order by 
         
+
         if (!this.state.conversationRef && messagesRef === this.state.conversationRef) return  //dont download again
         
         //thru the conversationRef get the mid and access the messages limit to first 50 order by timestamp
@@ -364,13 +367,26 @@ class Chat extends React.Component {
             
 
         const uid = this.state.user.uid
-		var messages = this.state.messages.map((messageObject, index) => {
-            var alignment = (uid === messageObject.uid) ? 'r' : 'l'
-            return(<Message key={index} alignment={alignment} sentBy={messageObject.displayName} 
-                timeSent={messageObject.timeSent} message={messageObject.message}/>)
-		})
+        var messages = []
         
-        console.log(messages)
+        for (let i = 0; i < this.state.messages.length ; i++) {
+            var messageObject = this.state.messages[i]
+            var alignment = (uid === messageObject.uid) ? 'r' : 'l'
+            
+            var showDisplayName = (i === 0  || this.state.messages[i - 1].uid !== messageObject.uid) && alignment !== 'r'
+            console.log(showDisplayName, messageObject)
+            messages.push(<Message key={i} alignment={alignment} sentBy={messageObject.displayName} 
+                timeSent={messageObject.timeSent} showDisplayName={showDisplayName} message={messageObject.message}/>)
+            
+        }
+        
+        // this.state.messages.map((messageObject, index) => {
+        //     var alignment = (uid === messageObject.uid) ? 'r' : 'l'
+        //     return(<Message key={index} alignment={alignment} sentBy={messageObject.displayName} 
+        //         timeSent={messageObject.timeSent} message={messageObject.message}/>)
+		// })
+        
+       
         if(this.state.partialLoad)
             messages = <div>
                         <Button onClick={this.loadMoreMessages}>Load More Messages</Button>
@@ -383,7 +399,10 @@ class Chat extends React.Component {
             const members = conversation.members.map((member) => {if(member.uid !== uid) return(<div key={member.displayName}>{member.displayName}</div>)})
             var icon = 'user'
             if (conversation.members.length > 2) icon = 'users'
-			return(<ConversationCard key={conversation.cid} icon={icon} members={members} lastMessage={conversation.lastMessage} cid={conversation.cid} handleClick={this.showMessages}/>)
+
+            return(<ConversationCard key={conversation.cid} selected={this.state.conversationRef === conversation.cid}
+                                     icon={icon} members={members} lastMessage={conversation.lastMessage} cid={conversation.cid} 
+                                     handleClick={this.showMessages}/>)
 		})
 
 		return(

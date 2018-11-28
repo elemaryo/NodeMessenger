@@ -53,6 +53,10 @@
     margin-bottom: 1em;
 }
 
+#conversation-card-selected{
+    border: 3px solid #00b5ad;
+}
+
 #conversation-conversationList{
     overflow-y: auto;
     padding: 15px;
@@ -215,7 +219,7 @@
 
 #name {
     color: white;
-    margin: 10px 0;
+    margin: 0.1em;
 }
 
 .userColor {
