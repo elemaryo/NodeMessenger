@@ -2,6 +2,7 @@
 
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage[normalem]{ulem}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
@@ -11,6 +12,7 @@
     urlcolor=blue
 }
 \usepackage[round]{natbib}
+\usepackage{hyperref}
 
 \title{SE 3XA3: Test Plan\\Node Messenger}
 
@@ -52,19 +54,20 @@ Date 2 & 1.1 & Notes\\
 \subsection{Purpose}
 This purpose of this document is to outline areas of testing from tools to methodology and plan that will verify both functional and non-functional requirements of the product and ensure that we are delivering a valid product to our clients designed in accordance to the outlined requirements.
 \subsection{Scope}
-As this is web-messenger product, testing will be focused on elements that are integral for mobile communication. Test plan shall cover both front-end and back-end implementations of functions to ensure validity. Front-end testing will consist of user input and output correction as well and proper rendering. Back-end testing will ensure that proper input and output collection is correct as well as user authentication, data transfer and stress testing firebase database system. If the product passes all the tests outlined in this document, it will be considered a valid implementation of the requirements outlined in the SRS document.
+As this is web-messenger product, testing will be focused on elements that are integral for mobile communication. Test plan shall cover both front-end and back-end implementations of functions to ensure validity. \hyperref[sec:frontendtests]{Front-end testing} will consist of user input and output correction as well and proper rendering. \hyperref[sec:backendtests]{Back-end testing} will ensure that proper input and output collection is correct as well as user authentication, data transfer and stress testing firebase database system. If the product passes all the tests outlined in this document, it will be considered a valid implementation of \textcolor{red}{the requirements listed in the \hyperref[sec:tmatrix]{traceability matrix}} outlined in the SRS document. 
 
 \subsection{Acronyms, Abbreviations, and Symbols}
 	
-\begin{table}[hbp]
+\begin{table}[!htbp]
 \caption{\textbf{Table of Abbreviations}} \label{Table}
 
 \begin{tabularx}{\textwidth}{p{3cm}X}
 \toprule
 \textbf{Abbreviation} & \textbf{Definition} \\
 \midrule
-Abbreviation1 & Definition1\\
-Abbreviation2 & Definition2\\
+\textcolor{red}{auth} & \textcolor{red}{authentication}\\
+\textcolor{red}{UI/UX} & \textcolor{red}{User Interface/ User-Experience}\\
+\textcolor{red}{async calls} & \textcolor{red}{Asynchronous requests that client makes to retrieve information}\\
 \bottomrule
 \end{tabularx}
 
@@ -77,8 +80,9 @@ Abbreviation2 & Definition2\\
 \toprule
 \textbf{Term} & \textbf{Definition}\\
 \midrule
-Term1 & Definition1\\
-Term2 & Definition2\\
+\textcolor{red}{Firebase} & \textcolor{red}{Firebase is a backend service provider}\\
+\textcolor{red}{Jest} & \textcolor{red}{React Testing framework with Async Testing Support}\\
+\textcolor{red}{React} & \textcolor{red}{JavaScript UI Library}\\
 \bottomrule
 \end{tabularx}
 
@@ -89,27 +93,30 @@ This document will outline a proper test plan for functional and non-functional 
 \section{Plan}
 	
 \subsection{Software Description}
-The software is a fully functioning web-app that allows users to communicate with each other through messages. The users are able to create an account using their preferred email address and specified display name and password. Once they are clients of Node Messenger, they are able to utilize its messaging features. The web-page displays a list of previous conversations and selected ones. Users can initiate conversations with other Node Messenger clients and converse through messages in a local chat window. All conversation information is stored and rendered for the user in constant time to create a seamless and naturally flowing dialogue.
+The software is a fully functioning web-app that allows users to communicate with each other through messages. The users are able to create an account using their preferred email address and specified display name and password. Once they are clients of Node Messenger, they are able to utilize its messaging features. The web-page displays a list of previous conversations and selected ones. Users can initiate conversations with other Node Messenger clients and converse through messages in a local chat window. All conversation information is received and rendered for the user in constant time to create a seamless and naturally flowing dialogue.
 
 \subsection{Test Team}
 The test team consists of all three members of the development team: Tasin Ahmed, Shardool Patel, and Omar Elemary. The testing process will be divided into both front-end and back-end testing. Each member is responsible for conducting unit tests for each developed components to ensure proper functionality. The team will then begin integration testing once all modules are complete to examine the system working as a whole and additionally perform a system test to verify that all outlined functional and non-functional requirements of the product are successfully met.
 
 \subsection{Automated Testing Approach}
 
-The team plans to automate most of the testing using two frameworks: Jest and Mocha. UI components will be tested based on the snapshot testing approach that jest implements, allowing us to see if things are rendered accurately. Everything other than the UI will be unit tested on mocha. Independent functionality features as well as some non-function requirements such as performance will be tested using unit tests. 
+The team plans to automate most of the testing using Jest framework. \sout{Jest and Mocha.} UI components will be tested based on the snapshot testing approach that jest implements, allowing us to see if things are rendered accurately. \sout{Everything other than the UI will be unit tested on mocha}. \textcolor{red}{Black Box testing will be performed using Jest for all modules}. \textcolor{red}{Back-end testing and system testing will be done through jest using its async testing features.}\\
+Since the system is relying on firebase servers, stress tests as indicated in \hyperref[sec:perf]{performance section} will be undertaken to ensure the servers can perform under heavy load. 
 
 \subsection{Testing Tools}
-We will be utilizing Jest in order to test React our code, and Mocha to test Javascript. This will be done in order to keep bugs to a minimum, and to better the user experience. There will be a sections on our website where users can leave their reviews, and suggestions to improve our product.
+\sout{We will be utilizing Jest in order to test React our code, and Mocha to test JavaScript.} \textcolor{red}{The system testing will be done using Jest. This will include client side rendering and async calls to the database. The client side rendering is tested using Jest's snapshot feature which parses the render tree to tests if the render matches the previous state one.} This will be done in order to keep bugs to a minimum, and to better the user experience. There will be a sections on our website where users can leave their reviews, and suggestions to improve our product.
 
 \subsection{Testing Schedule}
 		
-See Gantt Chart at the following url ...
+See Gantt Chart at the following url:\\
+\url{https://gitlab.cas.mcmaster.ca/pates25/NodeMessenger/blob/master/ProjectSchedule/ProjectSchedule.gan}
 
 \section{System Test Description}
 	
 \subsection{Tests for Functional Requirements}
 
 \subsubsection{Authentication}
+\label{sec:auth}
 		
 \paragraph{Login / Sign up Forms}
 
@@ -138,7 +145,7 @@ See Gantt Chart at the following url ...
 \textbf{Output:}\\ Pop up indicating user successfully signed up. User redirected to chat screen
 					
 \textbf{How test will be performed:}\\ 
-The test will be automated with the testing framework mocha. The user data will be used for sign up and will be checked against the list of users in the database.
+The test will be automated with the testing framework jest. The user data will be used for sign up and will be checked against the list of users in the database.
 
 \item{auth-test-3 : Successful Login\\}
 
@@ -151,7 +158,7 @@ Input: email address and password used for login
 \textbf{Output:}\\ Redirect user to the chat screen
 					
 \textbf{How test will be performed:}\\ 
-The test will be automated with the testing framework mocha. The user data will be used for login and the authentication state will be checked to see if the login was successful.
+The test will be automated with the testing framework jest. The user data will be used for login and the authentication state will be checked to see if the login was successful.
 
 \item{auth-test-4 : Authentication State Persistence\\}
 
@@ -164,12 +171,13 @@ The test will be automated with the testing framework mocha. The user data will 
 \textbf{Output:}\\ If the computer is listed as a user trusted computer, keep the user logged in.
 					
 \textbf{How test will be performed:}\\ 
-The test will be automated with the testing framework mocha. The change in auth state will be used to determine if the user is automatically signed if the page is reloaded.
+The test will be automated with the testing framework jest. The change in authentication state will be used to determine if the user is automatically signed if the page is reloaded.
 
 
 \end{enumerate} 
 
 \subsubsection{Chat Input/Output}
+\label{sec:frontendtests}
 \begin{enumerate}
    \item{chat-test-1 : User message renders on input box\\}
 
@@ -237,6 +245,7 @@ This manual test will be performed using two instances of the application. The t
 The test will  be performed using Jest. The rendered contact list will be tested for the updated state.
 \end{enumerate}
 \subsubsection{Database}
+\label{sec:backendtests}
 \begin{enumerate}
 \item{db-test-1 : Contacts\\}
 
@@ -249,7 +258,7 @@ The test will  be performed using Jest. The rendered contact list will be tested
 \textbf{Output:}\\ Upon adding a contact the database should add the contact to user's contact list
 					
 \textbf{How test will be performed:}\\ 
-This manual test will be performed using mocha. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
+This manual test will be performed using jest. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
 
 \item{db-test-2 : Chat history\\}
 
@@ -257,12 +266,12 @@ This manual test will be performed using mocha. The user's contact list will be 
 					
 \textbf{Initial State:}\\ Chat initiated with a contact
 					
-\textbf{Input:}\\ Logout and Login back to the chat
+\textbf{Input:}\\ Log-out and Log-in back to the chat
 					
 \textbf{Output:}\\ The chat history should be rendered and the message history should be accessible.
 					
 \textbf{How test will be performed:}\\ 
-This manual test will be performed using mocha. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
+This manual test will be performed using jest. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
 \end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
@@ -272,7 +281,7 @@ This manual test will be performed using mocha. The user's contact list will be 
 
 \textbf{Type:}\\ Static, Manual
 					
-\textbf{Initial State:} N/A
+\textbf{Initial State:} \textcolor{red}{Chat Box with messages rendered in.}
 					
 \textbf{Input:} N/A
 					
@@ -284,19 +293,49 @@ The UI/UX tests will subjectively give a qualitative result of how the system fe
 
 
 \subsubsection{Performance}
+\label{sec:perf}
 \begin{enumerate}
 \item{pf-test-1 : Time taken to send and receive messages (acceptable: $<$ 2 sec)\\}
 
 \textbf{Type:}\\ Dynamic, Automated
 					
-\textbf{Initial State:} N/A
+\textbf{Initial State:} \textcolor{red}{Message typed in chat window}
 					
 \textbf{Input:}\\ Message sent
 					
 \textbf{Output:}\\ Server callback with approximated time.
 					
 \textbf{How test will be performed:}\\ 
-This test will be automated by the mocha framework. The server will send a ping once a message is received, which will then used to estimate the average time taken to send and receive messages.
+This test will be automated by the jest framework. The server will send a ping once a message is received, which will then used to estimate the average time taken to send and receive messages.\\
+
+\item{pf-stress-test-2 : \textcolor{red}{ Scrolling through a large amount of messages\\}}
+
+\textbf{Type:}\\ \textcolor{red}{Static, Manual}
+					
+\textbf{Initial State:} \textcolor{red}{~300-500 Messages loaded on client side}
+					
+\textbf{Input:}\\ \textcolor{red}{ Scroll action}
+					
+\textbf{Output:}\\ \textcolor{red}{Scrolling message area}
+					
+\textbf{How test will be performed:}\\ 
+\textcolor{red}{ This test will be performed manually to see if the scrolling behaviour and responsiveness is affected by large number of messages being loaded in on the client side}.
+\end{enumerate}
+
+
+\begin{enumerate}
+\item{pf-server-stress-test-3 : \textcolor{red}{Server responsiveness when large group is active\\}}
+
+\textbf{Type:}\\ \textcolor{red}{Automated, Dynamic}
+					
+\textbf{Initial State:} \textcolor{red}{>20 Member group is active.}
+					
+\textbf{Input:}\\ \textcolor{red}{Messages being sent by everyone}
+					
+\textbf{Output:}\\ \textcolor{red}{Receiving messages}
+					
+\textbf{How test will be performed:}\\ 
+\textcolor{red}{ This test will be performed using jest. The time from the message being sent to the server and receiving a callback will be tested to see the responsiveness of the server when under heavy load}.
 \end{enumerate}
 
 \subsubsection{Security Testing}
@@ -312,31 +351,33 @@ This test will be automated by the mocha framework. The server will send a ping 
 \textbf{Output:}\\ Unauthorized access error
 					
 \textbf{How test will be performed:}\\ 
-The test will be automated using mocha. Mocha will try to access unauthorized pages under a user and check if the appropriate error is thrown back.
+The test will be automated using jest. jest will try to access unauthorized pages under a user and check if the appropriate error is thrown back.
 \end{enumerate}
 
 \subsubsection{Portability}
+\label{sec:port}
 \begin{enumerate}
 \item{pr-test-1 : Mobile/Tablet UI/UX\\}
 
 \textbf{Type:}\\ Static, Manual
 					
-\textbf{Initial State:} N/A
+\textbf{Initial State:}  \textcolor{red}{Log-in page}
 					
-\textbf{Input:}N/A
+\textbf{Input:} \textcolor{red}{Log-in and send a message}
 					
-\textbf{Output:}N/A
+\textbf{Output:} \textcolor{red}{Rendered message on screen}
 					
 \textbf{How test will be performed:}\\ 
 The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how the system performs on different devices. Google Chrome Dev Tools along with our personal devices will be used for this test.
 \end{enumerate}
 
 
-\subsection{Traceability Between Test Cases and Requirements}
-
 \section{Tests for Proof of Concept}
 
-The purpose of the proof of concept was to demonstrate the general functionality of a chat application. It included login/signup and real-time chat built within a simple user interface. Therefore, the tests for proof will include the all the tests from sections: 3.1.1 Authentication, 3.1.2 Chat Input/Output and 3.2.1 Performance and 3.2.4 Portability.
+The purpose of the proof of concept was to demonstrate the general functionality of a chat application. It included log-in/sign-up and real-time chat built within a simple user interface.\\
+\textcolor{red}{The proof of concept will include system testing so that the basic functionality of the application is tested. This will include automated test from following sections:}\\
+\hyperref[sec:auth]{3.1.1 Authentication}, \hyperref[sec:frontendtests]{3.1.2 Chat Input/Output} along with trivial non-functional tests from \hyperref[sec:perf]{3.2.1 Performance} and \hyperref[sec:port]{3.2.4 Portability}.\\
+\textcolor{red}{Aside from the system tests, the proof of concept will be unit tested to see if the methods function correctly. This will be done through the jest framework.}
 
 
 	
@@ -344,10 +385,13 @@ The purpose of the proof of concept was to demonstrate the general functionality
 Node Messenger is based upon Tinode, an existing implantation of a web messaging app. Tinode implements a successful messaging app with the inclusion of 3 main functions: Correct display of messages being sent and received, displays a list of past messages with other users, and stores the messages of a user, allowing them to logout or login with a different account. We will be testing to see if the messages being sent, and the messages being received are formatted properly, and they display on the correct side of the screen. Node Messenger will also be tested to ensure it can create different messaging rooms to let the user chat with other users flawlessly. We will be creating multiple accounts to test if Node Messenger is able to store, access, and show data specific to each user.  
 				
 \section{Unit Testing Plan}
-We will be using Jest, and Mocha to test the functions governing Node Messenger. We will be ensure that the functions carry out their task properly and return their expected output.  Messages should display properly if it is entered correctly, e.g. if a blank message is entered, it must not send an empty message to the message box. Our group will try to cover as much ground as possible in order to ensure a better user experience. 
-		
+
 \subsection{Unit testing of internal functions}
-Unit testing using Jest will be mainly used for testing internal functions in Node Messenger. We will be testing the functions above, as well as other key internal functions to ensure Node Messenger functions as expected. Unit testing these internal functions will help us to determine hidden errors, or loopholes in the code that cannot be easily spotted.
+\textcolor{red}{
+We will be using Jest to test the functions governing Node Messenger. We will be ensure that the functions carry out their task properly and return their expected output.  Messages should display properly if it is entered correctly, e.g. if a blank message is entered, it must not send an empty message to the message box. Our group will try to cover as much ground as possible in order to ensure a better user experience. \\
+The test will apply the black box testing to see if the output is in compliance with whats listed in the MIS and will also include white box testing to cover edges cases that might be missed due to rare occurrences.
+}
+\sout{Unit testing using Jest will be mainly used for testing internal functions in Node Messenger. We will be testing the functions above, as well as other key internal functions to ensure Node Messenger functions as expected. Unit testing these internal functions will help us to determine hidden errors, or loopholes in the code that cannot be easily spotted.}
 
 \subsection{Unit testing of output files}	
 Not Applicable.	
