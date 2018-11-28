@@ -1,0 +1,381 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{fullpage}
+\usepackage[round]{natbib}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+
+\newcounter{acnum}
+\newcommand{\actheacnum}{AC\theacnum}
+\newcommand{\acref}[1]{AC\ref{#1}}
+
+\newcounter{ucnum}
+\newcommand{\uctheucnum}{UC\theucnum}
+\newcommand{\uref}[1]{UC\ref{#1}}
+
+\newcounter{mnum}
+\newcommand{\mthemnum}{M\themnum}
+\newcommand{\mref}[1]{M\ref{#1}}
+
+\title{\Huge\textbf{Node Messenger}\\
+		\huge{Module Interface Specification - Group 24}}
+\author{Ahmed, Tasin\hspace{1cm}Patel, Shardool\hspace{1cm}Elemary, Omar \\
+		400052747\hspace{2cm}400080843\hspace{2cm}400100169}
+\bigskip
+\begin{document}
+\maketitle
+  	\begin{center}
+    REVISION HISTORY
+\end{center}\\\
+
+\begin{table}[hp]
+\begin{center}
+\label{tab:}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{DATE} & \textbf{Version} & \textbf{Edited By}\\
+\hline
+November 09, 2018 & 0 & Shardool Patel, Tasin Ahmed, Omar Elemary\\
+\hline
+\end{tabular}\\\\
+\end{center}
+\label{default}
+\end{table}
+\\\\
+\begin{center}
+    \textbf{NOTE:} React Generated Module - serviceWorker.js is not used for the application therefore the interface specification for that module is omitted.
+\end{center}
+
+
+\newpage
+
+\section* {Chat Module}
+
+\subsection*{Module}
+
+Chat
+
+\subsection* {Uses/Dependencies}
+Third Party: React, Semantic-UI Components\\
+Local: chat.css, appLogo.svg
+
+\subsection* {Syntax}
+
+\subsubsection* {Constants} 
+$Message$: React UI component that renders a message\\
+$Contact Card$: React UI component that renders a message
+\subsubsection* {Exported Types} Chat
+\subsubsection* {Funtions}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+render & ~ & Chat & built-in (react) Exceptions \\
+\hline
+componentDidMount & ~ & ~ & built-in (react) Exceptions\\
+\hline
+sendMessage & e & ~ & built-in (firebase) Exceptions\\
+\hline
+\end{tabular}
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+$contacts: $ (List of User) Keeps track of the current user's contact\\
+$user:$ (User) User metadata\\
+$messages:$ (List of String) message that are currently being rendered\\
+\subsubsection* {State Invariant}
+
+$\{user != null\}$
+\subsubsection* {Access Routine Semantics}
+
+render(): (Built in React Component Life-Cycle method)
+\begin{itemize}
+\item transition: None
+\item output: Compiled React Component: Chat 
+\item exception: Built-In React Exceptions
+\end{itemize}\\
+componentDidMount(): (Built in React Component Life-Cycle method, \\Called after component is mounted on DOM)
+\begin{itemize}
+\item transition: Load User Data. i.e Contacts, Messages etc.
+\item output: Compiled React Component: Chat 
+\item exception: Built-In React Exceptions
+\end{itemize}\\
+sendMessage($e$): (Broadcasts sent message to appropriate user)
+\begin{itemize}
+\item transition: Message sent is rendered in Chat component. $messages$ list is updated with the new message
+\item output: None 
+\item exception: Built-In (Firebase) Exceptions 
+\end{itemize}
+
+\newpage
+\section* {SignIn Module}
+
+\subsection*{Module}
+
+SignIn
+
+\subsection* {Uses/Dependencies}
+Third Party: React, Semantic-UI Components\\
+Local: signin.css
+
+\subsection* {Syntax}
+
+\subsubsection* {Constants} None
+\subsubsection* {Exported Types} SignIn
+\subsubsection* {Funtions}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+render & ~ & SignIn & built-in (react) Exceptions\\
+\hline
+handleChange & e & ~ & ~\\
+\hline
+handleSubmit & ~ & ~ & InvalidInput\\
+\hline
+\end{tabular}
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+$email: $ (String) Email input value\\
+$password:$ (String) Password input value\\
+\subsubsection* {State Invariant}
+None
+\newpage
+\subsubsection* {Access Routine Semantics}
+
+render(): (Built in React Component Life-Cycle method)
+\begin{itemize}
+\item transition: None
+\item output: Compiled React Component: SignIn 
+\item exception: Built-In React Exceptions
+\end{itemize}\\
+handleChange(e): (Handles email and password input changes)
+\begin{itemize}
+\item transition: [$e.target.id$] (email or password) = $e.target.value$
+\item exception: None
+\end{itemize}\\
+handleSubmit(): (Handles SignIn request)
+\begin{itemize}
+\item transition: Log the current user in and render Chat Screen if sign in successful. Render appropriate exception if not successful.
+\item exception: InvalidInput 
+\end{itemize}
+
+\newpage
+
+\section* {SignUp Module}
+
+\subsection*{Module}
+
+SignUp
+
+\subsection* {Uses/Dependencies}
+Third Party: React, Semantic-UI Components\\
+Local: signup.css
+
+\subsection* {Syntax}
+
+\subsubsection* {Constants} None
+\subsubsection* {Exported Types} SignUp
+\subsubsection* {Funtions}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+render & ~ & SignUp & built-in (react) Exceptions\\
+\hline
+handleChange & e & ~ & ~\\
+\hline
+handleSubmit & ~ & ~ & InvalidInput\\
+\hline
+\end{tabular}
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+$emailUp: $ (String) Email input value\\
+$passwordUp:$ (String) Password input value\\
+$confirmPasswordUp:$ (String) Confirmation password input value\\
+$displayName:$ (String) Display name input value\\
+\subsubsection* {State Invariant}
+None
+\newpage
+\subsubsection* {Access Routine Semantics}
+
+render(): (Built in React Component Life-Cycle method)
+\begin{itemize}
+\item transition: None
+\item output: Compiled React Component: SignUp
+\item exception: Built-In React Exceptions
+\end{itemize}\\
+handleChange(e): (Handles email and password input changes)
+\begin{itemize}
+\item transition: [$e.target.id$] (One of the state variables) = $e.target.value$
+\item exception: None
+\end{itemize}\\
+handleSubmit(): (Handles SignUp request)
+\begin{itemize}
+\item transition: Log the current user in and render Chat Screen if sign up successful. Render appropriate exception if not successful.
+\item exception: InvalidInput 
+\end{itemize}
+
+\newpage
+
+
+\section* {Login Module}
+
+\subsection*{Module}
+
+Login
+
+\subsection* {Uses/Dependencies}
+Third Party: React, Semantic-UI Components\\
+Local: login.css, appLogo.svg, SignIn, SignUp
+
+\subsection* {Syntax}
+
+\subsubsection* {Constants} 
+$Box:$ Login Box containing the SignUp and SignIn UI Components
+\subsubsection* {Exported Types} Login
+\subsubsection* {Funtions}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+render & ~ & Login & built-in (react) Exceptions\\
+\hline
+\end{tabular}
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+None
+\subsubsection* {State Invariant}
+None
+
+\subsubsection* {Access Routine Semantics}
+
+render(): (Built in React Component Life-Cycle method)
+\begin{itemize}
+\item transition: None
+\item output: Compiled React Component: Login
+\item exception: Built-In React Exceptions
+\end{itemize}
+\newpage
+
+
+
+\section* {App Module}
+
+\subsection*{Module}
+
+App
+
+\subsection* {Uses/Dependencies}
+Third Party: React, Semantic-UI Components\\
+Local: App.css, Login, Chat
+
+\subsection* {Syntax}
+
+\subsubsection* {Constants} 
+$LoadingScreen:$ Loading Screen React Component
+\subsubsection* {Exported Types} App
+\subsubsection* {Funtions}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+render & ~ & App & built-in (react) Exceptions\\
+\hline
+componentDidMount & ~ & ~ & built-in (react) Exceptions\\
+\hline
+handleSignIn & String, String & ~ & built-in (firebase) Exceptions\\
+\hline
+handleSignUp & String, String & ~ & built-in (firebase) Exceptions\\
+\hline
+handleSignOut & ~ & ~ & built-in (firebase) Exceptions\\
+\hline
+\end{tabular}
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+$authChecked$: (boolean) User authentication status.\\
+$user$: (User) User metadata (provided by firebase).
+\subsubsection* {State Invariant}
+{$authChecked$ = true $\vee\,\,\, authChecked$ = false}
+\newpage
+\subsubsection* {Access Routine Semantics}
+
+render(): (Built in React Component Life-Cycle method)
+\begin{itemize}
+\item transition: None
+\item output: Compiled React Component: App
+\item exception: Built-In React Exceptions
+\end{itemize}\\
+componentDidMount(): (Built in React Component Life-Cycle method, \\Called after App component is mounted on DOM)
+\begin{itemize}
+\item transition: Listen to authentication state changes via firebase. If user info exists, log them in $\Rightarrow user = firebase.user, authChecked = true$
+\item output: Compiled React Component: Chat 
+\item exception: Built-In React Exceptions
+\end{itemize}\\
+handleSignIn($email, password$): (Attempts to signIn via firebase authentication)
+\begin{itemize}
+\item transition: Sends firebase a signin request. Response is handled by the listener attached in componentDidMount method.
+\item output: None 
+\item exception: Built-In (Firebase) Exceptions
+\end{itemize}\\
+handleSignUp($email, password$): (Attempts to signUp via firebase authentication)
+\begin{itemize}
+\item transition: Sends firebase a signup equest. Response is handled by the listener attached in componentDidMount method.
+\item output: None 
+\item exception: Built-In (Firebase) Exceptions
+\end{itemize}\\
+handleSignOut($email, password$): (Attempts to signOut via firebase authentication)
+\begin{itemize}
+\item transition: Sends firebase a signout request. Response is handled by the listener attached in componentDidMount method.
+\item output: None 
+\item exception: Built-In (Firebase) Exceptions
+\end{itemize}
+\newpage
+
+
+\section* {Index Module}
+
+\subsection*{Module}
+
+Index (Initialization Module)
+
+\subsection* {Uses/Dependencies}
+Third Party: React, ReactDOM, Semantic-UI CSS, firebase, serviceWorker\\
+Local: login.css, appLogo.svg, App
+\subsection*{Environment Variables}
+$ReactDOM$ : Renders the react app to the screen when called as ReactDOM.render(...)
+\subsection* {Syntax}
+\subsubsection* {Constants} 
+$config:$ firebase config object \\
+$databse:$ firebase database instance
+\subsubsection* {Exported Types} None
+\subsubsection* {Funtions}
+None
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+None
+\subsubsection* {State Invariant}
+None
+
+\subsubsection* {Access Routine Semantics}
+None
+
+\end {document}
+

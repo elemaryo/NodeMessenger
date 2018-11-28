@@ -1,0 +1,374 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+
+\title{SE 3XA3: Test Plan\\Node Messenger}
+
+\author{Team \#24, Node Messenger
+		\\ Tasin Ahmed - ahmedm31
+		\\ Shardool Patel - pates25
+		\\ Omar Elemary - elemaryo
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\begin{table}[bp]
+\caption{\bf Revision History}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+Date 1 & 1.0 & Notes\\
+Date 2 & 1.1 & Notes\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{General Information}
+
+
+\subsection{Purpose}
+This purpose of this document is to outline areas of testing from tools to methodology and plan that will verify both functional and non-functional requirements of the product and ensure that we are delivering a valid product to our clients designed in accordance to the outlined requirements.
+\subsection{Scope}
+As this is web-messenger product, testing will be focused on elements that are integral for mobile communication. Test plan shall cover both front-end and back-end implementations of functions to ensure validity. Front-end testing will consist of user input and output correction as well and proper rendering. Back-end testing will ensure that proper input and output collection is correct as well as user authentication, data transfer and stress testing firebase database system. If the product passes all the tests outlined in this document, it will be considered a valid implementation of the requirements outlined in the SRS document.
+
+\subsection{Acronyms, Abbreviations, and Symbols}
+	
+\begin{table}[hbp]
+\caption{\textbf{Table of Abbreviations}} \label{Table}
+
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule
+\textbf{Abbreviation} & \textbf{Definition} \\
+\midrule
+Abbreviation1 & Definition1\\
+Abbreviation2 & Definition2\\
+\bottomrule
+\end{tabularx}
+
+\end{table}
+
+\begin{table}[!htbp]
+\caption{\textbf{Table of Definitions}} \label{Table}
+
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule
+\textbf{Term} & \textbf{Definition}\\
+\midrule
+Term1 & Definition1\\
+Term2 & Definition2\\
+\bottomrule
+\end{tabularx}
+
+\end{table}	
+
+\subsection{Overview of Document}
+This document will outline a proper test plan for functional and non-functional requirement as well as tests for our current proof of concept demonstration. The document will also break down the testing process into multiple divided section and elaborating on them in great detail to provide context to our testing methodologies. Finally this implementation of the product will be compared to a successful one based on a list of usability questions and through this an outlined unit test plan will be formed. Any abstract symbols can be explored in the attached appendix for clarification on any unclear document elements.
+\section{Plan}
+	
+\subsection{Software Description}
+The software is a fully functioning web-app that allows users to communicate with each other through messages. The users are able to create an account using their preferred email address and specified display name and password. Once they are clients of Node Messenger, they are able to utilize its messaging features. The web-page displays a list of previous conversations and selected ones. Users can initiate conversations with other Node Messenger clients and converse through messages in a local chat window. All conversation information is stored and rendered for the user in constant time to create a seamless and naturally flowing dialogue.
+
+\subsection{Test Team}
+The test team consists of all three members of the development team: Tasin Ahmed, Shardool Patel, and Omar Elemary. The testing process will be divided into both front-end and back-end testing. Each member is responsible for conducting unit tests for each developed components to ensure proper functionality. The team will then begin integration testing once all modules are complete to examine the system working as a whole and additionally perform a system test to verify that all outlined functional and non-functional requirements of the product are successfully met.
+
+\subsection{Automated Testing Approach}
+
+The team plans to automate most of the testing using two frameworks: Jest and Mocha. UI components will be tested based on the snapshot testing approach that jest implements, allowing us to see if things are rendered accurately. Everything other than the UI will be unit tested on mocha. Independent functionality features as well as some non-function requirements such as performance will be tested using unit tests. 
+
+\subsection{Testing Tools}
+We will be utilizing Jest in order to test React our code, and Mocha to test Javascript. This will be done in order to keep bugs to a minimum, and to better the user experience. There will be a sections on our website where users can leave their reviews, and suggestions to improve our product.
+
+\subsection{Testing Schedule}
+		
+See Gantt Chart at the following url ...
+
+\section{System Test Description}
+	
+\subsection{Tests for Functional Requirements}
+
+\subsubsection{Authentication}
+		
+\paragraph{Login / Sign up Forms}
+
+\begin{enumerate}
+
+\item{auth-test-1 : Validation of User Input\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated
+
+\textbf{Initial State:}\\ Empty Forms
+					
+\textbf{Input:}\\ Empty String, invalid emails and valid emails 
+					
+\textbf{Output:}\\ Appropriate Error shown if input invalid. Chat screen if valid input.
+					
+\textbf{How test will be performed:}\\ The test will be performed using the Jest framework. Based on the input, the render tree will be tested for appropriate output.
+					
+\item{auth-test-2 : Successful sign up\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ Email not signed up
+					
+\textbf{Input:}\\ email address and password
+					
+\textbf{Output:}\\ Pop up indicating user successfully signed up. User redirected to chat screen
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated with the testing framework mocha. The user data will be used for sign up and will be checked against the list of users in the database.
+
+\item{auth-test-3 : Successful Login\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ User not logged in
+					
+Input: email address and password used for login
+					
+\textbf{Output:}\\ Redirect user to the chat screen
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated with the testing framework mocha. The user data will be used for login and the authentication state will be checked to see if the login was successful.
+
+\item{auth-test-4 : Authentication State Persistence\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ User logged in
+					
+\textbf{Input:}\\ User reloads the site
+					
+\textbf{Output:}\\ If the computer is listed as a user trusted computer, keep the user logged in.
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated with the testing framework mocha. The change in auth state will be used to determine if the user is automatically signed if the page is reloaded.
+
+
+\end{enumerate} 
+
+\subsubsection{Chat Input/Output}
+\begin{enumerate}
+   \item{chat-test-1 : User message renders on input box\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ Message not rendered in the input box 
+					
+\textbf{Input:}\\ User starts entering message in input box
+					
+\textbf{Output:}\\ Message shows up in the input box
+					
+\textbf{How test will be performed:}\\ 
+The test will be done using jest framework. The react tree will be checked for the rendered message in the input box.
+
+\item{chat-test-2 : User message renders on screen\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ Message not rendered on the chat box
+					
+\textbf{Input:}\\ User enters message in the input box
+					
+\textbf{Output:}\\ Message shows up on the right side in the conversation windows
+					
+\textbf{How test will be performed:}\\ 
+The test will be done using jest framework. The react tree will be checked for the rendered message.
+
+\item{chat-test-3 : Received message renders on screen\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automated 
+					
+\textbf{Initial State:}\\ No received messages
+					
+\textbf{Input:}\\ N/A
+					
+\textbf{Output:}\\ Message received shows up on the right side in the conversation windows
+					
+\textbf{How test will be performed:}\\ 
+The test will be done using jest framework. The react tree will be checked for the rendered message.
+
+\item{chat-test-4 : Instant Messaging\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Manual
+					
+\textbf{Initial State:}\\ No sent or received messages
+					
+\textbf{Input:}\\ N/A
+					
+\textbf{Output:}\\ Send/Receive messages
+					
+\textbf{How test will be performed:}\\ 
+This manual test will be performed using two instances of the application. The test will check if the sending and receiving of messages happen within a few seconds of pressing the send button.
+
+\item{chat-test-4 : Contacts\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Manual
+					
+\textbf{Initial State:}\\ No contacts
+					
+\textbf{Input:}\\ Add a contact
+					
+\textbf{Output:}\\ Contact is rendered on user's contacts list
+					
+\textbf{How test will be performed:}\\ 
+The test will  be performed using Jest. The rendered contact list will be tested for the updated state.
+\end{enumerate}
+\subsubsection{Database}
+\begin{enumerate}
+\item{db-test-1 : Contacts\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automatic
+					
+\textbf{Initial State:}\\ No contacts
+					
+\textbf{Input:}\\ Add a contact
+					
+\textbf{Output:}\\ Upon adding a contact the database should add the contact to user's contact list
+					
+\textbf{How test will be performed:}\\ 
+This manual test will be performed using mocha. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
+
+\item{db-test-2 : Chat history\\}
+
+\textbf{Type:}\\ Functional, Dynamic, Automatic
+					
+\textbf{Initial State:}\\ Chat initiated with a contact
+					
+\textbf{Input:}\\ Logout and Login back to the chat
+					
+\textbf{Output:}\\ The chat history should be rendered and the message history should be accessible.
+					
+\textbf{How test will be performed:}\\ 
+This manual test will be performed using mocha. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
+\end{enumerate}
+
+\subsection{Tests for Nonfunctional Requirements}
+\subsubsection{UI/UX Tests}
+\begin{enumerate}
+\item{ui-test-1 : To test the look and feel of the application\\}
+
+\textbf{Type:}\\ Static, Manual
+					
+\textbf{Initial State:} N/A
+					
+\textbf{Input:} N/A
+					
+\textbf{Output:} N/A
+					
+\textbf{How test will be performed:}\\ 
+The UI/UX tests will subjectively give a qualitative result of how the system feels in terms for ease of use ,appearance and responsiveness. This test will carried out by using the application for a certain amount of time.
+\end{enumerate}
+
+
+\subsubsection{Performance}
+\begin{enumerate}
+\item{pf-test-1 : Time taken to send and receive messages (acceptable: $<$ 2 sec)\\}
+
+\textbf{Type:}\\ Dynamic, Automated
+					
+\textbf{Initial State:} N/A
+					
+\textbf{Input:}\\ Message sent
+					
+\textbf{Output:}\\ Server callback with approximated time.
+					
+\textbf{How test will be performed:}\\ 
+This test will be automated by the mocha framework. The server will send a ping once a message is received, which will then used to estimate the average time taken to send and receive messages.
+\end{enumerate}
+
+\subsubsection{Security Testing}
+\begin{enumerate}
+\item{sr-test-1 : Tests users access level\\}
+
+\textbf{Type:}\\ Dynamic, Automated
+					
+\textbf{Initial State:}\\ User logged in
+					
+\textbf{Input:}\\ User tries to access the page that routes to a different user's contact list
+					
+\textbf{Output:}\\ Unauthorized access error
+					
+\textbf{How test will be performed:}\\ 
+The test will be automated using mocha. Mocha will try to access unauthorized pages under a user and check if the appropriate error is thrown back.
+\end{enumerate}
+
+\subsubsection{Portability}
+\begin{enumerate}
+\item{pr-test-1 : Mobile/Tablet UI/UX\\}
+
+\textbf{Type:}\\ Static, Manual
+					
+\textbf{Initial State:} N/A
+					
+\textbf{Input:}N/A
+					
+\textbf{Output:}N/A
+					
+\textbf{How test will be performed:}\\ 
+The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how the system performs on different devices. Google Chrome Dev Tools along with our personal devices will be used for this test.
+\end{enumerate}
+
+
+\subsection{Traceability Between Test Cases and Requirements}
+
+\section{Tests for Proof of Concept}
+
+The purpose of the proof of concept was to demonstrate the general functionality of a chat application. It included login/signup and real-time chat built within a simple user interface. Therefore, the tests for proof will include the all the tests from sections: 3.1.1 Authentication, 3.1.2 Chat Input/Output and 3.2.1 Performance and 3.2.4 Portability.
+
+
+	
+\section{Comparison to Existing Implementation}	
+Node Messenger is based upon Tinode, an existing implantation of a web messaging app. Tinode implements a successful messaging app with the inclusion of 3 main functions: Correct display of messages being sent and received, displays a list of past messages with other users, and stores the messages of a user, allowing them to logout or login with a different account. We will be testing to see if the messages being sent, and the messages being received are formatted properly, and they display on the correct side of the screen. Node Messenger will also be tested to ensure it can create different messaging rooms to let the user chat with other users flawlessly. We will be creating multiple accounts to test if Node Messenger is able to store, access, and show data specific to each user.  
+				
+\section{Unit Testing Plan}
+We will be using Jest, and Mocha to test the functions governing Node Messenger. We will be ensure that the functions carry out their task properly and return their expected output.  Messages should display properly if it is entered correctly, e.g. if a blank message is entered, it must not send an empty message to the message box. Our group will try to cover as much ground as possible in order to ensure a better user experience. 
+		
+\subsection{Unit testing of internal functions}
+Unit testing using Jest will be mainly used for testing internal functions in Node Messenger. We will be testing the functions above, as well as other key internal functions to ensure Node Messenger functions as expected. Unit testing these internal functions will help us to determine hidden errors, or loopholes in the code that cannot be easily spotted.
+
+\subsection{Unit testing of output files}	
+Not Applicable.	
+
+\bibliographystyle{plainnat}
+
+\bibliography{SRS}
+
+\newpage
+
+\section{Appendix}
+
+This is where you can place additional information.
+
+\subsection{Symbolic Parameters}
+
+The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
+Their values are defined in this section for easy maintenance.
+
+\subsection{Usability Survey Questions?}
+
+This is a section that would be appropriate for some teams.
+
+\end{document}
