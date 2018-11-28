@@ -74,7 +74,7 @@
     		\item The final product will be complete by December 5th, 2018 - The client imposed completion date.
     		\item The final product will operate on both Windows and Mac OS.
     		\item The final product will operate on current conventional machines and will not require any specific hardware upgrades.
-    		\item The final product must be a reimplementation of Tinode Messenger, an open-source web app messenger. Therefore, it will need to share similar functionality and design to its inspiration Tinode Messenger.
+    		\item The final product must be a re-implementation of Tinode Messenger, an open-source web app messenger. Therefore, it will need to share similar functionality and design to its inspiration Tinode Messenger.
     \end{itemize}}
     	\subsection{Naming Conventions and Terminology}
 		Not Applicable
@@ -82,22 +82,55 @@
     	\begin{itemize}
     		\item Users will comply with policies of use and will not try to intentionally ruin the experience for other users.
     		\item One server can handle all the users.
-    		\item \textcolor{red}{Users will follow established online interaction etiquette.
+    		\item \textcolor{red}{Users will follow established online interaction etiquette}.
     		\item Only one user is allowed per browsing session.
     		\item Users is familiar with using online web messengers.
     		\item Users are of age and are responsible for their own experience during web chat sessions.
     		\item Users and developers have access to the internet.
     		\item Users and developers have access to input and output devices (i.e keyboard, mouse, and screen)
-    	\end{itemize}}
+    	\end{itemize}
 
 	
 	\newpage
     \section{Functional Requirements}
 
     	\subsection{The Scope of the Work and the Product}
-		
+		\begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.6]{ActivityDiagram.png}
+                \caption{\textcolor{red}{Activity Diagram}}
+                \label{fig:my_label}
+            \end{figure}
     	\subsubsection{The Context of the Work}
-    	\subsubsection{Work Partitioning}
+    	\begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.8]{ContextDiagram.png}
+                \caption{\textcolor{red}{Work Context Diagram}}
+                \label{fig:my_label}
+        \end{figure}
+    	
+        \subsubsection{Work Partitioning}
+        \begin{table}[!htbp]
+           \begin{tabular}{|c|c|p{4cm}|}
+    		\hline 
+    		\textbf{Event Name} & \textbf{Input and Output} & \textbf{Summary of BUC} \\ 
+    		\hline 
+    		Authentication Request & User Credentials (in) & Check the authentication credentials for the user trying to sign in or sign up \\ 
+    		\hline 
+    		Sending a message & message data (in) & Log the message into appropriately conversation and broadcast it to other users in that conversation \\ 
+    		\hline 
+    		Create conversation & Member emails (in) & Create a conversation reference in database with passed in members \\ 
+    		\hline 
+    		Receive messages & Message data (out) &  Send client the message data\\ 
+    		\hline 
+    		Added to conversation & conversation info (out) & send client the conversation meta-data when they are added to a conversation \\ 
+    		\hline 
+    	\end{tabular} 
+            \caption{Event List}
+            \label{tab:my_label}
+        \end{table}
+       
+    
     	\subsubsection{Individual Product Use Cases}
             \begin{figure}[H]
                 \centering
@@ -176,12 +209,26 @@
     \section{Project Issues}
 
     	\subsection{Open Issues}
-    	\textcolor{red}{The following information outlines issues that have been raised, but have yet to be resolved:\\}
+        \textcolor{red}{The following information outlines issues that have been raised, but have yet to be resolved:\\}
+        \begin{enumerate}
+            \item [iss.1:] \textcolor{red}{The back-end infrastructure that the team plans to use (firebase) does not allow many custom data handling features such as encryption, complex queries
+                            etc.\\ This is not a important issue since the
+                            users' who might share sensitive information might be the only customers that will be affected
+                            in the unlikely case that the server would be accessed without appropriate authorization. 
+                            Express server with web-socket communication will be considered and evaluated if the issues severely impacts security or any other concerns.}
+
+            \item [iss.2] \textcolor{red}{The team also plans to use firebase authentication to handle sign in and sign ups.
+                            This is convenient but limits certain profile customization features
+                            like changing name, adding profile picture etc.
+                            This issue should not affect the usability/functionality of the application.
+                            Non-functional requirements such as customization might be affected.
+                            The team will research other services that allows greater user customization.}  
+        \end{enumerate}
     	\begin{itemize}
     	\end{itemize}
 
     	\subsection{Off-the-Shelf Solutions}
-		\textcolor{red}{Currently, there are many solutions that occupy the market of online web communication.	
+		\textcolor{red}{Currently, there are many solutions that occupy the market of online web communication}.	
 	    	
     	\begin{enumerate}
     	    \item Tinode Messenger: \textcolor{red}{This product is a free to use open source web-app for chatting that acts as a model for our current implementation of Node Messenger. It features a minimal user interface with basic one-on-one messaging and group chat conversations. Users create a custom profile with an uploaded profile picture and set tags for discovery.}
@@ -196,7 +243,7 @@
     	\begin{center}
     		\begin{tabular}{|c|c|c|}
     		\hline 
-    		Task & Completer's Role & Timeline \\ 
+    		\textbf{Task} & \textbf{Completer's Role} & \textbf{Timeline} \\ 
     		\hline 
     		Model Implementation & Software Engineer & Oct 10th \\ 
     		\hline 
