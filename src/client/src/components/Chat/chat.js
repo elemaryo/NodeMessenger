@@ -16,13 +16,13 @@ const Message = props => (
           
       </div>
       <div>
-      <span id="timeShow" className={props.alignment}>
-        {props.timeSent.toLocaleString()}
-    </span>
       <div className={[props.alignment, "message"].join(' ')}>
       
       <div id='message-data' className={props.alignment==='r' ? "userColor":"otherColor"}>
       {props.message}</div>
+      <div id="timeShow" className={props.alignment==='r' ? "timeL":"r"}>
+      {props.timeSent.toLocaleString()}
+      </div>
 </div>
 
       </div>
@@ -184,10 +184,15 @@ class Chat extends React.Component {
         console.log('showing messsages')
         var databaseRef = this.state.databaseRef
         var messages = databaseRef.collection("messages").doc(messagesRef).collection("messageData")
+        if (!messages) return
         var messageObjects = []
         messages.orderBy("timeSent", "desc").limit(this.state.initLoadMessages).get()
             .then((querySnapshot) => {
-                
+                if (querySnapshot.docs.length === 0){
+                    this.setState({conversationRef: messagesRef})
+                    return
+                } 
+
                 for (let i = querySnapshot.docs.length - 1; i >= 0 ; i--) {
                     var doc = querySnapshot.docs[i]
                     messageObjects.push({message: doc.data().message, timeSent: doc.data().timeSent.toDate(), 
@@ -257,7 +262,7 @@ class Chat extends React.Component {
     
 
     showAddConvPopUp = () => {
-        this.setState({addConv: !this.state.addConv})
+        this.setState({addConv: !this.state.addConv, membersToAdd: []},)
     }
 
     handleAddEmail = (e) => {
@@ -286,8 +291,7 @@ class Chat extends React.Component {
 
     handleAddConversation = (e) => {
         //look for user emails here
-        console.log(this.state.membersToAdd)
-        if(!this.state.membersToAdd) return
+        if(this.state.membersToAdd.length === 0) return   
        // create a new conversation
         const membersToAdd = [...this.state.membersToAdd,
                             {displayName: this.state.user.displayName,
@@ -306,6 +310,10 @@ class Chat extends React.Component {
                         conversations: this.props.firebaseRef.firestore.FieldValue.arrayUnion(conversationRef)								
                     })
                 })
+                if(this.state.messageUnsubscribe)
+                    this.state.messageUnsubscribe()
+                this.setState({addConv: !this.state.addConv, messages: []})
+                this.showMessages(conversationRef.id)
             })
             .catch(function(error) {
                 console.error("Error writing document: ", error);
@@ -321,7 +329,7 @@ class Chat extends React.Component {
         // do the following once the user clicks on the add conversation button
         
         
-        this.setState({addConv: !this.state.addConv})
+       
                            
     }
 
@@ -362,6 +370,7 @@ class Chat extends React.Component {
                 timeSent={messageObject.timeSent} message={messageObject.message}/>)
 		})
         
+        console.log(messages)
         if(this.state.partialLoad)
             messages = <div>
                         <Button onClick={this.loadMoreMessages}>Load More Messages</Button>
@@ -388,13 +397,13 @@ class Chat extends React.Component {
 							</Header>
 						<Divider/>
 					</div>
-					<div id='conversation-container'>
-						<div>
+					
+						<div id='conversation-conversationList'>
 							{conversation}
 						</div>
-						<Divider/>
-						<div id='conversation-usercontrols'>
 						
+						<div id='conversation-usercontrols'>
+						<Divider id='conversation-divider'/>
 							<div id='conversation-signout' onClick={this.props.onSignOut}>
 						
 								Sign Out
@@ -403,7 +412,7 @@ class Chat extends React.Component {
 								<Icon inverted size='big' name='add user'/>
 							</div>
 						</div>
-					</div>
+				
 				</div>
 				<div id='chat-divider'/>
 				<div id='chat-message-box'>
