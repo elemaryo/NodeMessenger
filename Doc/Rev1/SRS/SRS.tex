@@ -183,30 +183,80 @@
 			
 		
 	\newpage
-    \section{Non-functional Requirements}
+\section{Non-functional Requirements}
 
     	\subsection{Look and Feel Requirements}
-    	The users will be we greeted by a welcome page with logo of our product, information, and contacts. There will be two buttons named 'Register' and 'Login' which they can use to begin using the Node Messenger. The Node Messenger will be in a different tab, and can be accessed with the click of a button.The welcome page should be visibly appealing and be structured well for the ease of use. The messenger itself should have a simple yet unique design, as to not make it cluttered and difficult to use.
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: Messages and contacts should display properly \\
+    		  Rationale: Make contacts easy to add, and messages easy to send. \\
+    		  Fit Criterion: The messenger must be able to retrieve the correct contacts, and messages. It must be able to display messages in the proper order, from past to present.}
+    		  
+    	\item \textcolor{red}{Description: The overall theme of our messenger should be visually appealing. \\
+    		  Rationale: The colours should capture the user's attention to keep their interest. \\
+    		  Fit Criterion: The colors used by our messenger must abide by the Color Theory, to ensure important areas of the messenger stands out. }
+    	\end{enumerate}
 
     	\subsection{Usability and Humanity Requirements}
-		Node Messenger can be used by anyone with the need to communicate with others over the Internet. The user should be able to access the website through our URL, be able to use a keyboard and mouse to navigate around our website. Previous knowledge of other messaging apps can be helpful. The user should be able to access the website through our URL, be able to use a keyboard and mouse to navigate around our website. Previous knowledge of other messaging apps can be helpful. Node Messenger can be accessed on any browser, and mobile as we plan to make it responsive.
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: The structure of the messenger should be very self intuitive. \\
+    		  Rationale: The user must be able to use the messenger without requiring previous knowledge. Must be similar to other messengers to make the transfer to our messenger very easy. \\
+    		  Fit Criterion: Simple structure for the messenger, with contacts to the left, and message box taking up most of the screen. The user can start messaging other users with the click of a button.}
+    	\item \textcolor{red}{Description: Node Messenger should be easily accessible anywhere. \\
+    		  Rationale: Node Messenger will be accessible using a short and simple URL \\
+    		  Fit Criterion: The messenger must be able to perform well on all machines that have a browser supporting the latest versions of HTML, CSS, and Javascript. }
+    	\item \textcolor{red}{Description: The servers must be able to handle large numbers. \\
+    		  Rationale: Node messenger will be available to anyone with a electronic device, so it must be able to allow a large number of users to use our messenger at the same time. \\
+    		  Fit Criterion: Test different loads to see if the servers can handle a large number of users at once.}
+    	\end{enumerate}
     	\subsection{Performance Requirements}
-		Node Messenger should be quick to respond to user instructions, while transferring and receiving messages as quickly as possible. It should keep the user's personal data safe, and keep the machine's memory usage to a minimum. Node Messenger should be available to user anywhere on Earth with the access to Internet. It should be able to provide service to many users at the same time. It can be used on any browser without the need to be downloaded on the machine. Our HTML code with account for scalability of the messenger. Node Messenger shall be usable as long as HTML, CSS, and Javascript is supported by the browser.
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: Display and send messages quickly. \\
+    		  Rationale: Store and retrieve messages quickly from the database. \\
+    		  Fit Criterion: The messenger must be able to retrieve past messages from the database fast, while being able to send messages to other users quickly.} 
+    	\item \textcolor{red}{Description: Load the messenger quickly and effortlessly. \\
+    		  Rationale: Ensure the messenger is clutter free so it loads fast. \\
+    		  Fit Criterion: Ensure that the messenger keeps the machine's memory usage to a minimum throughout it's total usage time. }
+    	\end{enumerate}
     	\subsection{Operational and Environmental Requirements}
-		Node Messenger can be used on any browser that supports the latest versions of HTML, CSS, and Javascript. Before Node Messenger can be used, it must be able to run on a local URL, and be responsive. We plan to update Node Messenger as frequently as possible to keep the features up-to-date.
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: The messenger can run on windows and other operating systems.  \\
+    		  Rationale: The messenger will work on any operating system, given that a proper browser is used. \\
+    		  Fit Criterion: Node Messenger must be able to run on all browser that support the latest versions of HTML, CSS, and Javascript.}
+    	\end{enumerate}
     	\subsection{Maintainability and Support Requirements}
-		We will check for errors before release in order to keep maintenance to a minimum. Wee will also ensure Node Messenger can run on the majority of the browsers. Node Messenger should be available to anyone with the URL, and access to Internet.
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: Maintenance must be kept to a minimum. \\
+    		  Rationale: Maintenance of the messenger shall be kept to a minimum as to not interfere with the user. \\
+    		  Fit Criterion: We will ensure that the messenger is atleast 90\% error free prior to release, to ensure a positive user experience.}
+    	\end{enumerate}
     	\subsection{Security Requirements}
-		Node Messenger can be accessed by anyone, given their machine meets the minimum requirements. it should not let users with invalid credentials login. Node Messenger should preserve the personal data of the users.
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: Our messenger must keep personal user information safe. \\
+    		  Rationale: Node Messenger must not under any circumference share private user data. \\
+    		  Fit Criterion: The messenger must ensure 100\% privacy of all user information. }
+    	\end{enumerate}
     	\subsection{Cultural Requirements}
-		Node Messenger should be respectful of all users of different cultures and backgrounds. It will be available in English, be hosted on North American servers. It will be available worldwide. 
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: Node Messenger should be respectful of all users of different cultures and backgrounds. \\
+    		  Rationale: Node Messenger will make sure not to offend users of other culture and background. \\
+    		  Fit Criterion: The messenger should be available and respectful to every person worldwide. }
+    	\end{enumerate}
 	    \subsection{Legal Requirements}
-		Node Messenger shall not disobey any laws.
+	    \begin{enumerate}
+    	\item \textcolor{red}{Description: Node Messenger must obey the law. \\
+    		  Rationale: Node Messenger must not disobey any laws. \\
+    		  Fit Criterion: Node Messenger must abide by all the rules.}
+    	\end{enumerate}
     	\subsection{Health and Safety Requirements}
-		We will make sure the colors used do not put too much pressure on the eyes. 
+    	\begin{enumerate}
+    	\item \textcolor{red}{Description: The colors Node Messenger uses must not put too much pressure on the eyes. \\
+    		  Rationale: Staring at a screen for a long period of time can cause eye strain, so we must make sure to use appropriate colors. \\
+    		  Fit Criterion: We will be using light colors that are easy on the eyes, so they do not have a significant effect with long usage of the messenger.}
+    	\end{enumerate}
 	
 	\newpage
-    \section{Project Issues}
+	
+\section{Project Issues}
 
     	\subsection{Open Issues}
         \textcolor{red}{The following information outlines issues that have been raised, but have yet to be resolved:\\}
@@ -224,8 +274,6 @@
                             Non-functional requirements such as customization might be affected.
                             The team will research other services that allows greater user customization.}  
         \end{enumerate}
-    	\begin{itemize}
-    	\end{itemize}
 
     	\subsection{Off-the-Shelf Solutions}
 		\textcolor{red}{Currently, there are many solutions that occupy the market of online web communication}.	

@@ -63,8 +63,8 @@ Revision 1 & November 27, 2018 & Rev1 Doc Update \\
 \caption{Revision Control}
 \label{my-label}
 \end{table}
-
 \pagenumbering{arabic}
+\newpage
 
 \section{Introduction}
 \subsection{Overview}
@@ -168,10 +168,10 @@ actually be implemented.
 \newpage
 
 \section{Connection Between Requirements and Design} \label{SecConnection}
+\textcolor{red}{The system designed was specifically tailored to handle functional and non functional requirements established in the SRS. In this stage, the system is decomposed into modules. The connection
+between requirements and modules is listed in Table \ref{TblRT}. Non-functional requirements representing look and feel, usability and operational are covered through our \textit{Login}, \textit{Sign up}, and \textit{Sign in} modules that contain UI components and elements that are visible to the user and how they will interact with the program. Functional requirements are implemented by the \textit{App} and \textit{Chat} modules which contain essential features of the software and acting as its back end component. The App modules deals with the requirements of \textbf{logging in to the software}, \textbf{signing up for the messenger} and \textbf{signing out} at will with the necessary specifications. Chat modules handles messaging requirements with persistently stored and real time updated \textbf{one-on-one messages} and \textbf{group conversations} along with their creations.} 
 
-The design of the system is intended to satisfy the requirements developed in
-the SRS. In this stage, the system is decomposed into modules. The connection
-between requirements and modules is listed in Table \ref{TblRT}.
+
 
 \section{Module Decomposition} \label{SecMD}
 
@@ -183,9 +183,7 @@ without documenting \emph{how} to do it. For each module, a suggestion for the
 implementing software is given under the \emph{Implemented By} title. If the
 entry is \emph{OS}, this means that the module is provided by the operating
 system or by standard programming language libraries.  Also indicate if the
-module will be implemented specifically for the software.
-
-Only the leaf modules in the
+module will be implemented specifically for the software. Only the leaf modules in the
 hierarchy have to be implemented. If a dash (\emph{--}) is shown, this means
 that the module is not a leaf and will not have to be implemented. Whether or
 not this module is implemented depends on the programming language
@@ -203,7 +201,6 @@ selected.
 \end{description}
 
 \subsection{Behaviour-Hiding Module}
-
 \begin{description}
 \item[Secrets:]The contents of the required behaviours.
 \item[Services:]Includes programs that provide externally visible behaviour of
@@ -215,7 +212,6 @@ selected.
 \end{description}
 
 \subsubsection{Index Module M7}
-
 \begin{description}
 \item[Secrets:]Components used for web application.
 \item[Services:]Generates API and element setup required to produce functioning web application.
@@ -246,7 +242,6 @@ selected.
 
 
 \subsection{Software Decision Module}
-
 \begin{description}
 \item[Secrets:] The design decision based on mathematical theorems, physical
   facts, or programming considerations. The secrets of this module are
@@ -267,8 +262,8 @@ selected.
 
 \subsubsection{Chat Module M5}
 \begin{description}
-\item[Secrets:]Input, Output.
-\item[Services:]Converts the input data into output messages sent by the user.
+\item[Secrets:]Input, Output, \textcolor{red}{How chat and conversation data are stored, the location of data storage and fetching methodology.}
+\item[Services:]Converts the input data into output messages sent by the user. \textcolor{red}{Creates and stores conversations between other users that can either be one-on-one or group chats.}
 \item[Implemented By:] React, JavaScript, CSS
 \end{description}
 
