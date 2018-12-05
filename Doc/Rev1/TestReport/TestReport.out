@@ -14,6 +14,74 @@
 \BOOKMARK [1][-]{section.4}{Unit Testing}{}% 14
 \BOOKMARK [1][-]{section.5}{Changes Due to Testing}{}% 15
 \BOOKMARK [1][-]{section.6}{Automated Testing}{}% 16
-\BOOKMARK [1][-]{section.7}{Trace to Requirements}{}% 17
-\BOOKMARK [1][-]{section.8}{Trace to Modules}{}% 18
-\BOOKMARK [1][-]{section.9}{Code Coverage Metrics}{}% 19
+\BOOKMARK [2][-]{subsection.6.1}{Validation of User Input}{section.6}% 17
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Inputs}{subsection.6.1}% 18
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Outputs}{subsection.6.1}% 19
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Procedures}{subsection.6.1}% 20
+\BOOKMARK [2][-]{subsection.6.2}{Successful sign up}{section.6}% 21
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Inputs}{subsection.6.2}% 22
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Outputs}{subsection.6.2}% 23
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Procedures}{subsection.6.2}% 24
+\BOOKMARK [2][-]{subsection.6.3}{Successful Login}{section.6}% 25
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Inputs}{subsection.6.3}% 26
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Outputs}{subsection.6.3}% 27
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Procedures}{subsection.6.3}% 28
+\BOOKMARK [2][-]{subsection.6.4}{Authentication State Persistence}{section.6}% 29
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Inputs}{subsection.6.4}% 30
+\BOOKMARK [3][-]{subsubsection.6.4.2}{Outputs}{subsection.6.4}% 31
+\BOOKMARK [3][-]{subsubsection.6.4.3}{Procedures}{subsection.6.4}% 32
+\BOOKMARK [2][-]{subsection.6.5}{User message renders on input box}{section.6}% 33
+\BOOKMARK [3][-]{subsubsection.6.5.1}{Inputs}{subsection.6.5}% 34
+\BOOKMARK [3][-]{subsubsection.6.5.2}{Outputs}{subsection.6.5}% 35
+\BOOKMARK [3][-]{subsubsection.6.5.3}{Procedures}{subsection.6.5}% 36
+\BOOKMARK [2][-]{subsection.6.6}{User message renders on screen}{section.6}% 37
+\BOOKMARK [3][-]{subsubsection.6.6.1}{Inputs}{subsection.6.6}% 38
+\BOOKMARK [3][-]{subsubsection.6.6.2}{Outputs}{subsection.6.6}% 39
+\BOOKMARK [3][-]{subsubsection.6.6.3}{Procedures}{subsection.6.6}% 40
+\BOOKMARK [2][-]{subsection.6.7}{Received message renders on screen}{section.6}% 41
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Inputs}{subsection.6.7}% 42
+\BOOKMARK [3][-]{subsubsection.6.7.2}{Outputs}{subsection.6.7}% 43
+\BOOKMARK [3][-]{subsubsection.6.7.3}{Procedures}{subsection.6.7}% 44
+\BOOKMARK [2][-]{subsection.6.8}{Instant Messaging}{section.6}% 45
+\BOOKMARK [3][-]{subsubsection.6.8.1}{Inputs}{subsection.6.8}% 46
+\BOOKMARK [3][-]{subsubsection.6.8.2}{Outputs}{subsection.6.8}% 47
+\BOOKMARK [3][-]{subsubsection.6.8.3}{Procedures}{subsection.6.8}% 48
+\BOOKMARK [2][-]{subsection.6.9}{Contacts}{section.6}% 49
+\BOOKMARK [3][-]{subsubsection.6.9.1}{Inputs}{subsection.6.9}% 50
+\BOOKMARK [3][-]{subsubsection.6.9.2}{Outputs}{subsection.6.9}% 51
+\BOOKMARK [3][-]{subsubsection.6.9.3}{Procedures}{subsection.6.9}% 52
+\BOOKMARK [2][-]{subsection.6.10}{Contacts}{section.6}% 53
+\BOOKMARK [3][-]{subsubsection.6.10.1}{Inputs}{subsection.6.10}% 54
+\BOOKMARK [3][-]{subsubsection.6.10.2}{Outputs}{subsection.6.10}% 55
+\BOOKMARK [3][-]{subsubsection.6.10.3}{Procedures}{subsection.6.10}% 56
+\BOOKMARK [2][-]{subsection.6.11}{Chat history}{section.6}% 57
+\BOOKMARK [3][-]{subsubsection.6.11.1}{Inputs}{subsection.6.11}% 58
+\BOOKMARK [3][-]{subsubsection.6.11.2}{Outputs}{subsection.6.11}% 59
+\BOOKMARK [3][-]{subsubsection.6.11.3}{Procedures}{subsection.6.11}% 60
+\BOOKMARK [2][-]{subsection.6.12}{To test the look and feel of the application}{section.6}% 61
+\BOOKMARK [3][-]{subsubsection.6.12.1}{Inputs}{subsection.6.12}% 62
+\BOOKMARK [3][-]{subsubsection.6.12.2}{Outputs}{subsection.6.12}% 63
+\BOOKMARK [3][-]{subsubsection.6.12.3}{Procedures}{subsection.6.12}% 64
+\BOOKMARK [2][-]{subsection.6.13}{Time taken to send and receive messages \(acceptable: < 2 sec\)}{section.6}% 65
+\BOOKMARK [3][-]{subsubsection.6.13.1}{Inputs}{subsection.6.13}% 66
+\BOOKMARK [3][-]{subsubsection.6.13.2}{Outputs}{subsection.6.13}% 67
+\BOOKMARK [3][-]{subsubsection.6.13.3}{Procedures}{subsection.6.13}% 68
+\BOOKMARK [2][-]{subsection.6.14}{Scrolling through a large amount of messages}{section.6}% 69
+\BOOKMARK [3][-]{subsubsection.6.14.1}{Inputs}{subsection.6.14}% 70
+\BOOKMARK [3][-]{subsubsection.6.14.2}{Outputs}{subsection.6.14}% 71
+\BOOKMARK [3][-]{subsubsection.6.14.3}{Procedures}{subsection.6.14}% 72
+\BOOKMARK [2][-]{subsection.6.15}{Server responsiveness when large group is active}{section.6}% 73
+\BOOKMARK [3][-]{subsubsection.6.15.1}{Inputs}{subsection.6.15}% 74
+\BOOKMARK [3][-]{subsubsection.6.15.2}{Outputs}{subsection.6.15}% 75
+\BOOKMARK [3][-]{subsubsection.6.15.3}{Procedures}{subsection.6.15}% 76
+\BOOKMARK [2][-]{subsection.6.16}{Tests users access level}{section.6}% 77
+\BOOKMARK [3][-]{subsubsection.6.16.1}{Inputs}{subsection.6.16}% 78
+\BOOKMARK [3][-]{subsubsection.6.16.2}{Outputs}{subsection.6.16}% 79
+\BOOKMARK [3][-]{subsubsection.6.16.3}{Procedures}{subsection.6.16}% 80
+\BOOKMARK [2][-]{subsection.6.17}{Mobile/Tablet UI/UX}{section.6}% 81
+\BOOKMARK [3][-]{subsubsection.6.17.1}{Inputs}{subsection.6.17}% 82
+\BOOKMARK [3][-]{subsubsection.6.17.2}{Outputs}{subsection.6.17}% 83
+\BOOKMARK [3][-]{subsubsection.6.17.3}{Procedures}{subsection.6.17}% 84
+\BOOKMARK [1][-]{section.7}{Trace to Requirements}{}% 85
+\BOOKMARK [1][-]{section.8}{Trace to Modules}{}% 86
+\BOOKMARK [1][-]{section.9}{Code Coverage Metrics}{}% 87

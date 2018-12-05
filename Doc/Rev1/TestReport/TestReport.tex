@@ -94,6 +94,125 @@ As we stated in our test plan, the majority of the testing has been done with Je
 Due to testing and constant feedback from our testers, we were able to make several improvements to Node Messenger. Testing helped us to uncover hidden bugs that occur through normal use of the messenger. Through testing, we discovered a bug when nothing is entered in the message box and the user presses send. The messenger would send an empty message bubble to the chat anyways. Another bug we discovered while testing was when a very long sentence is entered in the chat. The long message would not automatically go to the next line. We mixed it easily by wrapping the text with the message bubble. One of our classmates who tested the messenger notified us that he was able to login to someone else’s account using a random password. We fixed it by looking through our firebase database and changing how data is searched from our messenger. 
 
 \section{Automated Testing}
+\subsection{Validation of User Input}
+\subsubsection{Inputs}
+Empty String, invalid emails and valid emails 
+\subsubsection{Outputs}
+Appropriate Error shown if input invalid. Chat screen if valid input.
+\subsubsection{Procedures}
+The test will be performed using the Jest framework. Based on the input, the render tree will be tested for appropriate output.
+\subsection{Successful sign up}
+\subsubsection{Inputs}
+Email address and password
+\subsubsection{Outputs}
+Pop up indicating user successfully signed up. User redirected to chat screen
+\subsubsection{Procedures}
+The test will be automated with the testing framework jest. The user data will be used for sign up and will be checked against the list of users in the database.
+\subsection{Successful Login}
+\subsubsection{Inputs}
+email address and password used for login
+\subsubsection{Outputs}
+Redirect user to the chat screen
+\subsubsection{Procedures}
+The test will be automated with the testing framework jest. The user data will be used for login and the authentication state will be checked to see if the login was successful.
+\subsection{Authentication State Persistence}
+\subsubsection{Inputs}
+User reloads the site
+\subsubsection{Outputs}
+If the computer is listed as a user trusted computer, keep the user logged in.
+\subsubsection{Procedures}
+The test will be automated with the testing framework jest. The change in authentication state will be used to determine if the user is automatically signed if the page is reloaded.
+\subsection{User message renders on input box}
+\subsubsection{Inputs}
+User starts entering message in input box
+\subsubsection{Outputs}
+Message shows up in the input box
+\subsubsection{Procedures}
+The test will be done using jest framework. The react tree will be checked for the rendered message in the input box.
+\subsection{User message renders on screen}
+\subsubsection{Inputs}
+User enters message in the input box
+\subsubsection{Outputs}
+Message shows up on the right side in the conversation windows
+\subsubsection{Procedures}
+The test will be done using jest framework. The react tree will be checked for the rendered message.
+\subsection{Received message renders on screen}
+\subsubsection{Inputs}
+N/A
+\subsubsection{Outputs}
+Message received shows up on the right side in the conversation windows
+\subsubsection{Procedures}
+The test will be done using jest framework. The react tree will be checked for the rendered message.
+\subsection{Instant Messaging}
+\subsubsection{Inputs}
+N/A
+\subsubsection{Outputs}
+Send/Receive messages
+\subsubsection{Procedures}
+This manual test will be performed using two instances of the application. The test will check if the sending and receiving of messages happen within a few seconds of pressing the send button.
+\subsection{Contacts}
+\subsubsection{Inputs}
+Add a contact
+\subsubsection{Outputs}
+Contact is rendered on user's contacts list
+\subsubsection{Procedures}
+The test will  be performed using Jest. The rendered contact list will be tested for the updated state.
+\subsection{Contacts}
+\subsubsection{Inputs}
+Add a contact
+\subsubsection{Outputs}
+Upon adding a contact the database should add the contact to user's contact list
+\subsubsection{Procedures}
+This manual test will be performed using jest. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
+\subsection{Chat history}
+\subsubsection{Inputs}
+Log-out and Log-in back to the chat
+\subsubsection{Outputs}
+The chat history should be rendered and the message history should be accessible.
+\subsubsection{Procedures}
+This manual test will be performed using jest. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
+\subsection{To test the look and feel of the application}
+\subsubsection{Inputs}
+N/A
+\subsubsection{Outputs}
+N/A
+\subsubsection{Procedures}
+The UI/UX tests will subjectively give a qualitative result of how the system feels in terms for ease of use ,appearance and responsiveness. This test will carried out by using the application for a certain amount of time.
+\subsection{Time taken to send and receive messages (acceptable: $<$ 2 sec)}
+\subsubsection{Inputs}
+Message sent
+\subsubsection{Outputs}
+Server callback with approximated time.
+\subsubsection{Procedures}
+This test will be automated by the jest framework. The server will send a ping once a message is received, which will then used to estimate the average time taken to send and receive messages.
+\subsection{Scrolling through a large amount of messages}
+\subsubsection{Inputs}
+Scroll action
+\subsubsection{Outputs}
+Scrolling message area
+\subsubsection{Procedures}
+This test will be performed manually to see if the scrolling behaviour and responsiveness is affected by large number of messages being loaded in on the client side
+\subsection{Server responsiveness when large group is active}
+\subsubsection{Inputs}
+Messages being sent by everyone
+\subsubsection{Outputs}
+Receiving messages
+\subsubsection{Procedures}
+This test will be performed using jest. The time from the message being sent to the server and receiving a callback will be tested to see the responsiveness of the server when under heavy load
+\subsection{Tests users access level}
+\subsubsection{Inputs}
+User tries to access the page that routes to a different user's contact list
+\subsubsection{Outputs}
+Unauthorized access error
+\subsubsection{Procedures}
+The test will be automated using jest. jest will try to access unauthorized pages under a user and check if the appropriate error is thrown back.
+\subsection{Mobile/Tablet UI/UX}
+\subsubsection{Inputs}
+Log-in and send a message
+\subsubsection{Outputs}
+Rendered message on screen
+\subsubsection{Procedures}
+The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how the system performs on different devices. Google Chrome Dev Tools along with our personal devices will be used for this test.
 		
 \section{Trace to Requirements}
 		
