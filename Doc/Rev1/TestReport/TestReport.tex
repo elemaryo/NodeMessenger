@@ -64,6 +64,7 @@ This document ...
 	Node Messenger is made to be catered towards everyone. To achieve this, we used one of the main methods of software design – Abstraction. This means if a user has used any messaging apps before, they will have no problem migrating to Node Messenger. All the features in our messenger are self-intuitive and do not take much time to get used to. Node Messenger is currently hosted on Github pages making it accessible to anyone the planet. It is able to run on any platform without problems. However, during testing, we realized that our messenger does not respond well to smaller screen sizes. Our goal for our servers was to be able to hold as many people as possible. Currently, due to the limitations of our database, Node Messenger is able to serve about 50 people at once. 
 	\subsection{Performance}
 	Node Messenger performs very well under normal use. The tests were performed on a Windows machine with Intel i5, 1.60GHz, and  8 GB RAM. Our performance goals for Node Messenger was for it to load the messenger, send messages, receive messages, and load past messages quickly. We timed each of these procedures, and the results prove to be very fast as we intended. 
+	\begin{center}
 	\begin{tabular}{c c}
 	\hline 
 	\textbf{Description} & \textbf{Time} \\ 
@@ -74,6 +75,7 @@ This document ...
 	Past Messages Load Time & 0.33 s \\ 
 	\hline 
 	\end{tabular} 
+	\end{center}
 	\subsection{Operational and Environmental}
 	Node Messenger is able to work on all platforms. However, it performs the best on Windows. Due to the scale of this project and the lack of time, responsiveness was not fully implemented. Meaning Node Messenger has difficulty loading components properly on smaller screens. This does not mean the messenger is unusable on these platforms. All functions of the messenger perform as intended. None of our testers have reported any other errors occurring when attempting to load on platforms other than windows. 
 	\subsection{Maintainability and Support}
@@ -85,11 +87,11 @@ This document ...
 	
 \section{Comparison to Existing Implementation}	
 
-This section will not be appropriate for every project.
-
 \section{Unit Testing}
+As we stated in our test plan, the majority of the testing has been done with Jest. We tested the rendering of the messenger, as well as the calls being sent to our firebase database using Jest’s snapshot feature. We tested most of the functions used by the messenger to ensure that maintenance can be kept to a minimum. Refer to the Trace to Modules table to visualize how test cases use each module.
 
 \section{Changes Due to Testing}
+Due to testing and constant feedback from our testers, we were able to make several improvements to Node Messenger. Testing helped us to uncover hidden bugs that occur through normal use of the messenger. Through testing, we discovered a bug when nothing is entered in the message box and the user presses send. The messenger would send an empty message bubble to the chat anyways. Another bug we discovered while testing was when a very long sentence is entered in the chat. The long message would not automatically go to the next line. We mixed it easily by wrapping the text with the message bubble. One of our classmates who tested the messenger notified us that he was able to login to someone else’s account using a random password. We fixed it by looking through our firebase database and changing how data is searched from our messenger. 
 
 \section{Automated Testing}
 		
