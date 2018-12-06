@@ -86,6 +86,7 @@ This document ...
 	Node Messenger abides by all rules and regulations. The public will have access to the open-source project. If they would like to improve our messenger, they are free to do so.  
 	
 \section{Comparison to Existing Implementation}	
+Node Messenger was based on the open-source web messaging app, Tinode. Tinode aims to be a replacement for XMPP. It compares itself to other open-source messaging apps like WhatsApp and Telegram. There are a lot of similarities between Tinode and Node Messenger. They were both created using React. Both allow users to sign up and log in to begin using the messenger. Both allow the user to create conversations with multiple other users using emails. However, Node Messenger uses a different database than Tinode. Node Messenger and Tinode both have a unique theme that distinguishes them from other messaging apps on the market. Despite the differences, Node Messenger and Tinode both share a common goal – To create a fast, efficient, and user-friendly messaging environment.
 
 \section{Unit Testing}
 As we stated in our test plan, the majority of the testing has been done with Jest. We tested the rendering of the messenger, as well as the calls being sent to our firebase database using Jest’s snapshot feature. We tested most of the functions used by the messenger to ensure that maintenance can be kept to a minimum. Refer to the Trace to Modules table to visualize how test cases use each module.
@@ -95,6 +96,8 @@ Due to testing and constant feedback from our testers, we were able to make seve
 
 \section{Automated Testing}
 \subsection{Validation of User Input}
+\subsubsection{Control}
+Checks if user information entered is valid
 \subsubsection{Inputs}
 Empty String, invalid emails and valid emails 
 \subsubsection{Outputs}
@@ -102,6 +105,8 @@ Appropriate Error shown if input invalid. Chat screen if valid input.
 \subsubsection{Procedures}
 The test will be performed using the Jest framework. Based on the input, the render tree will be tested for appropriate output.
 \subsection{Successful sign up}
+\subsubsection{Control}
+Checks if sign up is successful
 \subsubsection{Inputs}
 Email address and password
 \subsubsection{Outputs}
@@ -109,6 +114,8 @@ Pop up indicating user successfully signed up. User redirected to chat screen
 \subsubsection{Procedures}
 The test will be automated with the testing framework jest. The user data will be used for sign up and will be checked against the list of users in the database.
 \subsection{Successful Login}
+\subsubsection{Control}
+Checks if login is successful
 \subsubsection{Inputs}
 email address and password used for login
 \subsubsection{Outputs}
@@ -116,6 +123,8 @@ Redirect user to the chat screen
 \subsubsection{Procedures}
 The test will be automated with the testing framework jest. The user data will be used for login and the authentication state will be checked to see if the login was successful.
 \subsection{Authentication State Persistence}
+\subsubsection{Control}
+Check if the computer is trusted
 \subsubsection{Inputs}
 User reloads the site
 \subsubsection{Outputs}
@@ -123,6 +132,8 @@ If the computer is listed as a user trusted computer, keep the user logged in.
 \subsubsection{Procedures}
 The test will be automated with the testing framework jest. The change in authentication state will be used to determine if the user is automatically signed if the page is reloaded.
 \subsection{User message renders on input box}
+\subsubsection{Control}
+Check if the messages render properly on the input box
 \subsubsection{Inputs}
 User starts entering message in input box
 \subsubsection{Outputs}
@@ -130,6 +141,8 @@ Message shows up in the input box
 \subsubsection{Procedures}
 The test will be done using jest framework. The react tree will be checked for the rendered message in the input box.
 \subsection{User message renders on screen}
+\subsubsection{Control}
+Check if user message renders on the right side of the screen
 \subsubsection{Inputs}
 User enters message in the input box
 \subsubsection{Outputs}
@@ -137,6 +150,8 @@ Message shows up on the right side in the conversation windows
 \subsubsection{Procedures}
 The test will be done using jest framework. The react tree will be checked for the rendered message.
 \subsection{Received message renders on screen}
+\subsubsection{Control}
+Check if the received messages render on the left side of the screen
 \subsubsection{Inputs}
 N/A
 \subsubsection{Outputs}
@@ -144,6 +159,8 @@ Message received shows up on the right side in the conversation windows
 \subsubsection{Procedures}
 The test will be done using jest framework. The react tree will be checked for the rendered message.
 \subsection{Instant Messaging}
+\subsubsection{Control}
+Check if message send and receive features are working as  intended
 \subsubsection{Inputs}
 N/A
 \subsubsection{Outputs}
@@ -151,6 +168,8 @@ Send/Receive messages
 \subsubsection{Procedures}
 This manual test will be performed using two instances of the application. The test will check if the sending and receiving of messages happen within a few seconds of pressing the send button.
 \subsection{Contacts}
+\subsubsection{Control}
+Check if contacts are properly being rendered on the contacts list
 \subsubsection{Inputs}
 Add a contact
 \subsubsection{Outputs}
@@ -158,6 +177,8 @@ Contact is rendered on user's contacts list
 \subsubsection{Procedures}
 The test will  be performed using Jest. The rendered contact list will be tested for the updated state.
 \subsection{Contacts}
+\subsubsection{Control}
+Check if the database stores the contact information after they are added
 \subsubsection{Inputs}
 Add a contact
 \subsubsection{Outputs}
@@ -165,6 +186,8 @@ Upon adding a contact the database should add the contact to user's contact list
 \subsubsection{Procedures}
 This manual test will be performed using jest. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
 \subsection{Chat history}
+\subsubsection{Control}
+Check if chat history is rendered properly
 \subsubsection{Inputs}
 Log-out and Log-in back to the chat
 \subsubsection{Outputs}
@@ -172,6 +195,8 @@ The chat history should be rendered and the message history should be accessible
 \subsubsection{Procedures}
 This manual test will be performed using jest. The user's contact list will be tested before and after the addition of few contacts. Edge cases will cover the testing of adding contacts that are not in the system.
 \subsection{To test the look and feel of the application}
+\subsubsection{Control}
+Ensure the app is user-friendly and eye catching
 \subsubsection{Inputs}
 N/A
 \subsubsection{Outputs}
@@ -179,6 +204,8 @@ N/A
 \subsubsection{Procedures}
 The UI/UX tests will subjectively give a qualitative result of how the system feels in terms for ease of use ,appearance and responsiveness. This test will carried out by using the application for a certain amount of time.
 \subsection{Time taken to send and receive messages (acceptable: $<$ 2 sec)}
+\subsubsection{Control}
+Ensure that messages transfer quickly between users
 \subsubsection{Inputs}
 Message sent
 \subsubsection{Outputs}
@@ -186,6 +213,8 @@ Server callback with approximated time.
 \subsubsection{Procedures}
 This test will be automated by the jest framework. The server will send a ping once a message is received, which will then used to estimate the average time taken to send and receive messages.
 \subsection{Scrolling through a large amount of messages}
+\subsubsection{Control}
+Check that the messenger scrolls through a large number of messages properly
 \subsubsection{Inputs}
 Scroll action
 \subsubsection{Outputs}
@@ -193,6 +222,8 @@ Scrolling message area
 \subsubsection{Procedures}
 This test will be performed manually to see if the scrolling behaviour and responsiveness is affected by large number of messages being loaded in on the client side
 \subsection{Server responsiveness when large group is active}
+\subsubsection{Control}
+Check that the server is stable when there are a lot of people using the messenger at once
 \subsubsection{Inputs}
 Messages being sent by everyone
 \subsubsection{Outputs}
@@ -200,6 +231,8 @@ Receiving messages
 \subsubsection{Procedures}
 This test will be performed using jest. The time from the message being sent to the server and receiving a callback will be tested to see the responsiveness of the server when under heavy load
 \subsection{Tests users access level}
+\subsubsection{Control}
+Check if the user has access to the contact list
 \subsubsection{Inputs}
 User tries to access the page that routes to a different user's contact list
 \subsubsection{Outputs}
@@ -207,6 +240,8 @@ Unauthorized access error
 \subsubsection{Procedures}
 The test will be automated using jest. jest will try to access unauthorized pages under a user and check if the appropriate error is thrown back.
 \subsection{Mobile/Tablet UI/UX}
+\subsubsection{Control}
+Check if messages send as intended on mobiles or tablets
 \subsubsection{Inputs}
 Log-in and send a message
 \subsubsection{Outputs}
@@ -216,9 +251,65 @@ The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how
 		
 \section{Trace to Requirements}
 		
-\section{Trace to Modules}		
+\section{Trace to Modules}		% EVERYONE - reference MG
+\begin{center}
+
+\begin{table}[!htbp]
+			\begin{tabular}{ll}
+				\toprule
+				Test & Requirements \\
+				\midrule
+				\multicolumn{2}{c}{Functional Requirements Testing} \\
+				\midrule
+				auth-test-1 & M2, M3, M4\\
+                auth-test-2 & M2, M3, M4 \\
+                auth-test-3 & M3, M2\\
+                auth-test-4 & M4, M2\\
+                chat-test-1 & M5\\
+                chat-test-2 & M5\\
+                chat-test-3 & M5\\
+                chat-test-4 & M5\\
+                chat-test-5 & M5\\
+                db-test-1 & M5, M6\\
+                db-test-2 & M5\\
+				\midrule
+				\multicolumn{2}{c}{Non-functional Requirements Testing} \\
+				\midrule
+                ui-test-1 & M2, M3, M4, M5, M6\\
+                pf-test-1 & M5\\
+                pf-stress-test-2 & M5\\
+                pf-stress-test-3 & M2, M3, M4, M5\\
+                sr-test-1 & M2, M3, M4, M5, M6\\
+                pr-test-1 & M2, M3, M4, M5\\
+				\midrule
+				\multicolumn{2}{c}{Automated Testing} \\
+				\midrule
+				ut-test-1 & M6, M3, M2\\ %test for app.js sign in
+				ut-test-2 & M6, M4, M2\\ %test for app.js sign up
+				ut-test-3 & M5, M2, M3\\ %test for login, sign up, sign in callback
+				ut-test-4 & M5\\ %test for add conv
+				ut-test-5 & M5\\ %test for send message 
+				ut-test-6 & M5\\ %test for receiving message
+				\bottomrule
+			\end{tabular}
+			\caption{Trace Between Tests and Requirements}
+			% Colour for the rulings in tables:
+			\makeatletter
+			\def\rulecolor#1#{\CT@arc{#1}}
+			\def\CT@arc#1#2{%
+				\ifdim\baselineskip=\z@\noalign\fi
+				{\gdef\CT@arc@{\color#1{#2}}}}
+			\let\CT@arc@\relax
+			\rulecolor{black!50}
+			\makeatother
+			\label{Table}
+		\end{table}
+    
+\end{center}
+		
 
 \section{Code Coverage Metrics}
+We tested all the functions in our messaging app and that they function as intended. We tested for all the requirements and made sure they pass all the tests. We had exactly 92\% test coverage after all the testing was done. The functions we covered during testing carry out all the main functions of Node Messenger. Testing these functions will prove to be beneficial in keeping Node Messenger bug free.
 
 \bibliographystyle{plainnat}
 
