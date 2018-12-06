@@ -36,7 +36,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
+12-05-2018 & Rev1 & Initial Document\\
 Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
@@ -46,7 +46,6 @@ Date 2 & 1.1 & Notes\\
 
 \pagenumbering{arabic}
 
-This document ...
 
 \newpage
 \section{Functional Requirements Evaluation}
@@ -248,14 +247,67 @@ Log-in and send a message
 Rendered message on screen
 \subsubsection{Procedures}
 The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how the system performs on different devices. Google Chrome Dev Tools along with our personal devices will be used for this test.
-		
-\section{Trace to Requirements}
-		
-\section{Trace to Modules}		% EVERYONE - reference MG
-\begin{center}
+	
 
-\begin{table}[!htbp]
-			\begin{tabular}{ll}
+	    \begin{table}[!htbp]
+	    \section{Trace to Requirements}
+			\begin{tabularx}{\textwidth}{p{3cm}X}
+				\toprule
+				Test & Requirements \\
+				\midrule
+				\multicolumn{2}{c}{Functional Requirements Testing} \\
+				\midrule
+				auth-test-1 & FR2, FR5 \\
+                auth-test-2 & FR5\\
+                auth-test-3 & FR2, FR3, FR4\\
+                auth-test-4 & FR3\\
+                auth-test-5 & FR4\\
+                chat-test-1 & FR6\\
+                chat-test-2 & FR6\\
+                chat-test-3 & FR6, FR10\\
+                chat-test-4 & FR6\\
+                chat-test-5 & FR6, FR7\\
+                db-test-1 & FR7, FR8\\
+                db-test-2 & FR9, FR11\\
+				\midrule
+				\multicolumn{2}{c}{Non-functional Requirements Testing} \\
+				\midrule
+                ui-test-1 & NFR1, NFR2\\
+                pf-test-1 & NFR6, NFR7\\
+                pf-stress-test-2 & NFR6, NFR7\\
+                pf-stress-test-3 & NFR6, NFR7\\
+                sr-test-1 & NFR11\\
+                pr-test-1 & FR1, NFR10\\
+				\midrule
+				\multicolumn{2}{c}{Automated Testing} \\
+				\midrule
+				ut-test-1 & FR2, FR3, FR4, FR5\\ %test for app.js sign in
+				ut-test-2 & FR2, FR3, FR4, FR5\\ %test for app.js sign up
+				ut-test-3 & FR2, FR3, FR4, FR5 \\ %test for login, sign up, sign in callback
+				ut-test-4 & FR7, FR8\\ %test for add conv
+				ut-test-5 & FR6, FR9, FR10, FR11\\ %test for send message 
+				ut-test-6 & FR6, FR9, FR10, FR11\\ %test for receiving message
+				\bottomrule
+			\end{tabularx}
+			\caption{Trace Between Tests and Requirements}
+			% Colour for the rulings in tables:
+			\makeatletter
+			\def\rulecolor#1#{\CT@arc{#1}}
+			\def\CT@arc#1#2{%
+				\ifdim\baselineskip=\z@\noalign\fi
+				{\gdef\CT@arc@{\color#1{#2}}}}
+			\let\CT@arc@\relax
+			\rulecolor{black!50}
+			\makeatother
+			\label{Table}
+		\end{table}
+
+				
+		% EVERYONE - reference MG
+\begin{center}
+	\begin{table}[!htbp]
+		\section{Trace to Modules}
+\begin{tabularx}{\textwidth}{p{3cm}X}
 				\toprule
 				Test & Requirements \\
 				\midrule
@@ -265,6 +317,7 @@ The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how
                 auth-test-2 & M2, M3, M4 \\
                 auth-test-3 & M3, M2\\
                 auth-test-4 & M4, M2\\
+                auth-test-5 & M4, M5\\
                 chat-test-1 & M5\\
                 chat-test-2 & M5\\
                 chat-test-3 & M5\\
@@ -291,7 +344,7 @@ The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how
 				ut-test-5 & M5\\ %test for send message 
 				ut-test-6 & M5\\ %test for receiving message
 				\bottomrule
-			\end{tabular}
+			\end{tabularx}
 			\caption{Trace Between Tests and Requirements}
 			% Colour for the rulings in tables:
 			\makeatletter
@@ -304,10 +357,9 @@ The Mobile/Tablet UI/UX tests will subjectively give a qualitative result of how
 			\makeatother
 			\label{Table}
 		\end{table}
-    
 \end{center}
 		
-
+\newpage
 \section{Code Coverage Metrics}
 We tested all the functions in our messaging app and that they function as intended. We tested for all the requirements and made sure they pass all the tests. We had exactly 92\% test coverage after all the testing was done. The functions we covered during testing carry out all the main functions of Node Messenger. Testing these functions will prove to be beneficial in keeping Node Messenger bug free.
 
