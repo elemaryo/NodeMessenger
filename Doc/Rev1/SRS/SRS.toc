@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {3.2}Usability and Humanity Requirements}{9}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Performance Requirements}{10}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Operational and Environmental Requirements}{10}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Maintainability and Support Requirements}{10}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.5}Maintainability and Portability Requirements}{10}{subsection.3.5}
 \contentsline {subsection}{\numberline {3.6}Security Requirements}{11}{subsection.3.6}
 \contentsline {subsection}{\numberline {3.7}Cultural Requirements}{11}{subsection.3.7}
 \contentsline {subsection}{\numberline {3.8}Legal Requirements}{11}{subsection.3.8}
