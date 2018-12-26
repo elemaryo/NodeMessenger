@@ -1,4 +1,4 @@
-# Project Name
+# Node Messenger
 
 Team Name: Group 24
 
